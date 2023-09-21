@@ -1,0 +1,21 @@
+/* Add custom styles to the pagination container */
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  margin: 0.5em 0;
+}
+
+/* Style the individual pagination dots */
+.swiper-pagination-bullet {
+  background-color: #0c0b0b; /* Change the background color */
+  border-radius: 50%; /* Make the dots round */
+  cursor: pointer;
+}
+
+/* Style the active pagination dot */
+.swiper-pagination-bullet-active {
+  background-color: #222; /* Change the active dot color */
+}
+.mySwiper {
+  width: 100%;
+}

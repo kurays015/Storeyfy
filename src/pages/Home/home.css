@@ -1,0 +1,28 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 17em;
+  padding: 0 0em;
+}
+.banner li {
+  list-style: none;
+}
+.banner li a {
+  text-decoration: none;
+  color: #000000;
+}
+.carousel1 {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.swiper-img {
+  width: 100%;
+}
+.category-container {
+  border-right: 1px solid rgb(189, 172, 172);
+  padding: 1em 5em 0 0;
+}

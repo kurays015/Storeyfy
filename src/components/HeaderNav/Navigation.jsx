@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
+import { BsCart2, BsHeart } from "react-icons/bs";
 
 function Navigation() {
   return (
     <header>
-      <h1>Storeyfy</h1>
+      <Link to="/">
+        <h1>Storeyfy</h1>
+      </Link>
       <nav>
         <ul>
           <li>
             <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/categories">Categories</Link>
           </li>
           <li>
             <Link to="/about">About</Link>
@@ -18,11 +18,22 @@ function Navigation() {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
+          <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>
         </ul>
       </nav>
       <div className="header-cart-save-container">
-        <h3>Saved Products</h3>
-        <h3>Add to cart</h3>
+        <Link to="/Wishlist">
+          <h3>
+            <BsHeart />
+          </h3>
+        </Link>
+        <Link to="/cart">
+          <h3>
+            <BsCart2 />
+          </h3>
+        </Link>
       </div>
     </header>
   );
