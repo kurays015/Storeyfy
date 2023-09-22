@@ -8,9 +8,9 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 
-import slide1 from "../../../public/images/pexels-karolina-grabowska-5625045.jpg";
-import slide2 from "../../../public/images/pexels-max-fischer-5872302.jpg";
-import slide3 from "../../../public/images/Time for Ecommerce Entrepreneurs.jpeg";
+import slide1 from "/images/pexels-max-fischer-5872302.jpg";
+import slide2 from "/images/pexels-karolina-grabowska-5625045.jpg";
+import slide3 from "/images/Time for Ecommerce Entrepreneurs.jpeg";
 
 const images = [{ image: slide1 }, { image: slide2 }, { image: slide3 }];
 

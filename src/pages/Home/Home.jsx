@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import Carousel from "../../components/Carousel/Carousel";
+import { allProducts } from "../../FetchProductsDetails";
 
-function Home({ newCategory }) {
+function Home({ categories }) {
+  const allProductData = allProducts();
+
   return (
     <div className="banner">
       <div className="category-container">
-        {newCategory.sort().map((category, index) => (
+        {categories.sort().map((category, index) => (
           <li key={index}>
             <Link to={`/${category}`}>{category}</Link>
           </li>
