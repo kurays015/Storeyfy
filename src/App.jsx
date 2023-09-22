@@ -15,7 +15,6 @@ function App() {
   const { data, isLoading, isError } = allCategories();
   if (isLoading) return <h1>Loading...!</h1>;
   if (isError) return <h1>ERROR!</h1>;
-
   const capitalCategoryFirstLetter = [];
 
   for (let i = 0; i < data.length; i++) {
@@ -30,7 +29,10 @@ function App() {
 
   const productIdRoute = data.map((category, index) => (
     <React.Fragment key={index}>
-      <Route path={`/${category}`} element={<ProductByCategory />} />
+      <Route
+        path={`/${category}`}
+        element={<ProductByCategory categories={data} />}
+      />
       <Route path={`/${category}/:id`} element={<Products />} />
     </React.Fragment>
   ));

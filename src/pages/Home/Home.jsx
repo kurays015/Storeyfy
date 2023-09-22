@@ -15,7 +15,7 @@ function Home({ categories }) {
         ))}
       </div>
       <div>
-        <h1>Show now!</h1>
+        <h1 className="show-now">Show now!</h1>
       </div>
       <div className="carousel1">
         <Carousel />
