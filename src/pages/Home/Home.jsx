@@ -1,31 +1,17 @@
 import { Link } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
 import { allProducts } from "../../FetchProductsDetails";
+import Categories from "../../components/Categories/Categories";
 
 function Home({ categories }) {
   const allProductData = allProducts();
 
   return (
     <div className="banner">
-      <div className="category-container">
-        {categories.sort().map((category, index) => (
-          <li key={index}>
-            <Link to={`/${category}`}>
-              {category
-                .replace("-", " ")
-                .split(" ")
-                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(" ")}
-            </Link>
-          </li>
-        ))}
-      </div>
       <div>
-        <h1 className="show-now">Show now!</h1>
+        <Categories originalCategories={categories} />
       </div>
-      <div className="carousel1">
-        <Carousel />
-      </div>
+      <Carousel />
     </div>
   );
 }

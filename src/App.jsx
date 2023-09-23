@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { allCategories } from "./FetchProductsDetails";
 
 //components
-import Navigation from "./components/HeaderNav/Navigation";
+import Layout from "./components/Layout/Layout";
 import ProductByCategory from "./components/ProductByCategory/ProductByCategory";
 //pages
 import Contact from "./pages/Contact/Contact";
@@ -20,20 +20,22 @@ function App() {
     <React.Fragment key={index}>
       <Route
         path={`/${category}`}
-        element={<ProductByCategory category={category} />}
+        element={<ProductByCategory category={category} categories={data} />}
       />
       <Route path={`/${category}/:id`} element={<Products />} />
     </React.Fragment>
   ));
+  //      <Navigation />
 
   return (
     <Router>
-      <Navigation />
       <Routes>
-        <Route path="/" element={<Home categories={data} />} />
-        {productIdRoute}
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home categories={data} />} />
+          {productIdRoute}
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
       </Routes>
     </Router>
   );

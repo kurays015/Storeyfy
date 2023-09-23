@@ -1,0 +1,28 @@
+.product-byCategory {
+  display: flex;
+  margin: 0 17em;
+}
+.category-container li {
+  list-style: none;
+}
+.category-container li a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #000000;
+}
+.product-container {
+  display: flex;
+  gap: 0.5em;
+}
+.product-card {
+  background-color: lightblue;
+}
+.product-img {
+  width: 100%;
+  height: 300px;
+}
+.product-title {
+  text-align: center;
+  color: #6c6666;
+  font-size: 1rem;
+}

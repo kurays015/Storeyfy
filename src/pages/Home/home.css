@@ -1,17 +1,12 @@
 .banner {
+  background-color: lightblue;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 17em;
   padding: 0 0em;
 }
-.banner li {
-  list-style: none;
-}
-.banner li a {
-  text-decoration: none;
-  color: #000000;
-}
+
 .carousel1 {
   width: 50%;
   display: flex;
@@ -24,7 +19,7 @@
 }
 .category-container {
   border-right: 1px solid rgb(189, 172, 172);
-  padding: 1em 5em 0 0;
+  padding: 1em 3em 0 0;
 }
 .show-now {
   color: rgb(110, 100, 100);
