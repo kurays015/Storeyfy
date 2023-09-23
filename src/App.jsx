@@ -15,23 +15,12 @@ function App() {
   const { data, isLoading, isError } = allCategories();
   if (isLoading) return <h1>Loading...!</h1>;
   if (isError) return <h1>ERROR!</h1>;
-  const capitalCategoryFirstLetter = [];
 
-  for (let i = 0; i < data.length; i++) {
-    const categoryNames = data[i];
-    const capitalFirstLetter = categoryNames
-      .replace("-", " ")
-      .split(" ")
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-    capitalCategoryFirstLetter.push(capitalFirstLetter);
-  }
-
-  const productIdRoute = data.map((category, index) => (
+  const productIdRoute = data?.map((category, index) => (
     <React.Fragment key={index}>
       <Route
         path={`/${category}`}
-        element={<ProductByCategory categories={data} />}
+        element={<ProductByCategory category={category} />}
       />
       <Route path={`/${category}/:id`} element={<Products />} />
     </React.Fragment>
@@ -41,10 +30,7 @@ function App() {
     <Router>
       <Navigation />
       <Routes>
-        <Route
-          path="/"
-          element={<Home categories={capitalCategoryFirstLetter} />}
-        />
+        <Route path="/" element={<Home categories={data} />} />
         {productIdRoute}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

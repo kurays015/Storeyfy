@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function Products() {
   const { id } = useParams();
-
   return (
     <div>
       <h1>Each Product Data</h1>
