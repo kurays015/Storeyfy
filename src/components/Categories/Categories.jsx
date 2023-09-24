@@ -5,7 +5,7 @@ function Categories({ originalCategories }) {
     <div className="category-container">
       {originalCategories.sort().map((category, index) => (
         <li key={index}>
-          <Link to={`/${category}`}>
+          <Link to={`${category}`}>
             {category
               .replace("-", " ")
               .split(" ")

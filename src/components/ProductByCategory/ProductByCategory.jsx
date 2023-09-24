@@ -28,8 +28,8 @@ function ProductByCategory({ category }) {
             id,
           }) => (
             <div key={id} className="product-card">
-              <h1 className="product-title">{title}</h1>
               <img src={thumbnail} className="product-img" />
+              <h1 className="product-title">{title}</h1>
             </div>
           )
         )}

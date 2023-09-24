@@ -13,6 +13,7 @@ import "./index.css";
 import "./pages/Home/home.css";
 import "./pages/About/about.css";
 import "./pages/Contact/contact.css";
+import "./components/Categories/categories.css";
 
 const queryClient = new QueryClient();
 

@@ -5,11 +5,13 @@ import { allCategories } from "./FetchProductsDetails";
 //components
 import Layout from "./components/Layout/Layout";
 import ProductByCategory from "./components/ProductByCategory/ProductByCategory";
+import CategoryLayout from "./components/Layout/CategoryLayout";
 //pages
 import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import Products from "./components/EachProduct/Products";
+import Signup from "./pages/Signup/Signup";
 
 function App() {
   const { data, isLoading, isError } = allCategories();
@@ -19,13 +21,22 @@ function App() {
   const productIdRoute = data?.map((category, index) => (
     <React.Fragment key={index}>
       <Route
-        path={`/${category}`}
-        element={<ProductByCategory category={category} categories={data} />}
-      />
-      <Route path={`/${category}/:id`} element={<Products />} />
+        path="category"
+        element={
+          <CategoryLayout category={category} originalCategories={data} />
+        }
+      >
+        <Route
+          path={`${category}`}
+          element={<ProductByCategory category={category} />}
+        />
+        <Route
+          path={`${category}/:id`}
+          element={<h1>category/categories/id path</h1>}
+        />
+      </Route>
     </React.Fragment>
   ));
-  //      <Navigation />
 
   return (
     <Router>
@@ -35,6 +46,7 @@ function App() {
           {productIdRoute}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/signup" element={<Signup />} />
         </Route>
       </Routes>
     </Router>

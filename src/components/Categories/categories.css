@@ -1,0 +1,13 @@
+.category-container {
+  border-right: 1px solid rgb(189, 172, 172);
+  padding: 1em 3em 0 0;
+  position: fixed;
+}
+.category-container li {
+  list-style: none;
+}
+.category-container li a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #000000;
+}

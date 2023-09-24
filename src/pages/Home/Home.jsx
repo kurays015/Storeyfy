@@ -8,8 +8,8 @@ function Home({ categories }) {
 
   return (
     <div className="banner">
-      <div>
-        <Categories originalCategories={categories} />
+      <div style={{ alignSelf: "start" }}>
+        <Link to="category">Categories</Link>
       </div>
       <Carousel />
     </div>
