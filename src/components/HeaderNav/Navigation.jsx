@@ -13,6 +13,9 @@ function Navigation() {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="category">Categories</Link>
+          </li>
+          <li>
             <Link to="/about">About</Link>
           </li>
           <li>

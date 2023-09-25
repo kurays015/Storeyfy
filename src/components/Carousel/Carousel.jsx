@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y, Autoplay } from "swiper/modules";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,30 +15,25 @@ const images = [{ image: slide1 }, { image: slide2 }, { image: slide3 }];
 
 function Carousel() {
   return (
-    <>
-      <div>
-        <h1 className="show-now">Show now!</h1>
-      </div>
-      <div className="carousel1">
-        <Swiper
-          modules={[Pagination, A11y, Autoplay]}
-          loop={true}
-          slidesPerView={1}
-          pagination={{ clickable: true }}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          className="mySwiper"
-        >
-          {images.map(({ image }) => (
-            <SwiperSlide key={image}>
-              <img className="swiper-img" alt="hero-img" src={image} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </>
+    <div className="carousel1">
+      <Swiper
+        modules={[Pagination, A11y, Autoplay]}
+        loop={true}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        className="mySwiper"
+      >
+        {images.map(({ image }) => (
+          <SwiperSlide key={image}>
+            <img className="swiper-img" alt="hero-img" src={image} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }
 

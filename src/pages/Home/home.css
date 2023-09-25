@@ -1,5 +1,4 @@
 .banner {
-  background-color: lightblue;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,17 +6,14 @@
   padding: 0 0em;
 }
 
-.carousel1 {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 .swiper-img {
   width: 100%;
 }
-
-.show-now {
-  color: rgb(110, 100, 100);
+.home-nav {
+  display: flex;
+  flex-direction: column;
+}
+.home-nav a {
+  text-decoration: none;
+  color: #665353;
 }
