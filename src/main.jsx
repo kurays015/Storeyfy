@@ -5,7 +5,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 
 //components
 import "./components/HeaderNav/header.css";
-import "./components/Carousel/Carousel.css";
+import "./components/Carousel/carousel.css";
 import "./components/ProductByCategory/productbycategory.css";
 
 //pages css
