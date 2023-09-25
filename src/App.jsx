@@ -10,7 +10,7 @@ import CategoryLayout from "./components/Layout/CategoryLayout";
 import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
-import Products from "./components/EachProduct/Products";
+import Products from "./components/EachProduct/EachProduct";
 import Signup from "./pages/Signup/Signup";
 
 function App() {
@@ -18,7 +18,11 @@ function App() {
   if (isLoading) return <h1>Loading...!</h1>;
   if (isError) return <h1>ERROR!</h1>;
 
-  const productIdRoute = data?.map((category, index) => (
+  function NotFound() {
+    return <h1>Not Found</h1>;
+  }
+
+  const productCategoryRoute = data?.map((category, index) => (
     <React.Fragment key={index}>
       <Route
         path="category"
@@ -30,10 +34,7 @@ function App() {
           path={`${category}`}
           element={<ProductByCategory category={category} />}
         />
-        <Route
-          path={`${category}/:id`}
-          element={<h1>category/categories/id path</h1>}
-        />
+        <Route path={`${category}/:id`} element={<Products />} />
       </Route>
     </React.Fragment>
   ));
@@ -43,7 +44,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home categories={data} />} />
-          {productIdRoute}
+          {productCategoryRoute}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<Signup />} />

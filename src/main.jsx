@@ -14,8 +14,10 @@ import "./pages/Home/home.css";
 import "./pages/About/about.css";
 import "./pages/Contact/contact.css";
 import "./components/Categories/categories.css";
-import "./components/ProductByCategory/ProductByCategory.css";
+import "./components/ProductByCategory/productbycategory.css";
 import "./components/Layout/layout.css";
+import "./components/EachProduct/product.css";
+import "./components/FlashSale/flashsale.css";
 
 const queryClient = new QueryClient();
 

@@ -28,11 +28,4 @@ export const allCategories = () => {
   );
 };
 
-// export const productPerCategory = () => {
-//   return useDataFetching(
-//     "getProductsByCategory",
-//     "https://dummyjson.com/products/category/furniture"
-//   );
-// };
-
 //https://dummyjson.com/products/category

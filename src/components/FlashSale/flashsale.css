@@ -1,0 +1,73 @@
+.flashsale-container {
+  margin: 10em 17em;
+  position: relative;
+}
+.flashsale-container h1,
+.flashsale-container h5 {
+  color: #665353;
+}
+.flashsale-container a {
+  text-decoration: none;
+}
+.flashsale-card {
+  position: relative;
+  height: 380px;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+.flashsale-details {
+  line-height: 1.5em;
+}
+
+.swiper-slide:hover {
+  border-color: #bf955a;
+}
+.flashsale-img {
+  width: 100%;
+  height: 300px;
+}
+
+.flashsale-title {
+  color: #373737;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 200px;
+}
+.flashsale-price {
+  font-weight: 600;
+}
+.flashsale-price,
+.flashsale-rating {
+  color: #ba7008;
+  font-size: 0.8rem;
+}
+.flashsale-discount {
+  position: absolute;
+  top: 2%;
+  left: 3%;
+  background-color: #db4444;
+  color: #fff;
+  padding: 0.5em;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.flashsale-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.prev-next-container {
+  display: flex;
+  gap: 1em;
+  padding-right: 1em;
+}
+.custom-prev-button,
+.custom-next-button {
+  font-size: 1.3rem;
+  padding: 0.3em;
+  cursor: pointer;
+}
