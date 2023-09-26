@@ -17,7 +17,7 @@ function FlashSale({ allproducts }) {
               <div className="flashsale-discount">
                 {Math.round(discountPercentage)}% OFF!
               </div>
-              <div>
+              <div className="flashsale-img-container">
                 <img src={thumbnail} className="flashsale-img" />
               </div>
               <div className="flashsale-details">
