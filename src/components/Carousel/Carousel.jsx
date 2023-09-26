@@ -10,8 +10,16 @@ import "swiper/css/autoplay";
 import slide1 from "/images/pexels-max-fischer-5872302.jpg";
 import slide2 from "/images/pexels-karolina-grabowska-5625045.jpg";
 import slide3 from "/images/Time for Ecommerce Entrepreneurs.jpeg";
+import slide4 from "/images/shop4.jpg";
+import slide5 from "/images/shop5.jpg";
 
-const images = [{ image: slide1 }, { image: slide2 }, { image: slide3 }];
+const images = [
+  { image: slide1 },
+  { image: slide4 },
+  { image: slide5 },
+  { image: slide3 },
+  { image: slide2 },
+];
 
 function Carousel() {
   return (
@@ -28,7 +36,7 @@ function Carousel() {
         className="mySwiper"
       >
         {images.map(({ image }) => (
-          <SwiperSlide key={image}>
+          <SwiperSlide key={image} className="testt">
             <img className="swiper-img" alt="hero-img" src={image} />
           </SwiperSlide>
         ))}

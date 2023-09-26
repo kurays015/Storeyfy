@@ -3,12 +3,10 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 17em;
-  padding: 0 0em;
+  height: 515px;
+  gap: 0.3em;
 }
 
-.swiper-img {
-  width: 100%;
-}
 .home-nav {
   display: flex;
   flex-direction: column;
@@ -16,4 +14,132 @@
 .home-nav a {
   text-decoration: none;
   color: #665353;
+}
+.show-now {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+.shopnow-btn-container {
+  position: absolute;
+  bottom: 2%;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  color: #faebd7;
+  font-size: 2rem;
+  text-decoration: none;
+}
+.shopnow-btn {
+  color: #faebd7;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.shopnow-btn:hover {
+  text-decoration: underline;
+}
+
+/* hero img */
+.hero-main {
+  display: flex;
+  gap: 0.3em;
+  height: 500px;
+  width: 100%;
+}
+.firstImg-container {
+  height: 100%;
+  position: relative;
+}
+.secondImg-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  height: 100%;
+  position: relative;
+}
+.secondImg-container h3 {
+  position: absolute;
+  top: 40%;
+  color: #fcf2e4;
+  font-size: 2rem;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.hero-img3 {
+  height: 100%;
+}
+.hero-img1,
+.hero-img2 {
+  height: 100%;
+  width: 100%;
+}
+.hero-img1,
+.hero-img2,
+.hero-img3 {
+  border-radius: 6px;
+}
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s ease-in;
+  width: 100%;
+  border-radius: 6px;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 49.2%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s ease-in;
+  width: 100%;
+  z-index: 1;
+  border-radius: 6px;
+}
+.overlay2 {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 49.5%;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  transition: all 0.3s ease-in;
+  width: 100%;
+  z-index: 1;
+  border-radius: 6px;
+}
+.hero-overlay:hover,
+.overlay:hover,
+.overlay2:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.each-container {
+  height: 100%;
+  overflow: hidden;
+}
+.each-container,
+.firstImg-container {
+  cursor: pointer;
+}
+.arrow {
+  animation: arrowAnimation 1s linear infinite;
+}
+@keyframes arrowAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

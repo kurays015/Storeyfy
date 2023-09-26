@@ -1,21 +1,40 @@
 import { Link } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
 import { allProducts } from "../../FetchProductsDetails";
-import Categories from "../../components/Categories/Categories";
-import { BsArrowRight } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
 import FlashSale from "../../components/FlashSale/FlashSale";
+import img1 from "../../../public/images/shop1.jpg";
+import img2 from "../../../public/images/shop2.jpg";
+import img3 from "../../../public/images/shop3.jpg";
 
-function Home({ categories }) {
+function Home() {
   const { data } = allProducts();
-  // console.log(data.products);
-
   return (
     <>
       <div className="banner">
         <div className="show-now">
-          <Link to="category">Show now!</Link>
-          <div className="arrow">
-            <BsArrowRight />
+          <div className="hero-main">
+            <div className="firstImg-container">
+              <div className="hero-overlay"></div>
+              <div className="shopnow-btn-container">
+                <Link to="category" className="shopnow-btn">
+                  Shop now!
+                </Link>
+                <BsArrowLeft className="arrow" />
+              </div>
+              <img src={img3} className="hero-img3" />
+            </div>
+            <div className="secondImg-container">
+              <h3>Shop anywhere online!</h3>
+              <div className="each-container">
+                <div className="overlay"></div>
+                <img src={img1} className="hero-img1" />
+              </div>
+              <div className="each-container">
+                <div className="overlay2"></div>
+                <img src={img2} className="hero-img2" />
+              </div>
+            </div>
           </div>
         </div>
         <Carousel />
