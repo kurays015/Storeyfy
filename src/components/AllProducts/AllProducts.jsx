@@ -1,26 +1,12 @@
-import { useDataFetching } from "../../FetchProductsDetails";
-import { HiMagnifyingGlass } from "react-icons/hi2";
-import Categories from "../../components/Categories/Categories";
+import { allProducts } from "../../FetchProductsDetails";
 import { Link } from "react-router-dom";
-function ProductByCategory({ category }) {
-  const productPerCategory = () => {
-    return useDataFetching(
-      `getProductsByCategory-${category}`,
-      `https://dummyjson.com/products/category/${category}`
-    );
-  };
-  const { data, isLoading, isError } = productPerCategory();
-  if (isLoading) return <h1 className="loading">Loading data...</h1>;
-  if (isError) return <h1>Error!</h1>;
-
+import { HiMagnifyingGlass } from "react-icons/hi2";
+function AllProducts({ category }) {
+  const { data } = allProducts();
   return (
-    <div className="product-byCategory">
+    <div className="all-products-parentContainer">
       <h1 className="category-name">
-        {category
-          .replace("-", " ")
-          .split(" ")
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(" ")}
+        {category === "smartphones" ? "All Products" : ""}
       </h1>
       <div className="search">
         <label>
@@ -65,5 +51,4 @@ function ProductByCategory({ category }) {
   );
 }
 
-export default ProductByCategory;
-//https://dummyjson.com/products/category
+export default AllProducts;

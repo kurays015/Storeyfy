@@ -3,9 +3,9 @@ import Carousel from "../../components/Carousel/Carousel";
 import { allProducts } from "../../FetchProductsDetails";
 import { BsArrowLeft } from "react-icons/bs";
 import FlashSale from "../../components/FlashSale/FlashSale";
-import img1 from "../../../public/images/shop1.jpg";
-import img2 from "../../../public/images/shop2.jpg";
-import img3 from "../../../public/images/shop3.jpg";
+import img1 from "/images/shop1.jpg";
+import img2 from "/images/shop2.jpg";
+import img3 from "/images/shop3.jpg";
 
 function Home() {
   const { data } = allProducts();

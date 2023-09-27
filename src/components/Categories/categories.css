@@ -3,6 +3,10 @@
   padding: 1em 3em 0 0;
   position: fixed;
 }
+.category-container a {
+  text-decoration: none;
+  color: #000000;
+}
 .category-container li {
   list-style: none;
 }

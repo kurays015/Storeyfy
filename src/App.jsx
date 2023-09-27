@@ -12,27 +12,32 @@ import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import Products from "./components/EachProduct/EachProduct";
 import Signup from "./pages/Signup/Signup";
+import AllProducts from "./components/AllProducts/AllProducts";
 
 function App() {
   const { data, isLoading, isError } = allCategories();
+  const newCopyOfCategories = data ? [...data, "all-products"] : [];
+
   if (isLoading) return <h1>Loading...!</h1>;
   if (isError) return <h1>ERROR!</h1>;
-
-  function NotFound() {
-    return <h1>Not Found</h1>;
-  }
-
-  const productCategoryRoute = data?.map((category, index) => (
+  const productCategoryRoute = newCopyOfCategories?.map((category, index) => (
     <React.Fragment key={index}>
       <Route
         path="category"
         element={
-          <CategoryLayout category={category} originalCategories={data} />
+          <CategoryLayout
+            category={category}
+            originalCategories={newCopyOfCategories}
+          />
         }
       >
         <Route
           path={`${category}`}
           element={<ProductByCategory category={category} />}
+        />
+        <Route
+          path="all-products"
+          element={<AllProducts category={category} />}
         />
         <Route path={`${category}/:id`} element={<Products />} />
       </Route>

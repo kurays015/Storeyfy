@@ -62,6 +62,11 @@ function FlashSale({ allproducts }) {
       >
         {fifteenPercentAboveProduct}
       </Swiper>
+      <div className="view-all-products">
+        <Link to="category/all-products">
+          <h2>View All Products</h2>
+        </Link>
+      </div>
     </div>
   );
 }

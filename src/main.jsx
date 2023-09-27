@@ -7,17 +7,18 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import "./components/HeaderNav/header.css";
 import "./components/Carousel/carousel.css";
 import "./components/ProductByCategory/productbycategory.css";
+import "./components/Categories/categories.css";
+import "./components/ProductByCategory/productbycategory.css";
+import "./components/Layout/layout.css";
+import "./components/EachProduct/product.css";
+import "./components/FlashSale/flashsale.css";
+import "./components/AllProducts/allproducts.css";
 
 //pages css
 import "./index.css";
 import "./pages/Home/home.css";
 import "./pages/About/about.css";
 import "./pages/Contact/contact.css";
-import "./components/Categories/categories.css";
-import "./components/ProductByCategory/productbycategory.css";
-import "./components/Layout/layout.css";
-import "./components/EachProduct/product.css";
-import "./components/FlashSale/flashsale.css";
 
 const queryClient = new QueryClient();
 
