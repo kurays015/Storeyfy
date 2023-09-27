@@ -14,6 +14,10 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 3em;
 }
+.explore-productContainer a {
+  text-decoration: none;
+  color: #000000;
+}
 .explore-card {
   height: 100%;
   position: relative;

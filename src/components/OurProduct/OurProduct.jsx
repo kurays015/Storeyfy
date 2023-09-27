@@ -28,22 +28,32 @@ function OurProduct() {
       </div>
       <div className="explore-productContainer">
         {productData.map(
-          ({ title, price, rating, discountPercentage, thumbnail, id }) => (
-            <div key={id} className="explore-card">
-              <div className="img-container">
-                <img src={thumbnail} alt={title} className="thumbnail" />
-              </div>
-              <div className="details">
-                <h4>{title}</h4>
-                <div className="price-rating">
-                  <p>${price}</p>
-                  <h4>Rating: {rating}</h4>
+          ({
+            title,
+            price,
+            rating,
+            discountPercentage,
+            thumbnail,
+            id,
+            category,
+          }) => (
+            <Link to={`category/${category}/${id}`}>
+              <div key={id} className="explore-card">
+                <div className="img-container">
+                  <img src={thumbnail} alt={title} className="thumbnail" />
                 </div>
-                <div className="discount">
-                  {Math.round(discountPercentage)}% OFF!
+                <div className="details">
+                  <h4>{title}</h4>
+                  <div className="price-rating">
+                    <p>${price}</p>
+                    <h4>Rating: {rating}</h4>
+                  </div>
+                  <div className="discount">
+                    {Math.round(discountPercentage)}% OFF!
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           )
         )}
       </div>
