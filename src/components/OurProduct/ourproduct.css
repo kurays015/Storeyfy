@@ -1,0 +1,49 @@
+.our-product-container h1,
+.our-product-container h5 {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.our-product-container h5 {
+  color: #db4444;
+}
+.our-product-container h1 {
+  color: #000000;
+}
+.explore-productContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3em;
+}
+.explore-card {
+  height: 100%;
+  position: relative;
+}
+.img-container {
+  height: 300px;
+}
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.price-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: #db4444;
+  font-weight: 500;
+}
+.details {
+  padding: 0.8em 0.5em;
+}
+.discount {
+  position: absolute;
+  top: 2%;
+  left: 3%;
+  background-color: #db4444;
+  color: #fff;
+  padding: 0.5em;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.8rem;
+}

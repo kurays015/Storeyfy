@@ -16,19 +16,7 @@ function AllProducts({ category }) {
       </div>
       <div className="product-container">
         {data?.products.map(
-          ({
-            title,
-            category,
-            description,
-            images,
-            brand,
-            price,
-            rating,
-            stock,
-            discountPercentage,
-            thumbnail,
-            id,
-          }) => (
+          ({ title, price, rating, discountPercentage, thumbnail, id }) => (
             <Link to={`${id}`}>
               <div key={id} className="product-card">
                 <div className="discount">

@@ -37,7 +37,10 @@ function FlashSale({ allproducts }) {
   //{fifteenPercentAboveProduct}
   return (
     <div className="flashsale-container">
-      <h5>Today's</h5>
+      <div className="topic">
+        <div className="blank"></div>
+        <h5>Today's</h5>
+      </div>
       <div className="flashsale-header">
         <h1>Flash Sales</h1>
         <div className="prev-next-container">

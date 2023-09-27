@@ -1,9 +1,10 @@
+.main {
+  margin: 5em 17em;
+}
 .banner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 5em 17em;
-
   height: 515px;
   gap: 0.3em;
 }

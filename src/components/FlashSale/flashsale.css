@@ -1,11 +1,31 @@
 .flashsale-container {
-  margin: 5em 17em;
   position: relative;
+  margin-top: 7em;
+  border-bottom: 1px solid rgb(222, 218, 218);
 }
 .flashsale-container h1,
 .flashsale-container h5 {
-  color: #665353;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
+.flashsale-container h1 {
+  color: #000000;
+}
+.flashsale-container h5 {
+  color: #db4444;
+}
+.topic {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+.blank {
+  height: 40px;
+  width: 20px;
+  border-radius: 4px;
+  background-color: #db4444;
+}
+
 .flashsale-container a {
   text-decoration: none;
 }
@@ -43,7 +63,7 @@
 }
 .flashsale-price,
 .flashsale-rating {
-  color: #ba7008;
+  color: #db4444;
   font-size: 0.8rem;
 }
 .flashsale-discount {
@@ -62,6 +82,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1em;
 }
 .prev-next-container {
   display: flex;
@@ -81,12 +102,12 @@
 }
 .view-all-products a {
   background-color: #db4444;
-  padding: 0.7em 1.5em;
+  padding: 0.7em 2em;
   border-radius: 4px;
 }
 .view-all-products h2 {
   color: #fff;
   letter-spacing: 0.5px;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 400;
 }

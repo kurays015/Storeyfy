@@ -1,16 +1,22 @@
 import { Link } from "react-router-dom";
+//components
 import Carousel from "../../components/Carousel/Carousel";
-import { allProducts } from "../../FetchProductsDetails";
-import { BsArrowLeft } from "react-icons/bs";
 import FlashSale from "../../components/FlashSale/FlashSale";
+import EcomBanner from "../../components/Ecom-bannerImg/EcomBanner";
+import OurProduct from "../../components/OurProduct/OurProduct";
+
+//imgs
 import img1 from "/images/shop1.jpg";
 import img2 from "/images/shop2.jpg";
 import img3 from "/images/shop3.jpg";
+//react icons
+import { allProducts } from "../../FetchProductsDetails";
+import { BsArrowLeft } from "react-icons/bs";
 
 function Home() {
   const { data } = allProducts();
   return (
-    <>
+    <div className="main">
       <div className="banner">
         <div className="show-now">
           <div className="hero-main">
@@ -40,7 +46,9 @@ function Home() {
         <Carousel />
       </div>
       <FlashSale allproducts={data?.products} />
-    </>
+      <EcomBanner />
+      <OurProduct />
+    </div>
   );
 }
 

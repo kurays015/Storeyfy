@@ -7,17 +7,17 @@ header {
   position: fixed;
   top: 0;
   z-index: 1000;
-  background-color: #faebd7;
   width: 100%;
+  background-color: #fff;
 }
 
 header h1 {
-  color: rgb(102, 83, 83);
+  color: #000000;
   font-weight: 700;
 }
 header a {
   text-decoration: none;
-  color: rgb(102, 83, 83);
+  color: #000000;
 }
 header nav {
   display: flex;

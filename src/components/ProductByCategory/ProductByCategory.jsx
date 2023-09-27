@@ -1,6 +1,5 @@
 import { useDataFetching } from "../../FetchProductsDetails";
 import { HiMagnifyingGlass } from "react-icons/hi2";
-import Categories from "../../components/Categories/Categories";
 import { Link } from "react-router-dom";
 function ProductByCategory({ category }) {
   const productPerCategory = () => {
@@ -30,19 +29,7 @@ function ProductByCategory({ category }) {
       </div>
       <div className="product-container">
         {data?.products.map(
-          ({
-            title,
-            category,
-            description,
-            images,
-            brand,
-            price,
-            rating,
-            stock,
-            discountPercentage,
-            thumbnail,
-            id,
-          }) => (
+          ({ title, price, rating, discountPercentage, thumbnail, id }) => (
             <Link to={`${id}`}>
               <div key={id} className="product-card">
                 <div className="discount">
@@ -66,4 +53,3 @@ function ProductByCategory({ category }) {
 }
 
 export default ProductByCategory;
-//https://dummyjson.com/products/category
