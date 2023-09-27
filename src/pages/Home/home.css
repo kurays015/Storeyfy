@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 17em;
+  margin: 5em 17em;
+
   height: 515px;
   gap: 0.3em;
 }

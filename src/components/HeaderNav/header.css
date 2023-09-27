@@ -4,7 +4,13 @@ header {
   justify-content: space-between;
   padding: 1em 17em;
   border-bottom: 1px solid rgb(189, 172, 172);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: #faebd7;
+  width: 100%;
 }
+
 header h1 {
   color: rgb(102, 83, 83);
   font-weight: 700;
