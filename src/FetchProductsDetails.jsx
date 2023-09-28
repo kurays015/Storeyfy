@@ -8,6 +8,7 @@ export const useDataFetching = (queryKey, url) => {
       const { data } = await axios.get(url);
       return data;
     } catch (error) {
+      console.log(error);
       throw new Error("Error fetching data");
     }
   });

@@ -17,8 +17,10 @@ function Products() {
     );
   };
   const { data } = fetchEachProductById();
+  const mainImage = data ? data.thumbnail : "";
+
   //set the default/main img is thumbnail
-  const [currentImage, setCurrentImage] = useState(data?.thumbnail);
+  const [currentImage, setCurrentImage] = useState(mainImage);
 
   function handleImageHoverAndClick(img) {
     setCurrentImage(img);
@@ -55,14 +57,18 @@ function Products() {
       <div className="product-specs">
         <div>Brand: {data?.brand}</div>
         <div>
-          {data?.stock <= 10
-            ? `Stock: Only ${data?.stock} stock left`
-            : `Stock: ${data?.stock} `}
+          Stock:
+          <span className={data?.stock <= 10 ? "out-of-stock" : "in-stock"}>
+            {data?.stock <= 10 ? `Only ${data?.stock} stock left` : ""}
+          </span>
         </div>
         <h1>{data?.title}</h1>
-        <div>{data?.rating}</div>
-        <p>{data?.description}</p>
-        <div>${data?.price}</div>
+        <div>Rating: {data?.rating}</div>
+        <div>
+          <div>Description:</div>
+          <p>{data?.description}</p>
+        </div>
+        <div className="each-price">${data?.price}</div>
         <div className="cart-and-buy">
           <div className="cart-count">
             <button>-</button>

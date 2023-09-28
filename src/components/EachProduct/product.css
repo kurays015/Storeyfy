@@ -38,3 +38,10 @@
   display: flex;
   gap: 0.5em;
 }
+.out-of-stock {
+  color: #db4444;
+}
+.in-stock {
+  color: green;
+  font-weight: 600;
+}
