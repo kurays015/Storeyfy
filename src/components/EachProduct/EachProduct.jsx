@@ -28,21 +28,22 @@ function Products() {
     <div className="each-productContainer">
       <div>
         <div className="main-img-container">
-          <img src={currentImage} alt={data?.title} className="product-thumb" />
+          <img src={currentImage} alt={data?.title} className="main-img" />
         </div>
-        <div className="all-img-container">
+        <div className="swiper-container">
           <Swiper
-            slidesPerView={3}
+            slidesPerView={5}
             spaceBetween={30}
             freeMode={true}
             modules={[FreeMode]}
+            className="swiper"
           >
             {data?.images.map((image, index) => (
-              <SwiperSlide key={index} className="each-img">
+              <SwiperSlide key={index} className="each-slide-container">
                 <img
                   src={image}
                   alt={data?.title}
-                  className="allproduct-img"
+                  className="each-slide-img"
                   onMouseEnter={() => handleImageHoverAndClick(image)}
                   onClick={() => handleImageHoverAndClick(image)}
                 />
@@ -53,7 +54,11 @@ function Products() {
       </div>
       <div className="product-specs">
         <div>Brand: {data?.brand}</div>
-        <div>Stock: {data?.stock}</div>
+        <div>
+          {data?.stock <= 10
+            ? `Stock: Only ${data?.stock} stock left`
+            : `Stock: ${data?.stock} `}
+        </div>
         <h1>{data?.title}</h1>
         <div>{data?.rating}</div>
         <p>{data?.description}</p>
