@@ -11,7 +11,7 @@ import img2 from "/images/shop2.jpg";
 import img3 from "/images/shop3.jpg";
 //react icons
 import { allProducts } from "../../FetchProductsDetails";
-import { BsArrowLeft } from "react-icons/bs";
+import { BsArrowRight } from "react-icons/bs";
 
 function Home() {
   const { data } = allProducts();
@@ -26,7 +26,7 @@ function Home() {
                 <Link to="category" className="shopnow-btn">
                   Shop now!
                 </Link>
-                <BsArrowLeft className="arrow" />
+                <BsArrowRight className="arrow" />
               </div>
               <img src={img3} className="hero-img3" />
             </div>
