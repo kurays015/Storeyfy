@@ -20,13 +20,13 @@ function Products() {
   const { data } = fetchEachProductById();
 
   //set the default/main img to placeholder
-  const [currentImage, setCurrentImage] = useState(data?.thumbnail);
+  const [currentImage, setCurrentImage] = useState(imgPlaceholder);
 
-  // useEffect(() => {
-  //   if (data) {
-  //     setCurrentImage(data.thumbnail);
-  //   }
-  // }, [data]);
+  useEffect(() => {
+    if (data) {
+      setCurrentImage(data.thumbnail);
+    }
+  }, [data]);
 
   function handleImageHoverAndClick(img) {
     setCurrentImage(img);
