@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDataFetching } from "../../FetchProductsDetails";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
+import imgPlaceholder from "/images/placeholder.jpg";
 
 // Import Swiper styles
 import "swiper/css";
@@ -17,10 +18,15 @@ function Products() {
     );
   };
   const { data } = fetchEachProductById();
-  const mainImage = data ? data.thumbnail : "";
 
-  //set the default/main img is thumbnail
-  const [currentImage, setCurrentImage] = useState(mainImage);
+  //set the default/main img to placeholder
+  const [currentImage, setCurrentImage] = useState(imgPlaceholder);
+
+  useEffect(() => {
+    if (data) {
+      setCurrentImage(data.thumbnail);
+    }
+  }, [data]);
 
   function handleImageHoverAndClick(img) {
     setCurrentImage(img);
@@ -41,8 +47,9 @@ function Products() {
             className="swiper"
           >
             {data?.images.map((image, index) => (
-              <SwiperSlide key={index} className="each-slide-container">
+              <SwiperSlide className="each-slide-container">
                 <img
+                  key={index}
                   src={image}
                   alt={data?.title}
                   className="each-slide-img"
