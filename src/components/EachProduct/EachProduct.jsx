@@ -66,7 +66,7 @@ function Products() {
         <div>
           Stock:
           <span className={data?.stock <= 10 ? "out-of-stock" : "in-stock"}>
-            {data?.stock <= 10 ? `Only ${data?.stock} stock left` : ""}
+            {data?.stock <= 10 ? `Only ${data?.stock} stock left` : data?.stock}
           </span>
         </div>
         <h1>{data?.title}</h1>
