@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function OurProduct() {
   // Define hooks unconditionally at the top of the component
   const [productData, setProductData] = useState([]);
-  const { data, isLoading, isError } = allProducts();
+  const { data } = allProducts();
   const isFilled = data ? [...data.products] : [];
 
   // Function to shuffle an array randomly

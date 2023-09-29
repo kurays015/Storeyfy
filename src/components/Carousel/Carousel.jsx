@@ -36,7 +36,7 @@ function Carousel() {
         className="mySwiper"
       >
         {images.map(({ image }) => (
-          <SwiperSlide key={image} className="testt">
+          <SwiperSlide key={image}>
             <img className="swiper-img" alt="hero-img" src={image} />
           </SwiperSlide>
         ))}
