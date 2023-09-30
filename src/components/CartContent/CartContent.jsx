@@ -3,6 +3,12 @@ import { CartContext } from "../../Context/MyContext";
 function CartContent() {
   const { showCart, setShowCart } = useContext(CartContext);
   const { cartItems } = useContext(CartContext);
+
+  const renderCartItems = cartItems.map(item => {
+    if (!cartItems.includes(item.title)) {
+      return <div>{item.title}</div>;
+    }
+  });
   console.log(cartItems);
   return (
     <div
@@ -14,14 +20,7 @@ function CartContent() {
           <h4>Your Shopping Cart (0)</h4>
           <button onClick={() => setShowCart(false)}>X</button>
         </div>
-        <div>
-          {cartItems.map(({ title, price }) => (
-            <div>
-              <h3>{title}</h3>
-              <p>{price}</p>
-            </div>
-          ))}
-        </div>
+        <div>{renderCartItems}</div>
       </div>
     </div>
   );

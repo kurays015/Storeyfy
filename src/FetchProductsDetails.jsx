@@ -28,5 +28,3 @@ export const allCategories = () => {
     "https://dummyjson.com/products/categories"
   );
 };
-
-//https://dummyjson.com/products/category
