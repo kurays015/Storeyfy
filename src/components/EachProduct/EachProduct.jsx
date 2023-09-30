@@ -1,27 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useDataFetching } from "../../FetchProductsDetails";
 import imgPlaceholder from "/images/placeholder.jpg";
-
+import { CartContext } from "../../Context/MyContext";
 function Products() {
   const { id } = useParams();
+  const { setCartItems } = useContext(CartContext);
+  const { cartQuantity, setCartQuantity } = useContext(CartContext);
+
   //set the default/main img to placeholder
   const [currentImage, setCurrentImage] = useState(imgPlaceholder);
-  const [cartQuantity, setCartQuantity] = useState(1);
-  //const {cartQuantity, setCartQuantity} = useContext
+
   const fetchEachProductById = () => {
     return useDataFetching(
       `eachProduct-${id}`,
       `https://dummyjson.com/products/${id}`
     );
   };
-  const { data: EachProductData } = fetchEachProductById();
+
+  const { data } = fetchEachProductById();
 
   useEffect(() => {
-    if (EachProductData) {
-      setCurrentImage(EachProductData.thumbnail);
-    }
-  }, [EachProductData]);
+    setCurrentImage(data?.thumbnail);
+  }, [data]);
 
   const handleImageHoverAndClick = img => {
     setCurrentImage(img);
@@ -37,11 +38,14 @@ function Products() {
     }
   };
   const addToCart = () => {
-    console.log(
-      EachProductData?.title,
-      EachProductData?.price * cartQuantity,
-      EachProductData?.thumbnail
-    );
+    if (data) {
+      const productInTheCart = {
+        title: data.title,
+        thumbnail: data.thumbnail,
+        price: data.price,
+      };
+      setCartItems(prevItems => [...prevItems, productInTheCart]);
+    }
   };
 
   return (
@@ -49,18 +53,14 @@ function Products() {
       <div className="each-productContainer">
         <div className="images-container">
           <div className="main-img-container">
-            <img
-              src={currentImage}
-              alt={EachProductData?.title}
-              className="main-img"
-            />
+            <img src={currentImage} alt={data?.title} className="main-img" />
           </div>
           <div className="swiper-container">
-            {EachProductData?.images?.map((image, index) => (
+            {data?.images.map((image, index) => (
               <img
                 key={index}
                 src={image}
-                alt={EachProductData?.title}
+                alt={data?.title}
                 className="each-slide-img"
                 onMouseEnter={() => handleImageHoverAndClick(image)}
                 onClick={() => handleImageHoverAndClick(image)}
@@ -69,26 +69,20 @@ function Products() {
           </div>
         </div>
         <div className="product-specs">
-          <div>Brand: {EachProductData?.brand}</div>
-          <div>Category: {EachProductData?.category}</div>
+          <div>Brand: {data?.brand}</div>
+          <div>Category: {data?.category}</div>
           <p>
             Stock:{" "}
-            <span
-              className={
-                EachProductData?.stock <= 10 ? "out-of-stock" : "in-stock"
-              }
-            >
-              {EachProductData?.stock}
+            <span className={data?.stock <= 10 ? "out-of-stock" : "in-stock"}>
+              {data?.stock}
             </span>{" "}
             left
           </p>
-          <h2>{EachProductData?.title.toUpperCase()}</h2>
-          <div>
-            Rating: {EachProductData?.rating} need to fix this, turn to star
-          </div>
+          <h2>{data?.title.toUpperCase()}</h2>
+          <div>Rating: {data?.rating} need to fix this, turn to star</div>
           <div>
             <div>Description:</div>
-            <p>{EachProductData?.description}</p>
+            <p>{data?.description}</p>
           </div>
           <div className="quantity-container">
             <div>Quantity</div>
@@ -101,9 +95,7 @@ function Products() {
                 +
               </button>
             </div>
-            <div className="each-price">
-              ${cartQuantity * EachProductData?.price}
-            </div>
+            <div className="each-price">${cartQuantity * data?.price}</div>
           </div>
           <div className="cartbuy-btn">
             <button className="buynow-btn">Buy Now</button>

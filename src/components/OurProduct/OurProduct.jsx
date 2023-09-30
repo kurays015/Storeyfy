@@ -2,19 +2,16 @@ import { useEffect, useState } from "react";
 import { allProducts } from "../../FetchProductsDetails";
 import { Link } from "react-router-dom";
 function OurProduct() {
-  // Define hooks unconditionally at the top of the component
   const [productData, setProductData] = useState([]);
   const { data } = allProducts();
-  const isFilled = data ? [...data.products] : [];
-
-  // Function to shuffle an array randomly
-  const getRandomProduct = products => {
-    const randomProducts = products.sort(() => Math.random() - 0.5).slice(0, 8);
-    setProductData(randomProducts);
-  };
 
   useEffect(() => {
-    getRandomProduct(isFilled);
+    if (data) {
+      const randomProducts = [...data.products]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 8);
+      setProductData(randomProducts);
+    }
   }, [data]);
 
   return (

@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { allCategories } from "./FetchProductsDetails";
 
 //context
-import { CartContext } from "./Context/MyContext";
+import { CartProvider } from "./Context/MyContext";
+// import { CartContext } from "./Context/MyContext";
 
 //components
 import Layout from "./components/Layout/Layout";
@@ -18,7 +19,6 @@ import Signup from "./pages/Signup/Signup";
 import AllProducts from "./components/AllProducts/AllProducts";
 
 function App() {
-  const [showCart, setShowCart] = useState(false);
   const { data, isLoading, isError } = allCategories();
   const newCopyOfCategories = data ? [...data, "all-products"] : [];
 
@@ -51,7 +51,7 @@ function App() {
 
   return (
     <Router>
-      <CartContext.Provider value={{ showCart, setShowCart }}>
+      <CartProvider>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
@@ -61,7 +61,7 @@ function App() {
             {productCategoryRoute}
           </Route>
         </Routes>
-      </CartContext.Provider>
+      </CartProvider>
     </Router>
   );
 }
