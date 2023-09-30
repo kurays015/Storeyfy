@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { allCategories } from "./FetchProductsDetails";
 
+//context
+import { CartContext } from "./Context/MyContext";
+
 //components
 import Layout from "./components/Layout/Layout";
 import ProductByCategory from "./components/ProductByCategory/ProductByCategory";
@@ -15,11 +18,13 @@ import Signup from "./pages/Signup/Signup";
 import AllProducts from "./components/AllProducts/AllProducts";
 
 function App() {
+  const [showCart, setShowCart] = useState(false);
   const { data, isLoading, isError } = allCategories();
   const newCopyOfCategories = data ? [...data, "all-products"] : [];
 
   // if (isLoading) return <h1>Loading...!</h1>;
   // if (isError) return <h1>ERROR!</h1>;
+
   const productCategoryRoute = newCopyOfCategories?.map((category, index) => (
     <React.Fragment key={index}>
       <Route
@@ -46,15 +51,17 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/signup" element={<Signup />} />
-          {productCategoryRoute}
-        </Route>
-      </Routes>
+      <CartContext.Provider value={{ showCart, setShowCart }}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/signup" element={<Signup />} />
+            {productCategoryRoute}
+          </Route>
+        </Routes>
+      </CartContext.Provider>
     </Router>
   );
 }

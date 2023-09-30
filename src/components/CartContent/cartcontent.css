@@ -1,0 +1,30 @@
+.cart-container {
+  padding: 2em;
+  position: fixed;
+  background-color: gray;
+  z-index: 1000000;
+  height: 100%;
+  width: 500px;
+  right: 0;
+  top: 0;
+  transition: all 300ms ease-in-out;
+  transform: translateX(600px);
+}
+.cart-show {
+  transform: translateX(0);
+}
+.cart-overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000000;
+  height: 100%;
+  width: 100%;
+  right: 0;
+  top: 0;
+  transition: all 300ms ease-in-out;
+}
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

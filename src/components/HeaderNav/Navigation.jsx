@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { BsCart2, BsHeart } from "react-icons/bs";
+import { useContext } from "react";
+import { CartContext } from "../../Context/MyContext";
 
 function Navigation() {
+  const { setShowCart } = useContext(CartContext);
+
   return (
     <header>
       <Link to="/">
@@ -29,14 +33,12 @@ function Navigation() {
       <div className="header-cart-save-container">
         <Link to="/Wishlist">
           <h3>
-            <BsHeart />
+            <BsHeart className="addto-wishlist" />
           </h3>
         </Link>
-        <Link to="/cart">
-          <h3>
-            <BsCart2 />
-          </h3>
-        </Link>
+        <h3>
+          <BsCart2 className="addto-cart" onClick={() => setShowCart(true)} />
+        </h3>
       </div>
     </header>
   );

@@ -28,6 +28,7 @@
 
 .each-slide-img {
   width: 20%;
+  height: 50px;
   object-fit: contain;
   cursor: pointer;
 }
