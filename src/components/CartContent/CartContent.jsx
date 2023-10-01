@@ -1,12 +1,34 @@
-import { useContext } from "react";
-import { CartContext } from "../../Context/MyContext";
+import { useContext, useState } from "react";
+import { CartContext } from "../../Context/CartContext";
 function CartContent() {
-  const { showCart, setShowCart, cartItems, cartQuantity } =
-    useContext(CartContext);
+  const {
+    showCart,
+    setShowCart,
+    cartItems,
+    cartQuantity,
+    setCartQuantity,
+    cartPrice,
+  } = useContext(CartContext);
+
+  function increaseItemQuantity() {
+    setCartQuantity(prevItem => prevItem + 1);
+  }
+  function decreaseItemQuantity() {
+    if (cartQuantity > 1) {
+      setCartQuantity(prevItem => prevItem - 1);
+    }
+  }
 
   const item = cartItems.map((item, index) => (
     <div key={index}>
-      <h5>{item.title}</h5>p
+      <h5>{item.title}</h5>
+      <div>quantity:{cartQuantity}</div>
+      <div>
+        <button onClick={decreaseItemQuantity}>-</button>
+        <p>{cartPrice(item.price)}</p>
+
+        <button onClick={increaseItemQuantity}>+</button>
+      </div>
     </div>
   ));
   // console.log(cartItems);

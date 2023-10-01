@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { BsCart2, BsHeart } from "react-icons/bs";
 import { useContext } from "react";
-import { CartContext } from "../../Context/MyContext";
+import { CartContext } from "../../Context/CartContext";
 
 function Navigation() {
   const { setShowCart } = useContext(CartContext);

@@ -1,15 +1,19 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useDataFetching } from "../../FetchProductsDetails";
-import imgPlaceholder from "/images/placeholder.jpg";
-import { CartContext } from "../../Context/MyContext";
+import { CartContext } from "../../Context/CartContext";
 function Products() {
   const { id } = useParams();
-  const { setCartItems } = useContext(CartContext);
-  const { cartQuantity, setCartQuantity } = useContext(CartContext);
-
-  //set the default/main img to placeholder
-  const [currentImage, setCurrentImage] = useState(imgPlaceholder);
+  const {
+    handleImageHoverAndClick,
+    minusQuantity,
+    cartQuantity,
+    addQuantity,
+    currentImage,
+    setCurrentImage,
+    addToCart,
+    cartPrice,
+  } = useContext(CartContext);
 
   const fetchEachProductById = () => {
     return useDataFetching(
@@ -23,30 +27,6 @@ function Products() {
   useEffect(() => {
     setCurrentImage(data?.thumbnail);
   }, [data]);
-
-  const handleImageHoverAndClick = img => {
-    setCurrentImage(img);
-  };
-
-  const addQuantity = () => {
-    setCartQuantity(prev => prev + 1);
-  };
-
-  const minusQuantity = () => {
-    if (cartQuantity > 1) {
-      setCartQuantity(prev => prev - 1);
-    }
-  };
-  const addToCart = () => {
-    if (data) {
-      const productInTheCart = {
-        title: data.title,
-        thumbnail: data.thumbnail,
-        price: data.price,
-      };
-      setCartItems(prevItems => [...prevItems, productInTheCart]);
-    }
-  };
   return (
     <>
       <div className="each-productContainer">
@@ -94,11 +74,11 @@ function Products() {
                 +
               </button>
             </div>
-            <div className="each-price">${cartQuantity * data?.price}</div>
+            <div className="each-price">${data?.price * cartQuantity}</div>
           </div>
           <div className="cartbuy-btn">
             <button className="buynow-btn">Buy Now</button>
-            <button className="addtocart-btn" onClick={addToCart}>
+            <button className="addtocart-btn" onClick={() => addToCart(data)}>
               Add to Cart
             </button>
           </div>

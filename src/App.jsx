@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { allCategories } from "./FetchProductsDetails";
 
 //context
-import { CartProvider } from "./Context/MyContext";
-// import { CartContext } from "./Context/MyContext";
+import { CartProvider } from "./Context/CartContext";
 
 //components
 import Layout from "./components/Layout/Layout";
