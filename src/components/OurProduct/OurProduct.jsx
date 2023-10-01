@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { allProducts } from "../../FetchProductsDetails";
 import { Link } from "react-router-dom";
+import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 function OurProduct() {
   const [productData, setProductData] = useState([]);
   const { data } = allProducts();
@@ -42,7 +43,7 @@ function OurProduct() {
                 <div className="details">
                   <h4>{title}</h4>
                   <div className="price-rating">
-                    <p>${price}</p>
+                    <p>{CurrencyFormatter(price)}</p>
                     <h4>Rating: {rating}</h4>
                   </div>
                   <div className="discount">

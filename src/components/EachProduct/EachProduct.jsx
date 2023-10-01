@@ -47,7 +47,6 @@ function Products() {
       setCartItems(prevItems => [...prevItems, productInTheCart]);
     }
   };
-
   return (
     <>
       <div className="each-productContainer">

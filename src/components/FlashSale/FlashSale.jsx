@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation } from "swiper/modules";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
+import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 
 // Import Swiper styles
 import "swiper/css";
@@ -24,7 +25,9 @@ function FlashSale({ allproducts }) {
                 <div>
                   <h2 className="flashsale-title">{title}</h2>
                 </div>
-                <div className="flashsale-price">${price}</div>
+                <div className="flashsale-price">
+                  {CurrencyFormatter(price)}
+                </div>
                 <div className="flashsale-rating">rating: {rating}</div>
               </div>
             </Link>

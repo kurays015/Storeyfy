@@ -1,6 +1,8 @@
 import { useDataFetching } from "../../FetchProductsDetails";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { Link } from "react-router-dom";
+import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
+
 function ProductByCategory({ category }) {
   const productPerCategory = () => {
     return useDataFetching(
@@ -40,7 +42,7 @@ function ProductByCategory({ category }) {
                   <div>
                     <h2 className="product-title">{title}</h2>
                   </div>
-                  <div className="price">${price}</div>
+                  <div className="price">{CurrencyFormatter(price)}</div>
                   <div className="rating">rating: {rating}</div>
                 </div>
               </div>
