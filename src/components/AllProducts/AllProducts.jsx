@@ -1,4 +1,5 @@
 import { allProducts } from "../../FetchProductsDetails";
+import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { Link } from "react-router-dom";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 function AllProducts({ category }) {
@@ -27,7 +28,7 @@ function AllProducts({ category }) {
                   <div>
                     <h2 className="product-title">{title}</h2>
                   </div>
-                  <div className="price">${price}</div>
+                  <div className="price">{CurrencyFormatter(price)}</div>
                   <div className="rating">rating: {rating}</div>
                 </div>
               </div>
