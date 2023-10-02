@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 //components
 import Carousel from "../../components/Carousel/Carousel";
 import FlashSale from "../../components/FlashSale/FlashSale";
-import EcomBanner from "../../components/Ecom-bannerImg/EcomBanner";
+import EcomBanner from "../../components/EcomBannerImg/EcomBannerImg";
 import OurProduct from "../../components/OurProduct/OurProduct";
 
 //imgs

@@ -10,32 +10,50 @@ export const CartProvider = ({ children }) => {
   //set the default/main img to placeholder
   const [currentImage, setCurrentImage] = useState(imgPlaceholder);
 
-  function handleImageHoverAndClick(img) {
-    setCurrentImage(img);
-  }
-  function addQuantity() {
+  //refactore some codes - christts
+  function increaseQuantity() {
     setCartQuantity(prev => prev + 1);
   }
-  function minusQuantity() {
-    if (cartQuantity > 1) {
-      setCartQuantity(prev => prev - 1);
-    }
+  function decreaseQuantity() {
+    setCartQuantity(prev => prev - 1);
+  }
+  function cartPrice(price) {
+    return price * cartQuantity;
   }
   function addToCart(data) {
+    //data is getting undefined on the first load, need to make sure it,s true
     if (data) {
-      const productInTheCart = {
+      //product data that will push to cart
+      const productToPushInTheCart = {
         id: data.id,
         title: data.title,
         thumbnail: data.thumbnail,
         price: data.price,
       };
-      if (!cartItems.some(item => item.id === productInTheCart.id)) {
-        setCartItems(prevItem => [...prevItem, productInTheCart]);
+      //check if the product is already in the cart
+      const isAlreadyInTheCart = cartItems.find(
+        item => item.id === productToPushInTheCart.id
+      );
+      if (isAlreadyInTheCart) {
+        //if it's already in the cart and matches it's id, just add quantity to it and + 1 it
+        setCartItems(
+          cartItems.map(item =>
+            item.id === productToPushInTheCart.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          )
+        );
+      } else {
+        //else if it's not in the cart, combine the current items that are already in the cart and the productToPushInTheCart items
+        setCartItems([
+          ...cartItems,
+          { ...productToPushInTheCart, quantity: 1 },
+        ]);
       }
     }
   }
-  function cartPrice(price) {
-    return price * cartQuantity;
+  function handleImageHoverAndClick(img) {
+    setCurrentImage(img);
   }
 
   const value = {
@@ -46,8 +64,8 @@ export const CartProvider = ({ children }) => {
     cartQuantity,
     setCartQuantity,
     handleImageHoverAndClick,
-    addQuantity,
-    minusQuantity,
+    increaseQuantity,
+    decreaseQuantity,
     addToCart,
     currentImage,
     setCurrentImage,

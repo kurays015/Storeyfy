@@ -6,9 +6,9 @@ function Products() {
   const { id } = useParams();
   const {
     handleImageHoverAndClick,
-    minusQuantity,
+    decreaseQuantity,
     cartQuantity,
-    addQuantity,
+    increaseQuantity,
     currentImage,
     setCurrentImage,
     addToCart,
@@ -66,11 +66,11 @@ function Products() {
           <div className="quantity-container">
             <div>Quantity</div>
             <div className="cart-count-container">
-              <button className="quantity-minus" onClick={minusQuantity}>
+              <button className="quantity-minus" onClick={decreaseQuantity}>
                 -
               </button>
               <div className="cart-quantity">{cartQuantity}</div>
-              <button className="quantity-add" onClick={addQuantity}>
+              <button className="quantity-add" onClick={increaseQuantity}>
                 +
               </button>
             </div>

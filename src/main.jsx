@@ -13,7 +13,7 @@ import "./components/Layout/layout.css";
 import "./components/EachProduct/product.css";
 import "./components/FlashSale/flashsale.css";
 import "./components/AllProducts/allproducts.css";
-import "./components/Ecom-bannerImg/ecom-banner.css";
+import "./components/EcomBannerImg/ecom-banner.css";
 import "./components/OurProduct/ourproduct.css";
 import "./components/CartContent/cartcontent.css";
 
