@@ -25,7 +25,9 @@ function Products() {
   const { data } = fetchEachProductById();
 
   useEffect(() => {
-    setCurrentImage(data?.thumbnail);
+    if (data) {
+      setCurrentImage(data.thumbnail);
+    }
   }, [data]);
   return (
     <>
@@ -74,7 +76,7 @@ function Products() {
                 +
               </button>
             </div>
-            <div className="each-price">${data?.price * cartQuantity}</div>
+            <div className="each-price">${cartPrice(data?.price)}</div>
           </div>
           <div className="cartbuy-btn">
             <button className="buynow-btn">Buy Now</button>
