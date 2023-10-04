@@ -171,7 +171,7 @@
   padding: 0.8em 1.8em;
   color: #222;
   background-color: transparent;
-  outline: 2px solid #000000;
+  border: 2px solid #000000;
   border-radius: 30px;
   cursor: pointer;
   transition: all 200ms;
@@ -179,6 +179,19 @@
   font-weight: 700;
 }
 .checkout button:hover {
-  background-color: #b1bebb;
-  color: #222;
+  background-color: #000000;
+  color: #fff;
+}
+.empty-cart {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.empty-cart p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: gray;
 }

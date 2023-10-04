@@ -42,3 +42,18 @@ header nav ul li {
   font-size: 1.3em;
   cursor: pointer;
 }
+.cart-icon {
+  position: relative;
+}
+.cart-icon div {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  top: -5px;
+  right: -8px;
+  color: #fff;
+  background-color: red;
+}

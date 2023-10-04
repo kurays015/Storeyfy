@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 
 function Navigation() {
-  const { setShowCart } = useContext(CartContext);
+  const { setShowCart, cartItems } = useContext(CartContext);
 
   return (
     <header>
@@ -36,7 +36,8 @@ function Navigation() {
             <BsHeart className="addto-wishlist" />
           </h3>
         </Link>
-        <h3>
+        <h3 className="cart-icon">
+          {cartItems.length ? <div>{cartItems.length}</div> : ""}
           <BsCart2 className="addto-cart" onClick={() => setShowCart(true)} />
         </h3>
       </div>

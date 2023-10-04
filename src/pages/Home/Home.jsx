@@ -23,7 +23,7 @@ function Home() {
             <div className="firstImg-container">
               <div className="hero-overlay"></div>
               <div className="shopnow-btn-container">
-                <Link to="category" className="shopnow-btn">
+                <Link to="category/all-products" className="shopnow-btn">
                   Shop now!
                 </Link>
                 <BsArrowRight className="arrow" />
