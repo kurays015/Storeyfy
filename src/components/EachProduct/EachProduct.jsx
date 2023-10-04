@@ -1,8 +1,9 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useDataFetching } from "../../FetchProductsDetails";
 import { CartContext } from "../../Context/CartContext";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
+import { StarRatings } from "../../utils/StarRatings";
 function Products() {
   const { id } = useParams();
   const { handleImageHoverAndClick, currentImage, setCurrentImage, addToCart } =
@@ -22,6 +23,7 @@ function Products() {
       setCurrentImage(data.thumbnail);
     }
   }, [data]);
+
   return (
     <>
       <div className="each-productContainer">
@@ -51,13 +53,17 @@ function Products() {
             </span>{" "}
             left
           </p>
-          <h2>{data?.title.toUpperCase()}</h2>
-          <div>Rating: {data?.rating} need to fix this, turn to star</div>
+          <h2 className="prod-title">{data?.title.toUpperCase()}</h2>
+          <div className="stars-rating-container">
+            Rating: {StarRatings(data?.rating)}
+          </div>
           <div>
             <div>Description:</div>
             <p>{data?.description}</p>
           </div>
-          <div>{CurrencyFormatter(data?.price)}</div>
+          <div className="prod-price">
+            Price: <span>{CurrencyFormatter(data?.price)}</span>
+          </div>
           <div className="cartbuy-btn">
             <button className="buynow-btn">Buy Now</button>
             <button className="addtocart-btn" onClick={() => addToCart(data)}>

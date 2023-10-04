@@ -20,8 +20,9 @@
   gap: 0.5em;
 }
 .product-specs {
-  background-color: rgb(244, 235, 235);
+  /* background-color: rgb(244, 235, 235); */
   padding: 1em;
+  line-height: 30px;
 }
 .images-container {
   width: 500px;
@@ -41,10 +42,11 @@
 
 .out-of-stock {
   color: #db4444;
+  font-weight: 700;
 }
 .in-stock {
   color: green;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* buy - cart button */
@@ -81,4 +83,25 @@
 .addtocart-btn:hover {
   background-color: #000000;
   color: #fff;
+}
+.prod-title {
+  font-weight: 600;
+}
+.prod-price {
+  margin: 1em 0;
+}
+.prod-price span {
+  font-size: 2rem;
+}
+
+/* stars rating */
+.stars-rating {
+  display: flex;
+  color: #f6a355;
+  font-size: 1.5rem;
+}
+.stars-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }

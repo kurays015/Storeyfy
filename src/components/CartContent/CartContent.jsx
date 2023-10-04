@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { CartContext } from "../../Context/CartContext";
 import emptyCartImg from "/images/emptycart.png";
+import { RxExit } from "react-icons/rx";
+
 function CartContent() {
   const {
     showCart,
@@ -23,9 +25,10 @@ function CartContent() {
       <div className={`cart-container ${showCart ? "cart-show" : ""}`}>
         <div className="cart-header">
           <h4>Your Shopping Cart ({cartItems.length})</h4>
-          <button onClick={() => setShowCart(false)} className="cart-exit-btn">
-            X
-          </button>
+          <RxExit
+            onClick={() => setShowCart(false)}
+            className="cart-exit-btn"
+          />
         </div>
         {cartItems.length ? (
           <>
@@ -62,7 +65,7 @@ function CartContent() {
         ) : (
           <div className="empty-cart">
             <img src={emptyCartImg} alt="empty-cart-img" />
-            <p>your cart is empty...</p>
+            <p>Your cart is empty...</p>
           </div>
         )}
       </div>

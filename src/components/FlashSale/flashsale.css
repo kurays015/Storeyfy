@@ -59,7 +59,7 @@
   width: 200px;
 }
 .flashsale-price {
-  font-weight: 600;
+  font-weight: 500;
 }
 .flashsale-price,
 .flashsale-rating {
@@ -91,9 +91,16 @@
 }
 .custom-prev-button,
 .custom-next-button {
+  color: #222;
+  border-radius: 6px;
   font-size: 1.3rem;
-  padding: 0.3em;
+  padding: 0.2em 0.3em;
   cursor: pointer;
+}
+.custom-prev-button:hover,
+.custom-next-button:hover {
+  background-color: #242424;
+  color: #fff;
 }
 .view-all-products {
   margin: 3em 0;
