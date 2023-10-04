@@ -2,18 +2,11 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useDataFetching } from "../../FetchProductsDetails";
 import { CartContext } from "../../Context/CartContext";
+import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 function Products() {
   const { id } = useParams();
-  const {
-    handleImageHoverAndClick,
-    decreaseQuantity,
-    cartQuantity,
-    increaseQuantity,
-    currentImage,
-    setCurrentImage,
-    addToCart,
-    cartPrice,
-  } = useContext(CartContext);
+  const { handleImageHoverAndClick, currentImage, setCurrentImage, addToCart } =
+    useContext(CartContext);
 
   const fetchEachProductById = () => {
     return useDataFetching(
@@ -65,19 +58,7 @@ function Products() {
             <div>Description:</div>
             <p>{data?.description}</p>
           </div>
-          <div className="quantity-container">
-            <div>Quantity</div>
-            <div className="cart-count-container">
-              <button className="quantity-minus" onClick={decreaseQuantity}>
-                -
-              </button>
-              <div className="cart-quantity">{cartQuantity}</div>
-              <button className="quantity-add" onClick={increaseQuantity}>
-                +
-              </button>
-            </div>
-            <div className="each-price">${cartPrice(data?.price)}</div>
-          </div>
+          <div>{CurrencyFormatter(data?.price)}</div>
           <div className="cartbuy-btn">
             <button className="buynow-btn">Buy Now</button>
             <button className="addtocart-btn" onClick={() => addToCart(data)}>
