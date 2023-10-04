@@ -8,10 +8,13 @@ function CartContent() {
     cartItems,
     increaseQuantity,
     decreaseQuantity,
+    cartTotalPrice,
   } = useContext(CartContext);
 
+  const cartTotal = cartTotalPrice();
+
   return (
-    <div>
+    <>
       <div
         className={`${showCart ? "cart-overlay" : ""}`}
         onClick={() => setShowCart(false)}
@@ -45,8 +48,15 @@ function CartContent() {
             </div>
           ))}
         </div>
+        <div className="total-cart-price">
+          <h1>Total:</h1>
+          <div className="checkout">
+            <h3>{CurrencyFormatter(cartTotal)}</h3>
+            <button>Checkout</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

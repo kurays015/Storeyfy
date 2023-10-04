@@ -37,7 +37,6 @@ function Products() {
                 alt={data?.title}
                 className="each-slide-img"
                 onMouseEnter={() => handleImageHoverAndClick(image)}
-                onClick={() => handleImageHoverAndClick(image)}
               />
             ))}
           </div>
