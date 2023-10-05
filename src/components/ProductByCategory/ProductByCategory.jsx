@@ -2,6 +2,8 @@ import { useDataFetching } from "../../FetchProductsDetails";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
+import { StarRatings } from "../../utils/StarRatings";
+import { CategoryTitle } from "../../utils/CategoryTitle";
 
 function ProductByCategory({ category }) {
   const productPerCategory = () => {
@@ -16,13 +18,7 @@ function ProductByCategory({ category }) {
 
   return (
     <div className="product-byCategory">
-      <h1 className="category-name">
-        {category
-          .replace("-", " ")
-          .split(" ")
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(" ")}
-      </h1>
+      <h1 className="category-name">{CategoryTitle(category)}</h1>
       <div className="search">
         <label>
           <HiMagnifyingGlass />
@@ -42,8 +38,15 @@ function ProductByCategory({ category }) {
                   <div>
                     <h2 className="product-title">{title}</h2>
                   </div>
-                  <div className="price">{CurrencyFormatter(price)}</div>
-                  <div className="rating">rating: {rating}</div>
+                  <div className="price">
+                    <div>{CurrencyFormatter(price)}</div>
+                    <del>
+                      {CurrencyFormatter(
+                        (price * Math.round(discountPercentage)) / 100 + price
+                      )}
+                    </del>
+                  </div>
+                  <div className="rating">{StarRatings(rating)}</div>
                 </div>
               </div>
             </Link>

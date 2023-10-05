@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { allProducts } from "../../FetchProductsDetails";
 import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
+import { StarRatings } from "../../utils/StarRatings";
 function OurProduct() {
   const [productData, setProductData] = useState([]);
   const { data } = allProducts();
@@ -42,9 +43,16 @@ function OurProduct() {
                 </div>
                 <div className="details">
                   <h4>{title}</h4>
+                  <div>
+                    <h4>{StarRatings(rating)}</h4>
+                  </div>
                   <div className="price-rating">
-                    <p>{CurrencyFormatter(price)}</p>
-                    <h4>Rating: {rating}</h4>
+                    <div>{CurrencyFormatter(price)}</div>
+                    <del>
+                      {CurrencyFormatter(
+                        (price * Math.round(discountPercentage)) / 100 + price
+                      )}
+                    </del>
                   </div>
                   <div className="discount">
                     {Math.round(discountPercentage)}% OFF!

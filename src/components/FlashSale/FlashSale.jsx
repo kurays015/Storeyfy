@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation } from "swiper/modules";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
-
+import { StarRatings } from "../../utils/StarRatings";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -25,10 +25,15 @@ function FlashSale({ allproducts }) {
                 <div>
                   <h2 className="flashsale-title">{title}</h2>
                 </div>
+                <div className="flashsale-rating">{StarRatings(rating)}</div>
                 <div className="flashsale-price">
-                  {CurrencyFormatter(price)}
+                  <div>{CurrencyFormatter(price)}</div>
+                  <del>
+                    {CurrencyFormatter(
+                      (price * Math.round(discountPercentage)) / 100 + price
+                    )}
+                  </del>
                 </div>
-                <div className="flashsale-rating">rating: {rating}</div>
               </div>
             </Link>
           </SwiperSlide>

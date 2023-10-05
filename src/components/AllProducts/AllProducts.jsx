@@ -2,6 +2,7 @@ import { allProducts } from "../../FetchProductsDetails";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { Link } from "react-router-dom";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { StarRatings } from "../../utils/StarRatings";
 function AllProducts({ category }) {
   const { data } = allProducts();
   return (
@@ -28,8 +29,15 @@ function AllProducts({ category }) {
                   <div>
                     <h2 className="product-title">{title}</h2>
                   </div>
-                  <div className="price">{CurrencyFormatter(price)}</div>
-                  <div className="rating">rating: {rating}</div>
+                  <div className="rating">{StarRatings(rating)}</div>
+                  <div className="price">
+                    <div>{CurrencyFormatter(price)}</div>
+                    <del>
+                      {CurrencyFormatter(
+                        (price * Math.round(discountPercentage)) / 100 + price
+                      )}
+                    </del>
+                  </div>
                 </div>
               </div>
             </Link>

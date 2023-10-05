@@ -4,5 +4,6 @@ const CURRENCY_FORMATTER = new Intl.NumberFormat(undefined, {
 });
 
 export function CurrencyFormatter(number) {
+  if (number === undefined) return "...";
   return CURRENCY_FORMATTER.format(number);
 }
