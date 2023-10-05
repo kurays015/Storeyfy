@@ -56,6 +56,10 @@ export const CartProvider = ({ children }) => {
       0
     );
   }
+  function removeProducts(id) {
+    const removeItem = cartItems.filter(item => item.id !== id);
+    setCartItems(removeItem);
+  }
   const value = {
     cartItems,
     setCartItems,
@@ -68,6 +72,7 @@ export const CartProvider = ({ children }) => {
     currentImage,
     setCurrentImage,
     cartTotalPrice,
+    removeProducts,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

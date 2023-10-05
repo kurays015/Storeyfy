@@ -3,6 +3,7 @@ import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { CartContext } from "../../Context/CartContext";
 import emptyCartImg from "/images/emptycart.png";
 import { RxExit } from "react-icons/rx";
+import { HiXMark } from "react-icons/hi2";
 
 function CartContent() {
   const {
@@ -12,6 +13,7 @@ function CartContent() {
     increaseQuantity,
     decreaseQuantity,
     cartTotalPrice,
+    removeProducts,
   } = useContext(CartContext);
 
   const cartTotal = cartTotalPrice();
@@ -35,6 +37,12 @@ function CartContent() {
             <div className="full-cart">
               {cartItems.map(({ id, title, price, thumbnail, quantity }) => (
                 <div className="cart-product-container" key={id}>
+                  <button
+                    className="product-remove"
+                    onClick={() => removeProducts(id)}
+                  >
+                    <HiXMark />
+                  </button>
                   <div className="cart-img-container">
                     <img src={thumbnail} alt={title} className="cart-img" />
                   </div>

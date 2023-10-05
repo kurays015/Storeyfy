@@ -36,8 +36,8 @@ function OurProduct() {
             id,
             category,
           }) => (
-            <Link to={`category/${category}/${id}`}>
-              <div key={id} className="explore-card">
+            <Link to={`category/${category}/${id}`} key={id}>
+              <div className="explore-card">
                 <div className="img-container">
                   <img src={thumbnail} alt={title} className="thumbnail" />
                 </div>

@@ -19,8 +19,8 @@ function AllProducts({ category }) {
       <div className="product-container">
         {data?.products.map(
           ({ title, price, rating, discountPercentage, thumbnail, id }) => (
-            <Link to={`${id}`}>
-              <div key={id} className="product-card">
+            <Link to={`${id}`} key={id}>
+              <div className="product-card">
                 <div className="discount">
                   {Math.round(discountPercentage)}% OFF!
                 </div>
