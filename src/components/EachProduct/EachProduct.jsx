@@ -17,7 +17,6 @@ function Products() {
   };
 
   const { data } = fetchEachProductById();
-  console.log(Math.round(data?.rating));
   useEffect(() => {
     if (data) {
       setCurrentImage(data.thumbnail);
