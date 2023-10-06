@@ -4,9 +4,12 @@ import imgPlaceholder from "/images/placeholder.jpg";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+  //get the cartItems and parse it back
+  const cartItemsFromLocalStorage = JSON.parse(
+    localStorage.getItem("cartItems") || "[]"
+  );
+  const [cartItems, setCartItems] = useState(cartItemsFromLocalStorage);
   const [showCart, setShowCart] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-
   //set the default/main img to placeholder
   const [currentImage, setCurrentImage] = useState(imgPlaceholder);
 
@@ -64,13 +67,6 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
-
-  useEffect(() => {
-    const json = localStorage.getItem("cartItems");
-    if (json) {
-      setCartItems(JSON.parse(json));
-    }
-  }, []);
 
   const value = {
     cartItems,
