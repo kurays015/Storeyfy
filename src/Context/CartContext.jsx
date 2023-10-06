@@ -33,7 +33,6 @@ export const CartProvider = ({ children }) => {
     setCurrentImage(img);
   }
   function addToCart(data) {
-    console.log("sd");
     //data is getting undefined on the first load, need to make sure it,s true
     if (data) {
       //product data that will push to cart

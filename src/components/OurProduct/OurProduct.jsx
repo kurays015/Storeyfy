@@ -1,11 +1,21 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { allProducts } from "../../FetchProductsDetails";
 import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
+//react icons
+import {
+  AiOutlinePlusCircle,
+  AiOutlineHeart,
+  AiFillHeart,
+} from "react-icons/ai";
 function OurProduct() {
   const [productData, setProductData] = useState([]);
   const { data } = allProducts();
+
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     if (data) {
@@ -36,13 +46,18 @@ function OurProduct() {
             id,
             category,
           }) => (
-            <Link to={`category/${category}/${id}`} key={id}>
+            <React.Fragment key={id}>
               <div className="explore-card">
-                <div className="img-container">
-                  <img src={thumbnail} alt={title} className="thumbnail" />
-                </div>
+                <Link to={`category/${category}/${id}`}>
+                  <div className="img-container">
+                    <img src={thumbnail} alt={title} className="thumbnail" />
+                  </div>
+                </Link>
+
                 <div className="details">
-                  <h4>{title}</h4>
+                  <Link to={`category/${category}/${id}`}>
+                    <h4>{title}</h4>
+                  </Link>
                   <div>
                     <h4>{StarRatings(rating)}</h4>
                   </div>
@@ -58,8 +73,19 @@ function OurProduct() {
                     {Math.round(discountPercentage)}% OFF!
                   </div>
                 </div>
+                <div className="shortcut-icons">
+                  <div>
+                    <AiOutlinePlusCircle
+                      className="addToCart-Btn"
+                      onClick={() => addToCart({ id, title, thumbnail, price })}
+                    />
+                  </div>
+                  <div>
+                    <AiOutlineHeart className="addToWishlist-Btn" />
+                  </div>
+                </div>
               </div>
-            </Link>
+            </React.Fragment>
           )
         )}
       </div>

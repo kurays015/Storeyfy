@@ -1,3 +1,4 @@
+import React from "react";
 import { allProducts } from "../../FetchProductsDetails";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { Link } from "react-router-dom";
@@ -29,16 +30,20 @@ function AllProducts({ category }) {
       <div className="product-container">
         {data?.products.map(
           ({ title, price, rating, discountPercentage, thumbnail, id }) => (
-            <Link to={`${id}`} key={id}>
+            <React.Fragment key={id}>
               <div className="product-card">
                 <div className="discount">
                   {Math.round(discountPercentage)}% OFF!
                 </div>
-                <img src={thumbnail} className="product-img" />
+                <Link to={`${id}`}>
+                  <img src={thumbnail} className="product-img" />
+                </Link>
                 <div className="product-details">
-                  <div>
-                    <h2 className="product-title">{title}</h2>
-                  </div>
+                  <Link to={`${id}`}>
+                    <div>
+                      <h2 className="product-title">{title}</h2>
+                    </div>
+                  </Link>
                   <div className="rating">{StarRatings(rating)}</div>
                   <div className="price">
                     <div>{CurrencyFormatter(price)}</div>
@@ -61,7 +66,7 @@ function AllProducts({ category }) {
                   </div>
                 </div>
               </div>
-            </Link>
+            </React.Fragment>
           )
         )}
       </div>

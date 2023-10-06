@@ -1,3 +1,4 @@
+import React from "react";
 import { useDataFetching } from "../../FetchProductsDetails";
 import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
@@ -19,7 +20,7 @@ function ProductByCategory({ category }) {
     );
   };
   const { data, isLoading, isError } = productPerCategory();
-  if (isLoading) return <h1 className="loading">Loading data...</h1>;
+  if (isLoading) return <h1 className="loading">Loading products...</h1>;
   if (isError) return <h1>Error!</h1>;
 
   return (
@@ -34,16 +35,20 @@ function ProductByCategory({ category }) {
       <div className="product-container">
         {data?.products.map(
           ({ title, price, rating, discountPercentage, thumbnail, id }) => (
-            <Link to={`${id}`}>
+            <React.Fragment>
               <div key={id} className="product-card">
                 <div className="discount">
                   {Math.round(discountPercentage)}% OFF!
                 </div>
-                <img src={thumbnail} className="product-img" />
+                <Link to={`${id}`}>
+                  <img src={thumbnail} className="product-img" />
+                </Link>
                 <div className="product-details">
-                  <div>
-                    <h2 className="product-title">{title}</h2>
-                  </div>
+                  <Link to={`${id}`}>
+                    <div>
+                      <h2 className="product-title">{title}</h2>
+                    </div>
+                  </Link>
                   <div className="price">
                     <div>{CurrencyFormatter(price)}</div>
                     <del>
@@ -66,7 +71,7 @@ function ProductByCategory({ category }) {
                   </div>
                 </div>
               </div>
-            </Link>
+            </React.Fragment>
           )
         )}
       </div>

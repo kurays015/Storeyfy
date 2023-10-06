@@ -28,7 +28,6 @@
   border-radius: 10px;
   overflow: hidden;
   transition: all 0.2s ease-in;
-  height: 430px;
 }
 .img-container {
   background-color: red;
@@ -59,7 +58,7 @@
 }
 
 .details {
-  padding: 1em;
+  padding: 0.5em;
 }
 .details h4 {
   font-weight: 500;

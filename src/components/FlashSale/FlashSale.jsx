@@ -4,38 +4,61 @@ import { FreeMode, Navigation } from "swiper/modules";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+//react icons
+import {
+  AiOutlinePlusCircle,
+  AiOutlineHeart,
+  AiFillHeart,
+} from "react-icons/ai";
 
 function FlashSale({ allproducts }) {
+  const { addToCart } = useContext(CartContext);
+
   const fifteenPercentAboveProduct = allproducts?.map(
     ({ discountPercentage, id, title, thumbnail, price, rating, category }) => {
       if (Math.round(discountPercentage) > 15) {
         return (
           <SwiperSlide key={id} className="flashsale-card">
+            <div className="flashsale-discount">
+              {Math.round(discountPercentage)}% OFF!
+            </div>
             <Link to={`category/${category}/${id}`}>
-              <div className="flashsale-discount">
-                {Math.round(discountPercentage)}% OFF!
-              </div>
               <div className="flashsale-img-container">
                 <img src={thumbnail} className="flashsale-img" />
               </div>
-              <div className="flashsale-details">
+            </Link>
+            <div className="flashsale-details">
+              <Link to={`category/${category}/${id}`}>
                 <div>
                   <h2 className="flashsale-title">{title}</h2>
                 </div>
-                <div className="flashsale-rating">{StarRatings(rating)}</div>
-                <div className="flashsale-price">
-                  <div>{CurrencyFormatter(price)}</div>
-                  <del>
-                    {CurrencyFormatter(
-                      price / (1 - Math.round(discountPercentage) / 100)
-                    )}
-                  </del>
+              </Link>
+              <div className="flashsale-rating">{StarRatings(rating)}</div>
+              <div className="flashsale-price">
+                <div>{CurrencyFormatter(price)}</div>
+                <del>
+                  {CurrencyFormatter(
+                    price / (1 - Math.round(discountPercentage) / 100)
+                  )}
+                </del>
+              </div>
+              <div className="shortcut-icons">
+                <div>
+                  <AiOutlinePlusCircle
+                    className="addToCart-Btn"
+                    onClick={() => addToCart({ id, title, thumbnail, price })}
+                  />
+                </div>
+                <div>
+                  <AiOutlineHeart className="addToWishlist-Btn" />
                 </div>
               </div>
-            </Link>
+            </div>
           </SwiperSlide>
         );
       }
