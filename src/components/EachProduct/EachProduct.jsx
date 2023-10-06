@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { useDataFetching } from "../../FetchProductsDetails";
+import { useDataFetching } from "../../utils/FetchProductsDetails";
 import { CartContext } from "../../Context/CartContext";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";

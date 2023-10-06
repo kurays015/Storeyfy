@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   height: 515px;
-  gap: 0.3em;
+  gap: 1.5em;
 }
 
 .home-nav {
@@ -49,7 +49,7 @@
 /* hero img */
 .hero-main {
   display: flex;
-  gap: 0.3em;
+  gap: 1.5em;
   height: 500px;
   width: 100%;
 }
@@ -60,61 +60,61 @@
 .secondImg-container {
   display: flex;
   flex-direction: column;
-  gap: 0.3em;
+  gap: 1.5em;
   height: 100%;
   position: relative;
 }
 .secondImg-container h3 {
   position: absolute;
-  top: 40%;
+  top: 38.5%;
   color: #fcf2e4;
-  font-size: 2rem;
+  font-size: 2.5rem;
   z-index: 2;
   text-transform: uppercase;
 }
 
 .hero-img3 {
   height: 100%;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  border-radius: 3px;
 }
 .hero-img1,
 .hero-img2 {
   height: 100%;
   width: 100%;
+  border-radius: 3px;
 }
 
 .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   transition: all 0.3s ease-in;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 3px;
 }
 .overlay {
-  background-color: rgba(0, 0, 0, 0.3);
-  height: 49.2%;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 47%;
   left: 0;
   position: absolute;
   top: 0;
   transition: all 0.3s ease-in;
   width: 100%;
   z-index: 1;
-  border-radius: 6px;
+  border-radius: 3px;
 }
 .overlay2 {
-  background-color: rgba(0, 0, 0, 0.3);
-  height: 49.5%;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 47.5%;
   left: 0;
   position: absolute;
   bottom: 0;
   transition: all 0.3s ease-in;
   width: 100%;
   z-index: 1;
-  border-radius: 6px;
+  border-radius: 3px;
 }
 .hero-overlay:hover,
 .overlay:hover,
@@ -123,7 +123,6 @@
 }
 .each-container {
   height: 100%;
-  overflow: hidden;
 }
 .each-container,
 .firstImg-container {

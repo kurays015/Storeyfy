@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { allCategories } from "./FetchProductsDetails";
+import { allCategories } from "./utils/FetchProductsDetails";
 
 //context
 import { CartProvider } from "./Context/CartContext";
@@ -16,6 +16,7 @@ import Home from "./pages/Home/Home";
 import Products from "./components/EachProduct/EachProduct";
 import Signup from "./pages/Signup/Signup";
 import AllProducts from "./components/AllProducts/AllProducts";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const { data, isLoading, isError } = allCategories();

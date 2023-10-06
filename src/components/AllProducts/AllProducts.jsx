@@ -1,5 +1,5 @@
 import React from "react";
-import { allProducts } from "../../FetchProductsDetails";
+import { allProducts } from "../../utils/FetchProductsDetails";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { Link } from "react-router-dom";
 import { StarRatings } from "../../utils/StarRatings";

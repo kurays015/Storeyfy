@@ -1,9 +1,10 @@
-import React from "react";
-import { useDataFetching } from "../../FetchProductsDetails";
+import React, { useContext } from "react";
+import { useDataFetching } from "../../utils/FetchProductsDetails";
 import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
 import { CategoryTitle } from "../../utils/CategoryTitle";
+import { CartContext } from "../../Context/CartContext";
 //react icons
 import {
   AiOutlinePlusCircle,
@@ -22,6 +23,8 @@ function ProductByCategory({ category }) {
   const { data, isLoading, isError } = productPerCategory();
   if (isLoading) return <h1 className="loading">Loading products...</h1>;
   if (isError) return <h1>Error!</h1>;
+
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div className="product-byCategory">
