@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import imgPlaceholder from "/images/placeholder.jpg";
 
 export const CartContext = createContext();
@@ -60,6 +60,18 @@ export const CartProvider = ({ children }) => {
     const removeItem = cartItems.filter(item => item.id !== id);
     setCartItems(removeItem);
   }
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  useEffect(() => {
+    const json = localStorage.getItem("cartItems");
+    if (json) {
+      setCartItems(JSON.parse(json));
+    }
+  }, []);
+
   const value = {
     cartItems,
     setCartItems,
