@@ -1,9 +1,15 @@
 import { useDataFetching } from "../../FetchProductsDetails";
-import { HiMagnifyingGlass } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
 import { CategoryTitle } from "../../utils/CategoryTitle";
+//react icons
+import {
+  AiOutlinePlusCircle,
+  AiOutlineHeart,
+  AiFillHeart,
+} from "react-icons/ai";
+import { HiMagnifyingGlass } from "react-icons/hi2";
 
 function ProductByCategory({ category }) {
   const productPerCategory = () => {
@@ -42,11 +48,22 @@ function ProductByCategory({ category }) {
                     <div>{CurrencyFormatter(price)}</div>
                     <del>
                       {CurrencyFormatter(
-                        (price * Math.round(discountPercentage)) / 100 + price
+                        price / (1 - Math.round(discountPercentage) / 100)
                       )}
                     </del>
                   </div>
                   <div className="rating">{StarRatings(rating)}</div>
+                </div>
+                <div className="shortcut-icons">
+                  <div>
+                    <AiOutlinePlusCircle
+                      className="addToCart-Btn"
+                      onClick={() => addToCart({ id, title, thumbnail, price })}
+                    />
+                  </div>
+                  <div>
+                    <AiOutlineHeart className="addToWishlist-Btn" />
+                  </div>
                 </div>
               </div>
             </Link>

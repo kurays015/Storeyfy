@@ -1,10 +1,20 @@
 import { allProducts } from "../../FetchProductsDetails";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { Link } from "react-router-dom";
-import { HiMagnifyingGlass } from "react-icons/hi2";
 import { StarRatings } from "../../utils/StarRatings";
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
+//react icons
+import {
+  AiOutlinePlusCircle,
+  AiOutlineHeart,
+  AiFillHeart,
+} from "react-icons/ai";
+import { HiMagnifyingGlass } from "react-icons/hi2";
+
 function AllProducts({ category }) {
   const { data } = allProducts();
+  const { addToCart } = useContext(CartContext);
   return (
     <div className="all-products-parentContainer">
       <h1 className="category-name">
@@ -34,9 +44,20 @@ function AllProducts({ category }) {
                     <div>{CurrencyFormatter(price)}</div>
                     <del>
                       {CurrencyFormatter(
-                        (price * Math.round(discountPercentage)) / 100 + price
+                        price / (1 - Math.round(discountPercentage) / 100)
                       )}
                     </del>
+                  </div>
+                </div>
+                <div className="shortcut-icons">
+                  <div>
+                    <AiOutlinePlusCircle
+                      className="addToCart-Btn"
+                      onClick={() => addToCart({ id, title, thumbnail, price })}
+                    />
+                  </div>
+                  <div>
+                    <AiOutlineHeart className="addToWishlist-Btn" />
                   </div>
                 </div>
               </div>

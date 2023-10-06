@@ -19,7 +19,6 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
-  height: 350px;
   transition: all 0.2s ease-in;
   cursor: pointer;
   border: 1px solid #eae7e7;

@@ -50,7 +50,7 @@ function OurProduct() {
                     <div>{CurrencyFormatter(price)}</div>
                     <del>
                       {CurrencyFormatter(
-                        (price * Math.round(discountPercentage)) / 100 + price
+                        price / (1 - Math.round(discountPercentage) / 100)
                       )}
                     </del>
                   </div>

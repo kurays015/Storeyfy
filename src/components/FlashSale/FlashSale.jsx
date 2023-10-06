@@ -30,7 +30,7 @@ function FlashSale({ allproducts }) {
                   <div>{CurrencyFormatter(price)}</div>
                   <del>
                     {CurrencyFormatter(
-                      (price * Math.round(discountPercentage)) / 100 + price
+                      price / (1 - Math.round(discountPercentage) / 100)
                     )}
                   </del>
                 </div>
