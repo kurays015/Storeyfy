@@ -10,6 +10,7 @@ export const CartProvider = ({ children }) => {
   );
   const [cartItems, setCartItems] = useState(cartItemsFromLocalStorage);
   const [showCart, setShowCart] = useState(false);
+  const [cartMessage, setCartMessage] = useState(false);
   //set the default/main img to placeholder
   const [currentImage, setCurrentImage] = useState(imgPlaceholder);
 
@@ -33,6 +34,8 @@ export const CartProvider = ({ children }) => {
     setCurrentImage(img);
   }
   function addToCart(data) {
+    //added to cart message
+    setCartMessage(true);
     //data is getting undefined on the first load, need to make sure it,s true
     if (data) {
       //product data that will push to cart
@@ -51,6 +54,11 @@ export const CartProvider = ({ children }) => {
       if (!isAlreadyInTheCart) {
         setCartItems([...cartItems, productToPushInTheCart]);
       }
+
+      // if (cartItems.some(item => item.id === productToPushInTheCart.id)) {
+      //   console.log("already in the cart!");
+      // }
+      setTimeout(() => setCartMessage(false), 4000);
     }
   }
   function cartTotalPrice() {
@@ -81,6 +89,8 @@ export const CartProvider = ({ children }) => {
     setCurrentImage,
     cartTotalPrice,
     removeProducts,
+    cartMessage,
+    setCartMessage,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

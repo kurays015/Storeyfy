@@ -1,5 +1,6 @@
 .main {
   margin: 5em 17em;
+  position: relative;
 }
 .banner {
   display: flex;
@@ -141,4 +142,24 @@
   100% {
     transform: translateX(0);
   }
+}
+.cart-message {
+  background-color: #373737;
+  z-index: 9999;
+  position: fixed;
+  left: 45%;
+  top: 180px;
+  transform: translateY(-1000px);
+  transition: all 300ms ease-in-out;
+  padding: 0.5em 1.5em;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: springgreen;
+  text-align: center;
+}
+.pop-up {
+  transform: translateY(0);
+}
+.hide {
+  transform: translateY(-1000px);
 }
