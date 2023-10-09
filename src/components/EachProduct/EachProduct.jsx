@@ -77,6 +77,8 @@ function Products() {
           </div>
         </div>
       </div>
+      <hr style={{ marginLeft: "13em" }} />
+      <RelatedProducts filtered={filtered} />
     </>
   );
 }

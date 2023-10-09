@@ -1,0 +1,12 @@
+.related-products-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
+}
+.related-products-container a {
+  text-decoration: none;
+  color: #373737;
+}
+.related-title {
+  margin: 0.5em 0;
+}

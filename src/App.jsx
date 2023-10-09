@@ -13,7 +13,7 @@ import CategoryLayout from "./components/Layout/CategoryLayout";
 import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
-import Products from "./components/EachProduct/EachProduct";
+import EachProducts from "./components/EachProduct/EachProduct";
 import Signup from "./pages/Signup/Signup";
 import AllProducts from "./components/AllProducts/AllProducts";
 import Footer from "./components/Footer/Footer";
@@ -44,7 +44,7 @@ function App() {
           path="all-products"
           element={<AllProducts category={category} />}
         />
-        <Route path={`${category}/:id`} element={<Products />} />
+        <Route path={`${category}/:id`} element={<EachProducts />} />
       </Route>
     </React.Fragment>
   ));

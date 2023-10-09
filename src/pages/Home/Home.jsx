@@ -12,7 +12,6 @@ import img3 from "/images/shop3.jpg";
 //react icons
 import { allProducts } from "../../utils/FetchProductsDetails";
 import { BsArrowRight } from "react-icons/bs";
-import Footer from "../../components/Footer/Footer";
 
 function Home() {
   const { data } = allProducts();
@@ -51,7 +50,6 @@ function Home() {
         <EcomBanner />
         <OurProduct />
       </div>
-      <Footer />
     </>
   );
 }
