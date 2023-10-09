@@ -28,3 +28,17 @@ export const allCategories = () => {
     "https://dummyjson.com/products/categories"
   );
 };
+
+export const fetchEachProductById = id => {
+  return useDataFetching(
+    `eachProduct-${id}`,
+    `https://dummyjson.com/products/${id}`
+  );
+};
+
+export const productPerCategory = category => {
+  return useDataFetching(
+    `getProductsByCategory-${category}`,
+    `https://dummyjson.com/products/category/${category}`
+  );
+};

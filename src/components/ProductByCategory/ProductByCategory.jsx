@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { useDataFetching } from "../../utils/FetchProductsDetails";
 import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
 import { CategoryTitle } from "../../utils/CategoryTitle";
 import { CartContext } from "../../Context/CartContext";
+import { productPerCategory } from "../../utils/FetchProductsDetails";
 //react icons
 import {
   AiOutlinePlusCircle,
@@ -14,13 +14,7 @@ import {
 import { HiMagnifyingGlass } from "react-icons/hi2";
 
 function ProductByCategory({ category }) {
-  const productPerCategory = () => {
-    return useDataFetching(
-      `getProductsByCategory-${category}`,
-      `https://dummyjson.com/products/category/${category}`
-    );
-  };
-  const { data, isLoading, isError } = productPerCategory();
+  const { data, isLoading, isError } = productPerCategory(category);
   if (isLoading) return <h1 className="loading">Loading products...</h1>;
   if (isError) return <h1>Error!</h1>;
 
