@@ -5,11 +5,19 @@ import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
 
 function Layout() {
-  const { cartMessage } = useContext(CartContext);
+  const { alreadyInTheCart, showCartMessage, shake } = useContext(CartContext);
   return (
     <div style={{ position: "relative" }}>
-      <div className={`cart-message ${cartMessage ? "pop-up" : "hide"}`}>
-        <p> Item has been added to cart</p>
+      <div
+        className={`cart-message ${showCartMessage ? "show" : ""} ${
+          shake ? "shake-element" : ""
+        }`}
+      >
+        <p>
+          {alreadyInTheCart
+            ? "Item is already in the cart!"
+            : "Item has been added to cart."}
+        </p>
       </div>
       <CartContent />
       <Navigation />
