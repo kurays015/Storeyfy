@@ -1,11 +1,10 @@
 import Navigation from "../HeaderNav/Navigation";
 import CartContent from "../../components/CartContent/CartContent";
 import { Outlet } from "react-router-dom";
-import { CartContext } from "../../Context/CartContext";
-import { useContext } from "react";
+import { useCart } from "../../Context/CartContext";
 import Footer from "../Footer/Footer";
 function Layout() {
-  const { alreadyInTheCart, showCartMessage, shake } = useContext(CartContext);
+  const { alreadyInTheCart, showCartMessage, shake } = useCart();
   return (
     <div style={{ position: "relative" }}>
       <div

@@ -1,18 +1,18 @@
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { CartContext } from "../../Context/CartContext";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
 import { fetchEachProductById } from "../../utils/FetchProductsDetails";
 import { productPerCategory } from "../../utils/FetchProductsDetails";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
+import { useCart } from "../../Context/CartContext";
 
 function Products() {
   const { id } = useParams();
   const { data } = fetchEachProductById(id);
   const { data: relatedProducts } = productPerCategory(data?.category);
   const { handleImageHoverAndClick, currentImage, setCurrentImage, addToCart } =
-    useContext(CartContext);
+    useCart();
 
   useEffect(() => {
     if (data) {

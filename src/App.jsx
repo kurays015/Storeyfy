@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { allCategories } from "./utils/FetchProductsDetails";
 
-//context
-import { CartProvider } from "./Context/CartContext";
-
 //components
 import Layout from "./components/Layout/Layout";
 import ProductByCategory from "./components/ProductByCategory/ProductByCategory";
@@ -16,7 +13,6 @@ import Home from "./pages/Home/Home";
 import EachProducts from "./components/EachProduct/EachProduct";
 import Signup from "./pages/Signup/Signup";
 import AllProducts from "./components/AllProducts/AllProducts";
-import Footer from "./components/Footer/Footer";
 
 function App() {
   const { data, isLoading, isError } = allCategories();
@@ -51,17 +47,15 @@ function App() {
 
   return (
     <Router>
-      <CartProvider>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/signup" element={<Signup />} />
-            {productCategoryRoute}
-          </Route>
-        </Routes>
-      </CartProvider>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/signup" element={<Signup />} />
+          {productCategoryRoute}
+        </Route>
+      </Routes>
     </Router>
   );
 }

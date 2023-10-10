@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
 import { CategoryTitle } from "../../utils/CategoryTitle";
-import { CartContext } from "../../Context/CartContext";
 import { productPerCategory } from "../../utils/FetchProductsDetails";
+import { useCart } from "../../Context/CartContext";
 //react icons
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
@@ -15,7 +15,7 @@ function ProductByCategory({ category }) {
   if (isLoading) return <h1 className="loading">Loading products...</h1>;
   if (isError) return <h1>Error!</h1>;
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCart();
 
   return (
     <div className="product-byCategory">

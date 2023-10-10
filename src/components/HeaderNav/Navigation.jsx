@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { BsCart2, BsHeart } from "react-icons/bs";
-import { useContext } from "react";
-import { CartContext } from "../../Context/CartContext";
+import { useCart } from "../../Context/CartContext";
 
 function Navigation() {
-  const { setShowCart, cartItems } = useContext(CartContext);
+  const { setShowCart, cartItems } = useCart();
 
   return (
     <header>

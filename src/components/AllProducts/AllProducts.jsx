@@ -3,16 +3,18 @@ import { allProducts } from "../../utils/FetchProductsDetails";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { Link } from "react-router-dom";
 import { StarRatings } from "../../utils/StarRatings";
-import { useContext } from "react";
-import { CartContext } from "../../Context/CartContext";
+import { useCart } from "../../Context/CartContext";
 //react icons
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { useWishList } from "../../Context/WishlistContext";
 
 function AllProducts({ category }) {
   const { data } = allProducts();
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCart();
+  const { count } = useWishList();
+  console.log(count);
   return (
     <div className="all-products-parentContainer">
       <h1 className="category-name">

@@ -1,13 +1,12 @@
 import { StarRatings } from "../../utils/StarRatings";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
-import { CartContext } from "../../Context/CartContext";
-import { useContext } from "react";
+import { useCart } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
 //react icons
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 function RelatedProducts({ filtered }) {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCart();
   return (
     <div style={{ margin: "5em 0 0 13em" }}>
       <h1 className="related-title">Related Products</h1>
@@ -23,7 +22,7 @@ function RelatedProducts({ filtered }) {
             category,
           }) => (
             <div className="explore-card" key={id}>
-              <Link to={`${id}`}>
+              <Link to={`/category/${category}/${id}`}>
                 <div className="img-container">
                   <img src={thumbnail} alt={title} className="thumbnail" />
                 </div>

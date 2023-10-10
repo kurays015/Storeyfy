@@ -1,8 +1,10 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import imgPlaceholder from "/images/placeholder.jpg";
+const CartContext = createContext();
 
-export const CartContext = createContext();
-
+export function useCart() {
+  return useContext(CartContext);
+}
 export const CartProvider = ({ children }) => {
   //get the cartItems and parse it back
   const cartItemsFromLocalStorage = JSON.parse(
@@ -15,7 +17,6 @@ export const CartProvider = ({ children }) => {
   const [shake, setShake] = useState(false);
   //set the default/main img to placeholder
   const [currentImage, setCurrentImage] = useState(imgPlaceholder);
-
   function increaseQuantity(id) {
     setCartItems(prevCartItems =>
       prevCartItems.map(item =>
@@ -76,7 +77,6 @@ export const CartProvider = ({ children }) => {
     const removeItem = cartItems.filter(item => item.id !== id);
     setCartItems(removeItem);
   }
-
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);

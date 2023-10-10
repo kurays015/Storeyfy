@@ -4,8 +4,7 @@ import { FreeMode, Navigation } from "swiper/modules";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
-import { useContext } from "react";
-import { CartContext } from "../../Context/CartContext";
+import { useCart } from "../../Context/CartContext";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,7 +13,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 
 function FlashSale({ allproducts }) {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCart();
 
   const fifteenPercentAboveProduct = allproducts?.map(
     ({ discountPercentage, id, title, thumbnail, price, rating, category }) => {
