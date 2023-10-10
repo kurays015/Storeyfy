@@ -11,9 +11,11 @@ import "swiper/css/navigation";
 //react icons
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
+import { useWishList } from "../../Context/WishlistContext";
 
 function FlashSale({ allproducts }) {
   const { addToCart } = useCart();
+  const { addToWishList } = useWishList();
 
   const fifteenPercentAboveProduct = allproducts?.map(
     ({ discountPercentage, id, title, thumbnail, price, rating, category }) => {
@@ -51,7 +53,12 @@ function FlashSale({ allproducts }) {
                   />
                 </div>
                 <div>
-                  <AiOutlineHeart className="addToWishlist-Btn" />
+                  <AiOutlineHeart
+                    className="addToWishlist-Btn"
+                    onClick={() =>
+                      addToWishList({ id, title, thumbnail, price })
+                    }
+                  />
                 </div>
               </div>
             </div>

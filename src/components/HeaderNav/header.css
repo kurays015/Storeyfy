@@ -42,10 +42,12 @@ header nav ul li {
   font-size: 1.3em;
   cursor: pointer;
 }
-.cart-icon {
+.cart-icon,
+.wishlist-icon {
   position: relative;
 }
-.cart-icon div {
+.cart-icon div,
+.wishlist-icon div {
   position: absolute;
   height: 15px;
   width: 15px;

@@ -13,6 +13,7 @@ import Home from "./pages/Home/Home";
 import EachProducts from "./components/EachProduct/EachProduct";
 import Signup from "./pages/Signup/Signup";
 import AllProducts from "./components/AllProducts/AllProducts";
+import WishList from "./components/WishListContent/WishListContent";
 
 function App() {
   const { data, isLoading, isError } = allCategories();
@@ -54,6 +55,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<Signup />} />
           {productCategoryRoute}
+          <Route path="/wishlist" element={<WishList />} />
         </Route>
       </Routes>
     </Router>

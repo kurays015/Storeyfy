@@ -13,8 +13,7 @@ import { useWishList } from "../../Context/WishlistContext";
 function AllProducts({ category }) {
   const { data } = allProducts();
   const { addToCart } = useCart();
-  const { count } = useWishList();
-  console.log(count);
+  const { addToWishList } = useWishList();
   return (
     <div className="all-products-parentContainer">
       <h1 className="category-name">
@@ -61,7 +60,12 @@ function AllProducts({ category }) {
                     />
                   </div>
                   <div>
-                    <AiOutlineHeart className="addToWishlist-Btn" />
+                    <AiOutlineHeart
+                      className="addToWishlist-Btn"
+                      onClick={() =>
+                        addToWishList({ id, title, thumbnail, price })
+                      }
+                    />
                   </div>
                 </div>
               </div>

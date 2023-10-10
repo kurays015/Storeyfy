@@ -9,6 +9,7 @@ import { useCart } from "../../Context/CartContext";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { useWishList } from "../../Context/WishlistContext";
 
 function ProductByCategory({ category }) {
   const { data, isLoading, isError } = productPerCategory(category);
@@ -16,6 +17,7 @@ function ProductByCategory({ category }) {
   if (isError) return <h1>Error!</h1>;
 
   const { addToCart } = useCart();
+  const { addToWishList } = useWishList();
 
   return (
     <div className="product-byCategory">
@@ -61,7 +63,12 @@ function ProductByCategory({ category }) {
                     />
                   </div>
                   <div>
-                    <AiOutlineHeart className="addToWishlist-Btn" />
+                    <AiOutlineHeart
+                      className="addToWishlist-Btn"
+                      onClick={() =>
+                        addToWishList({ id, title, thumbnail, price })
+                      }
+                    />
                   </div>
                 </div>
               </div>

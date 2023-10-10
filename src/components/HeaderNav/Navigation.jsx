@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { BsCart2, BsHeart } from "react-icons/bs";
 import { useCart } from "../../Context/CartContext";
+import { useWishList } from "../../Context/WishlistContext";
 
 function Navigation() {
   const { setShowCart, cartItems } = useCart();
-
+  const { wishListItems } = useWishList();
   return (
     <header>
       <Link to="/">
@@ -30,8 +31,9 @@ function Navigation() {
         </ul>
       </nav>
       <div className="header-cart-save-container">
-        <Link to="/Wishlist">
-          <h3>
+        <Link to="/wishlist">
+          <h3 className="wishlist-icon">
+            {wishListItems.length ? <div>{wishListItems.length}</div> : ""}
             <BsHeart className="addto-wishlist" />
           </h3>
         </Link>

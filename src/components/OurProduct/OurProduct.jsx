@@ -7,12 +7,14 @@ import { useCart } from "../../Context/CartContext";
 //react icons
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
+import { useWishList } from "../../Context/WishlistContext";
 
 function OurProduct() {
   const [productData, setProductData] = useState([]);
   const { data } = allProducts();
 
   const { addToCart } = useCart();
+  const { addToWishList } = useWishList();
 
   useEffect(() => {
     if (data) {
@@ -78,7 +80,12 @@ function OurProduct() {
                     />
                   </div>
                   <div>
-                    <AiOutlineHeart className="addToWishlist-Btn" />
+                    <AiOutlineHeart
+                      className="addToWishlist-Btn"
+                      onClick={() =>
+                        addToWishList({ id, title, thumbnail, price })
+                      }
+                    />
                   </div>
                 </div>
               </div>
