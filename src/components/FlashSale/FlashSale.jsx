@@ -48,12 +48,14 @@ function FlashSale({ allproducts }) {
               <div className="shortcut-icons">
                 <div>
                   <FaCartPlus
+                    title="add to cart"
                     className="addToCart-Btn"
                     onClick={() => addToCart({ id, title, thumbnail, price })}
                   />
                 </div>
                 <div>
                   <AiOutlineHeart
+                    title="add to wishlist"
                     className="addToWishlist-Btn"
                     onClick={() =>
                       addToWishList({ id, title, thumbnail, price })

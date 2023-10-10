@@ -21,7 +21,7 @@ function Layout() {
       <CartContent />
       <Navigation />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

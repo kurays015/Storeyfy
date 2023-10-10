@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-import { useCart } from "../Context/CartContext";
+import { createContext, useContext, useState, useEffect } from "react";
+import { useCart } from "./CartContext";
 
 const WishlistContext = createContext();
 
@@ -8,7 +8,12 @@ export function useWishList() {
 }
 
 export function WishlistProvider({ children }) {
-  const [wishListItems, setWishListItems] = useState([]);
+  const wishListItemsFromLocalStorage = JSON.parse(
+    localStorage.getItem("wishListItems") || "[]"
+  );
+  const [wishListItems, setWishListItems] = useState(
+    wishListItemsFromLocalStorage
+  );
   const [alreadyInTheWishlist, setAlreadyInTheWishlist] = useState(false);
   const [showWishlistMessage, setShowWishlistMessage] = useState(false);
   const { setShake } = useCart();
@@ -43,6 +48,11 @@ export function WishlistProvider({ children }) {
     setShowWishlistMessage(true);
     setTimeout(() => setShowWishlistMessage(false), 3000);
   }
+
+  useEffect(() => {
+    localStorage.setItem("wishListItems", JSON.stringify(wishListItems));
+  }, [wishListItems]);
+
   const value = { addToWishList, wishListItems };
   return (
     <WishlistContext.Provider value={value}>
