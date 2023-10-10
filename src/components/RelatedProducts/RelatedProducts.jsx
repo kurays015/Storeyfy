@@ -2,13 +2,10 @@ import { StarRatings } from "../../utils/StarRatings";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
-import {
-  AiOutlinePlusCircle,
-  AiOutlineHeart,
-  AiFillHeart,
-} from "react-icons/ai";
 import { Link } from "react-router-dom";
-import Footer from "../Footer/Footer";
+//react icons
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { FaCartPlus } from "react-icons/fa";
 function RelatedProducts({ filtered }) {
   const { addToCart } = useContext(CartContext);
   return (
@@ -26,14 +23,14 @@ function RelatedProducts({ filtered }) {
             category,
           }) => (
             <div className="explore-card" key={id}>
-              <Link to={`category/${category}/${id}`}>
+              <Link to={`${id}`}>
                 <div className="img-container">
                   <img src={thumbnail} alt={title} className="thumbnail" />
                 </div>
               </Link>
 
               <div className="details">
-                <Link to={`category/${category}/${id}`}>
+                <Link to={`${id}`}>
                   <h4>{title}</h4>
                 </Link>
                 <div>
@@ -53,7 +50,7 @@ function RelatedProducts({ filtered }) {
               </div>
               <div className="shortcut-icons">
                 <div>
-                  <AiOutlinePlusCircle
+                  <FaCartPlus
                     className="addToCart-Btn"
                     onClick={() => addToCart({ id, title, thumbnail, price })}
                   />

@@ -10,11 +10,8 @@ import { CartContext } from "../../Context/CartContext";
 import "swiper/css";
 import "swiper/css/navigation";
 //react icons
-import {
-  AiOutlinePlusCircle,
-  AiOutlineHeart,
-  AiFillHeart,
-} from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { FaCartPlus } from "react-icons/fa";
 
 function FlashSale({ allproducts }) {
   const { addToCart } = useContext(CartContext);
@@ -49,7 +46,7 @@ function FlashSale({ allproducts }) {
               </div>
               <div className="shortcut-icons">
                 <div>
-                  <AiOutlinePlusCircle
+                  <FaCartPlus
                     className="addToCart-Btn"
                     onClick={() => addToCart({ id, title, thumbnail, price })}
                   />

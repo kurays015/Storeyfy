@@ -6,11 +6,9 @@ import { StarRatings } from "../../utils/StarRatings";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 //react icons
-import {
-  AiOutlinePlusCircle,
-  AiOutlineHeart,
-  AiFillHeart,
-} from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { FaCartPlus } from "react-icons/fa";
+
 function OurProduct() {
   const [productData, setProductData] = useState([]);
   const { data } = allProducts();
@@ -75,7 +73,7 @@ function OurProduct() {
                 </div>
                 <div className="shortcut-icons">
                   <div>
-                    <AiOutlinePlusCircle
+                    <FaCartPlus
                       className="addToCart-Btn"
                       onClick={() => addToCart({ id, title, thumbnail, price })}
                     />

@@ -6,11 +6,8 @@ import { CategoryTitle } from "../../utils/CategoryTitle";
 import { CartContext } from "../../Context/CartContext";
 import { productPerCategory } from "../../utils/FetchProductsDetails";
 //react icons
-import {
-  AiOutlinePlusCircle,
-  AiOutlineHeart,
-  AiFillHeart,
-} from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { FaCartPlus } from "react-icons/fa";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 
 function ProductByCategory({ category }) {
@@ -58,7 +55,7 @@ function ProductByCategory({ category }) {
                 </div>
                 <div className="shortcut-icons">
                   <div>
-                    <AiOutlinePlusCircle
+                    <FaCartPlus
                       className="addToCart-Btn"
                       onClick={() => addToCart({ id, title, thumbnail, price })}
                     />
