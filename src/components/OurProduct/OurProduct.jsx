@@ -85,7 +85,15 @@ function OurProduct() {
                       title="add to wishlist"
                       className="addToWishlist-Btn"
                       onClick={() =>
-                        addToWishList({ id, title, thumbnail, price })
+                        addToWishList({
+                          id,
+                          title,
+                          thumbnail,
+                          price,
+                          rating,
+                          discountPercentage,
+                          category,
+                        })
                       }
                     />
                   </div>

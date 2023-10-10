@@ -30,7 +30,15 @@ function ProductByCategory({ category }) {
       </div>
       <div className="product-container">
         {data?.products.map(
-          ({ title, price, rating, discountPercentage, thumbnail, id }) => (
+          ({
+            title,
+            price,
+            rating,
+            discountPercentage,
+            thumbnail,
+            id,
+            category,
+          }) => (
             <React.Fragment>
               <div key={id} className="product-card">
                 <div className="discount">
@@ -68,7 +76,15 @@ function ProductByCategory({ category }) {
                       title="add to wishlist"
                       className="addToWishlist-Btn"
                       onClick={() =>
-                        addToWishList({ id, title, thumbnail, price })
+                        addToWishList({
+                          id,
+                          title,
+                          thumbnail,
+                          price,
+                          rating,
+                          discountPercentage,
+                          category,
+                        })
                       }
                     />
                   </div>

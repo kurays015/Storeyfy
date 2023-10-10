@@ -23,19 +23,22 @@ export function WishlistProvider({ children }) {
     //data is getting undefined on the first load, need to make sure it,s true
     if (data) {
       //product data that will push to cart
-      const productToPushInTheCart = {
+      const productToPushInTheWishlist = {
         id: data.id,
         title: data.title,
         thumbnail: data.thumbnail,
         price: data.price,
+        discount: data.discountPercentage,
+        rating: data.rating,
+        category: data.category,
       };
       //check if the product is already in the cart
       const isAlreadyInTheWishlist = wishListItems.find(
-        item => item.id === productToPushInTheCart.id
+        item => item.id === productToPushInTheWishlist.id
       );
       //if it's not in the cart
       if (!isAlreadyInTheWishlist) {
-        setWishListItems([...wishListItems, productToPushInTheCart]);
+        setWishListItems([...wishListItems, productToPushInTheWishlist]);
       } else {
         //if already in the cart
         setAlreadyInTheWishlist(true);
@@ -53,6 +56,7 @@ export function WishlistProvider({ children }) {
     localStorage.setItem("wishListItems", JSON.stringify(wishListItems));
   }, [wishListItems]);
 
+  console.log(wishListItems);
   const value = { addToWishList, wishListItems };
   return (
     <WishlistContext.Provider value={value}>
