@@ -5,31 +5,42 @@ import { useCart } from "../../Context/CartContext";
 import Footer from "../Footer/Footer";
 import { useWishList } from "../../Context/WishlistContext";
 function Layout() {
-  const { alreadyInTheCart, showCartMessage, shake } = useCart();
-  const { alreadyInTheWishlist, showWishlistMessage } = useWishList();
-  return (
-    <div style={{ position: "relative" }}>
-      <div
-        className={`cart-message ${showCartMessage ? "show" : ""} ${
-          shake ? "shake-element" : ""
-        }`}
-      >
+  const {
+    alreadyInTheCart,
+    showCartMessage,
+    shake,
+    showWishlistMessage,
+    showMessageContainer,
+  } = useCart();
+  const { alreadyInTheWishlist } = useWishList();
+
+  function messageNotif() {
+    if (showCartMessage) {
+      return (
         <p>
           {alreadyInTheCart
             ? "Item is already in the cart!"
             : "Item has been added to cart."}
         </p>
-      </div>
-      <div
-        className={`wishlist-message ${showWishlistMessage ? "show" : ""} ${
-          shake ? "shake-element" : ""
-        }`}
-      >
+      );
+    } else if (showWishlistMessage) {
+      return (
         <p>
           {alreadyInTheWishlist
             ? "Item is already in the wishlist!"
             : "Item has been added to wishlist."}
         </p>
+      );
+    }
+  }
+  return (
+    <div style={{ position: "relative" }}>
+      <div
+        className={`message-notif ${showMessageContainer ? "show" : ""} ${
+          shake ? "shake-element" : ""
+        }`}
+      >
+        {messageNotif()}
       </div>
       <CartContent />
       <Navigation />

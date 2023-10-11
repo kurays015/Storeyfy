@@ -15,10 +15,15 @@ export function WishlistProvider({ children }) {
     wishListItemsFromLocalStorage
   );
   const [alreadyInTheWishlist, setAlreadyInTheWishlist] = useState(false);
-  const [showWishlistMessage, setShowWishlistMessage] = useState(false);
-  const { setShake } = useCart();
+  const {
+    setShake,
+    setShowCartMessage,
+    setShowWishlistMessage,
+    setShowMessageContainer,
+  } = useCart();
 
   function addToWishList(data) {
+    setShowCartMessage(false);
     setAlreadyInTheWishlist(false);
     //data is getting undefined on the first load, need to make sure it,s true
     if (data) {
@@ -49,7 +54,8 @@ export function WishlistProvider({ children }) {
     }
     //added to cart message
     setShowWishlistMessage(true);
-    setTimeout(() => setShowWishlistMessage(false), 3000);
+    setShowMessageContainer(true);
+    setTimeout(() => setShowMessageContainer(false), 3000);
   }
 
   useEffect(() => {
@@ -60,7 +66,6 @@ export function WishlistProvider({ children }) {
     addToWishList,
     wishListItems,
     alreadyInTheWishlist,
-    showWishlistMessage,
   };
   return (
     <WishlistContext.Provider value={value}>

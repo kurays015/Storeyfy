@@ -14,6 +14,8 @@ export const CartProvider = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [alreadyInTheCart, setAlreadyInTheCart] = useState(false);
   const [showCartMessage, setShowCartMessage] = useState(false);
+  const [showWishlistMessage, setShowWishlistMessage] = useState(false);
+  const [showMessageContainer, setShowMessageContainer] = useState(false);
   const [shake, setShake] = useState(false);
   //set the default/main img to placeholder
   const [currentImage, setCurrentImage] = useState(imgPlaceholder);
@@ -38,6 +40,7 @@ export const CartProvider = ({ children }) => {
   }
   function addToCart(data) {
     setAlreadyInTheCart(false);
+    setShowWishlistMessage(false);
     //data is getting undefined on the first load, need to make sure it,s true
     if (data) {
       //product data that will push to cart
@@ -65,7 +68,8 @@ export const CartProvider = ({ children }) => {
     }
     //added to cart message
     setShowCartMessage(true);
-    setTimeout(() => setShowCartMessage(false), 3000);
+    setShowMessageContainer(true);
+    setTimeout(() => setShowMessageContainer(false), 3000);
   }
   function cartTotalPrice() {
     return cartItems.reduce(
@@ -98,6 +102,11 @@ export const CartProvider = ({ children }) => {
     showCartMessage,
     setShake,
     shake,
+    setShowCartMessage,
+    showWishlistMessage,
+    setShowWishlistMessage,
+    showMessageContainer,
+    setShowMessageContainer,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
