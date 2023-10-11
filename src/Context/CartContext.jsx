@@ -96,6 +96,7 @@ export const CartProvider = ({ children }) => {
     removeProducts,
     alreadyInTheCart,
     showCartMessage,
+    setShake,
     shake,
   };
 

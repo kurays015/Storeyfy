@@ -56,8 +56,12 @@ export function WishlistProvider({ children }) {
     localStorage.setItem("wishListItems", JSON.stringify(wishListItems));
   }, [wishListItems]);
 
-  console.log(wishListItems);
-  const value = { addToWishList, wishListItems };
+  const value = {
+    addToWishList,
+    wishListItems,
+    alreadyInTheWishlist,
+    showWishlistMessage,
+  };
   return (
     <WishlistContext.Provider value={value}>
       {children}
