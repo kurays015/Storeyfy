@@ -57,6 +57,10 @@ export function WishlistProvider({ children }) {
     setShowMessageContainer(true);
     setTimeout(() => setShowMessageContainer(false), 3000);
   }
+  function removeFromWishlist(id) {
+    const remove = wishListItems.filter(item => item.id !== id);
+    setWishListItems(remove);
+  }
 
   useEffect(() => {
     localStorage.setItem("wishListItems", JSON.stringify(wishListItems));
@@ -66,6 +70,7 @@ export function WishlistProvider({ children }) {
     addToWishList,
     wishListItems,
     alreadyInTheWishlist,
+    removeFromWishlist,
   };
   return (
     <WishlistContext.Provider value={value}>
