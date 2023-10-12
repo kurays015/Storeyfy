@@ -1,12 +1,23 @@
 footer {
   padding: 3em 10em;
-  background-image: url("/public/images/newsletter.jpg");
+  background-image: url("/images/newsletter.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   justify-content: space-around;
-  height: 30vh;
 }
+/* .myFooter {
+  width: 100%;
+} */
+.static {
+  position: static;
+}
+.fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 footer h3 {
   margin-bottom: 0.5em 0;
   color: #000000;

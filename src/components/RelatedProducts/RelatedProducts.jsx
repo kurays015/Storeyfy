@@ -10,7 +10,7 @@ function RelatedProducts({ filtered }) {
   const { addToCart } = useCart();
   const { addToWishList } = useWishList();
   return (
-    <div style={{ margin: "5em 0 0 13em" }}>
+    <div>
       <h1 className="related-title">Related Products</h1>
       <div className="related-products-container">
         {filtered.map(

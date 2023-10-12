@@ -1,7 +1,5 @@
 .each-productContainer {
   margin: 2em 0 2em 13em;
-  display: flex;
-  gap: 1em;
   width: 100%;
 }
 .main-img-container {

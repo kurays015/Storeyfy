@@ -5,6 +5,7 @@ import { useCart } from "../../Context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
 //react icons
 import { FaCartArrowDown } from "react-icons/fa";
+import Footer from "../Footer/Footer";
 function WishList() {
   const { wishListItems } = useWishList();
   const { addToCart } = useCart();

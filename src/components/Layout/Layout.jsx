@@ -2,8 +2,8 @@ import Navigation from "../HeaderNav/Navigation";
 import CartContent from "../../components/CartContent/CartContent";
 import { Outlet } from "react-router-dom";
 import { useCart } from "../../Context/CartContext";
-import Footer from "../Footer/Footer";
 import { useWishList } from "../../Context/WishlistContext";
+import Footer from "../Footer/Footer";
 function Layout() {
   const {
     alreadyInTheCart,
@@ -14,7 +14,7 @@ function Layout() {
   } = useCart();
   const { alreadyInTheWishlist } = useWishList();
 
-  function messageNotif() {
+  function showMessageNotif() {
     if (showCartMessage) {
       return (
         <p>
@@ -34,13 +34,13 @@ function Layout() {
     }
   }
   return (
-    <div style={{ position: "relative" }}>
+    <div className="layout-container">
       <div
         className={`message-notif ${showMessageContainer ? "show" : ""} ${
           shake ? "shake-element" : ""
         }`}
       >
-        {messageNotif()}
+        {showMessageNotif()}
       </div>
       <CartContent />
       <Navigation />

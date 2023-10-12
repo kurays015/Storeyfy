@@ -12,45 +12,44 @@ import img3 from "/images/shop3.jpg";
 //react icons
 import { allProducts } from "../../utils/FetchProductsDetails";
 import { BsArrowRight } from "react-icons/bs";
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
   const { data } = allProducts();
   return (
-    <>
-      <div className="main">
-        <div className="banner">
-          <div className="show-now">
-            <div className="hero-main">
-              <div className="firstImg-container">
-                <div className="hero-overlay"></div>
-                <div className="shopnow-btn-container">
-                  <Link to="category/all-products" className="shopnow-btn">
-                    Shop now!
-                  </Link>
-                  <BsArrowRight className="arrow" />
-                </div>
-                <img src={img3} className="hero-img3" />
+    <div className="main">
+      <div className="banner">
+        <div className="show-now">
+          <div className="hero-main">
+            <div className="firstImg-container">
+              <div className="hero-overlay"></div>
+              <div className="shopnow-btn-container">
+                <Link to="category/all-products" className="shopnow-btn">
+                  Shop now!
+                </Link>
+                <BsArrowRight className="arrow" />
               </div>
-              <div className="secondImg-container">
-                <h3>Shop anywhere online!</h3>
-                <div className="each-container">
-                  <div className="overlay"></div>
-                  <img src={img1} className="hero-img1" />
-                </div>
-                <div className="each-container">
-                  <div className="overlay2"></div>
-                  <img src={img2} className="hero-img2" />
-                </div>
+              <img src={img3} className="hero-img3" />
+            </div>
+            <div className="secondImg-container">
+              <h3>Shop anywhere online!</h3>
+              <div className="each-container">
+                <div className="overlay"></div>
+                <img src={img1} className="hero-img1" />
+              </div>
+              <div className="each-container">
+                <div className="overlay2"></div>
+                <img src={img2} className="hero-img2" />
               </div>
             </div>
           </div>
-          <Carousel />
         </div>
-        <FlashSale allproducts={data?.products} />
-        <EcomBanner />
-        <OurProduct />
+        <Carousel />
       </div>
-    </>
+      <FlashSale allproducts={data?.products} />
+      <EcomBanner />
+      <OurProduct />
+    </div>
   );
 }
 

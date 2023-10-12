@@ -9,6 +9,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useWishList } from "../../Context/WishlistContext";
+import Footer from "../Footer/Footer";
 
 function AllProducts({ category }) {
   const { data } = allProducts();

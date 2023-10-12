@@ -5,10 +5,14 @@ import {
   BiLogoGooglePlus,
   BiLogoYoutube,
 } from "react-icons/bi";
+import { useLocation } from "react-router-dom";
 
 function Footer() {
+  const homeRoute = location.pathname === "/";
+  const categoryRoute = location.pathname === "/category/all-products";
+
   return (
-    <>
+    <div className={`${homeRoute || categoryRoute ? "static" : "fixed"}`}>
       <footer>
         <div className="footer-subscribe">
           <h1>Storeyfy</h1>
@@ -90,7 +94,7 @@ function Footer() {
       <div className="copyright">
         <h5>Copyright © 2023. All rights are reserved</h5>
       </div>
-    </>
+    </div>
   );
 }
 
