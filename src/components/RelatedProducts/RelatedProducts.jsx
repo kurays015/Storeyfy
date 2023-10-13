@@ -11,7 +11,10 @@ function RelatedProducts({ filtered }) {
   const { addToWishList } = useWishList();
   return (
     <div>
-      <h1 className="related-title">Related Products</h1>
+      <div className="topic">
+        <div className="blank"></div>
+        <h5>Related Items</h5>
+      </div>
       <div className="related-products-container">
         {filtered.map(
           ({

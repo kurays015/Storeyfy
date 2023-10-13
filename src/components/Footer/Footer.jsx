@@ -14,7 +14,7 @@ function Footer({ newCopyOfCategories }) {
     .some(category => location.pathname === `/category/${category}`);
 
   return (
-    <div className={`${isEachCategoryRoute ? "fixed" : "static"}`}>
+    <div className={`myFooter ${isEachCategoryRoute ? "fixed" : "static"}`}>
       <footer>
         <div className="footer-subscribe">
           <h1>Storeyfy</h1>

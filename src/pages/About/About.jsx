@@ -1,7 +1,6 @@
-import Footer from "../../components/Footer/Footer";
 function About() {
   return (
-    <div>
+    <div className="about-container">
       <h1>About</h1>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor,

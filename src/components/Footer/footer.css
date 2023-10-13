@@ -5,12 +5,16 @@ footer {
   background-repeat: no-repeat;
   display: flex;
   justify-content: space-around;
+  height: 25vh;
 }
 /* .myFooter {
-  width: 100%;
+  width: 50%;
 } */
+
 .static {
   position: static;
+  bottom: 0;
+  width: 100%;
 }
 .fixed {
   position: fixed;

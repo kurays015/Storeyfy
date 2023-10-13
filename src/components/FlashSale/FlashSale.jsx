@@ -15,7 +15,7 @@ import { useWishList } from "../../Context/WishlistContext";
 
 function FlashSale({ allproducts }) {
   const { addToCart } = useCart();
-  const { addToWishList, wishListItems } = useWishList();
+  const { addToWishList } = useWishList();
 
   const fifteenPercentAboveProduct = allproducts?.map(
     ({ discountPercentage, id, title, thumbnail, price, rating, category }) => {

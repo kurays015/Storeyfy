@@ -12,7 +12,7 @@ import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import EachProducts from "./components/EachProduct/EachProduct";
 import Signup from "./pages/Signup/Signup";
-import AllProducts from "./components/AllProducts/AllProducts";
+import AllProducts from "./pages/AllProducts/AllProducts";
 import WishList from "./components/WishListContent/WishListContent";
 
 function App() {
