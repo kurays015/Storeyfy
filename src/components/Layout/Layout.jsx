@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import { useCart } from "../../Context/CartContext";
 import { useWishList } from "../../Context/WishlistContext";
 import Footer from "../Footer/Footer";
-function Layout() {
+function Layout({ newCopyOfCategories }) {
   const {
     alreadyInTheCart,
     showCartMessage,
@@ -45,7 +45,7 @@ function Layout() {
       <CartContent />
       <Navigation />
       <Outlet />
-      <Footer />
+      <Footer newCopyOfCategories={newCopyOfCategories} />
     </div>
   );
 }

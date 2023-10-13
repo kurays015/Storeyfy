@@ -7,12 +7,14 @@ import {
 } from "react-icons/bi";
 import { useLocation } from "react-router-dom";
 
-function Footer() {
-  const homeRoute = location.pathname === "/";
-  const categoryRoute = location.pathname === "/category/all-products";
+function Footer({ newCopyOfCategories }) {
+  const location = useLocation();
+  const isEachCategoryRoute = newCopyOfCategories
+    ?.filter(category => category !== "all-products")
+    .some(category => location.pathname === `/category/${category}`);
 
   return (
-    <div className={`${homeRoute || categoryRoute ? "static" : "fixed"}`}>
+    <div className={`${isEachCategoryRoute ? "fixed" : "static"}`}>
       <footer>
         <div className="footer-subscribe">
           <h1>Storeyfy</h1>

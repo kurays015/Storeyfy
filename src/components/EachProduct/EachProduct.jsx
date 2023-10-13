@@ -80,7 +80,7 @@ function Products() {
         </div>
         <br />
         <hr />
-        <RelatedProducts filtered={filtered} />
+        <RelatedProducts filtered={filtered} param={id} />
       </div>
     </>
   );
