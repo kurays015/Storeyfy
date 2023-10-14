@@ -11,7 +11,13 @@ function Footer({ newCopyOfCategories }) {
   const location = useLocation();
   const isEachCategoryRoute = newCopyOfCategories
     ?.filter(category => category !== "all-products")
-    .some(category => location.pathname === `/category/${category}`);
+    .some(
+      category =>
+        location.pathname === `/category/${category}` ||
+        location.pathname === "/contact" ||
+        location.pathname === "/about" ||
+        location.pathname === "/signup"
+    );
 
   return (
     <div className={`myFooter ${isEachCategoryRoute ? "fixed" : "static"}`}>

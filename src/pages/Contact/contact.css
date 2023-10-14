@@ -1,9 +1,8 @@
 .contact-container {
+  padding: 8em 17em;
   display: flex;
   align-items: center;
   gap: 5em;
-  padding: 8em 17em;
-  height: 70.5vh;
 }
 .contact {
   display: flex;
@@ -17,9 +16,8 @@
 .contact-details {
   padding: 1.7em;
   border-radius: 6px;
-  height: 100%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 4px 4px;
+  background-color: #fff;
 }
 .contact-details > div:nth-child(1) {
   border-bottom: 1px solid #808080;
@@ -29,15 +27,14 @@
   padding: 1.5em 0 0.5em;
 }
 .contact-form {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 4px 4px;
   padding: 1.5em;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1em;
-  height: 100%;
   border-radius: 6px;
+  background-color: #fff;
 }
 .input-container {
   display: flex;

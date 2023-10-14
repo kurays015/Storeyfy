@@ -32,7 +32,6 @@ function Home() {
               <img src={img3} className="hero-img3" />
             </div>
             <div className="secondImg-container">
-              <h3>Shop anywhere online!</h3>
               <div className="each-container">
                 <div className="overlay"></div>
                 <img src={img1} className="hero-img1" />
