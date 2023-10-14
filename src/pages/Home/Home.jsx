@@ -12,7 +12,7 @@ import img3 from "/images/shop3.jpg";
 //react icons
 import { allProducts } from "../../utils/FetchProductsDetails";
 import { BsArrowRight } from "react-icons/bs";
-import Footer from "../../components/Footer/Footer";
+import GoodService from "../../components/GoodService/GoodService";
 
 function Home() {
   const { data } = allProducts();
@@ -48,6 +48,7 @@ function Home() {
       <FlashSale allproducts={data?.products} />
       <EcomBanner />
       <OurProduct />
+      <GoodService />
     </div>
   );
 }

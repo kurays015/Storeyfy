@@ -22,6 +22,7 @@ import "./components/CartContent/cartcontent.css";
 import "./components/Footer/footer.css";
 import "./components/RelatedProducts/relatedproducts.css";
 import "./components/WishListContent/wishlist.css";
+import "./components/GoodService/goodservice.css";
 
 //pages css
 import "./index.css";
