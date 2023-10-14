@@ -18,7 +18,7 @@ function WishList() {
   };
   return (
     <div className="wishlist-container">
-      <h1>My wishlist</h1>
+      <h1>My wishlist({wishListItems.length})</h1>
       {wishListItems.length ? (
         <div className="wishlist-grid">
           {wishListItems.map(

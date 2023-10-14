@@ -7,12 +7,8 @@ footer {
   justify-content: space-around;
   height: 25vh;
 }
-/* .myFooter {
-  width: 50%;
-} */
-
-.static {
-  position: static;
+.absolute {
+  position: absolute;
   bottom: 0;
   width: 100%;
 }

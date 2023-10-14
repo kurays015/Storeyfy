@@ -8,27 +8,25 @@
   display: flex;
   align-items: center;
   gap: 1em;
-  margin-bottom: 1em;
+  margin: 1em 0;
 }
 .contact h3 {
   font-weight: 500;
 }
 .contact-details {
-  padding: 1.7em;
+  padding: 1.5em;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 4px 4px;
   background-color: #fff;
 }
 .contact-details > div:nth-child(1) {
   border-bottom: 1px solid #808080;
-  padding: 0.5em 0 1.5em;
+  padding-bottom: 1em;
 }
-.contact-details > div:nth-child(2) {
-  padding: 1.5em 0 0.5em;
-}
+
 .contact-form {
   box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 4px 4px;
-  padding: 1.5em;
+  padding: 1.3em;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -89,5 +87,5 @@
   font-size: 0.8rem;
 }
 .email-number {
-  line-height: 25px;
+  line-height: 30px;
 }

@@ -1,4 +1,7 @@
 .about-container {
-  background-color: lightblue;
-  margin-top: 5em;
+  /* position: relative; */
+  padding: 8em 17em;
+}
+.about-container h2 {
+  color: #db4444;
 }

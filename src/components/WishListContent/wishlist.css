@@ -1,8 +1,9 @@
 .wishlist-container {
-  margin: 5em 17em;
+  padding: 8em 17em;
 }
 .wishlist-container h1 {
   color: #db4444;
+  margin-bottom: 0.5em;
 }
 .wishlist-grid {
   display: grid;

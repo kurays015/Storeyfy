@@ -11,16 +11,19 @@ function Footer({ newCopyOfCategories }) {
   const location = useLocation();
   const isEachCategoryRoute = newCopyOfCategories
     ?.filter(category => category !== "all-products")
-    .some(
-      category =>
-        location.pathname === `/category/${category}` ||
-        location.pathname === "/contact" ||
-        location.pathname === "/about" ||
-        location.pathname === "/signup"
-    );
+    .some(category => location.pathname === `/category/${category}`);
+  const navRoute =
+    location.pathname === "/about" ||
+    location.pathname === "/contact" ||
+    location.pathname === "/signup" ||
+    location.pathname === "/wishlist";
 
   return (
-    <div className={`myFooter ${isEachCategoryRoute ? "fixed" : "static"}`}>
+    <div
+      className={`${isEachCategoryRoute ? "fixed" : ""} ${
+        navRoute ? "absolute" : ""
+      }`}
+    >
       <footer>
         <div className="footer-subscribe">
           <h1>Storeyfy</h1>
