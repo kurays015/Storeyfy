@@ -14,6 +14,7 @@ function AllProducts({ category }) {
   const { data } = allProducts();
   const { addToCart } = useCart();
   const { addToWishList } = useWishList();
+
   return (
     <div className="all-products-parentContainer">
       <h1 className="category-name">

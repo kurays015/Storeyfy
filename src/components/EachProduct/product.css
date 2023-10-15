@@ -103,3 +103,7 @@
   align-items: center;
   gap: 0.5em;
 }
+.err-message {
+  margin: 1em 0 0 7em;
+  color: #a22727;
+}

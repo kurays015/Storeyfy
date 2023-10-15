@@ -78,7 +78,6 @@ function FlashSale({ allproducts }) {
     }
   );
 
-  //{fifteenPercentAboveProduct}
   return (
     <div className="flashsale-container">
       <div className="topic">

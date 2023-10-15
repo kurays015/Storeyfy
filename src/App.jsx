@@ -19,7 +19,7 @@ function App() {
   const { data, isLoading, isError } = allCategories();
   const newCopyOfCategories = data ? [...data, "all-products"] : [];
 
-  // if (isLoading) return <h1>Loading...!</h1>;
+  // if (isLoading) return <h1>Getting data...</h1>;
   // if (isError) return <h1>ERROR!</h1>;
 
   const productCategoryRoute = newCopyOfCategories?.map((category, index) => (

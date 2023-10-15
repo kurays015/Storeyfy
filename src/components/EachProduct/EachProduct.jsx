@@ -9,7 +9,7 @@ import { useCart } from "../../Context/CartContext";
 
 function Products() {
   const { id } = useParams();
-  const { data } = fetchEachProductById(id);
+  const { data, isLoading, isError } = fetchEachProductById(id);
   const { data: relatedProducts } = productPerCategory(data?.category);
   const { handleImageHoverAndClick, currentImage, setCurrentImage, addToCart } =
     useCart();
@@ -22,6 +22,10 @@ function Products() {
 
   const products = relatedProducts?.products || [];
   const filtered = products.filter(item => item.id !== data?.id);
+
+  if (isLoading) return <h1 className="loading">Getting data...</h1>;
+  if (isError) return <h1 className="loading">Error fetching data...</h1>;
+
   return (
     <>
       <div className="each-productContainer">
@@ -87,6 +91,3 @@ function Products() {
 }
 
 export default Products;
-{
-  /* <RelatedProducts filtered={filtered} /> */
-}
