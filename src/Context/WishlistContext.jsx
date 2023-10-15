@@ -15,6 +15,7 @@ export function WishlistProvider({ children }) {
     wishListItemsFromLocalStorage
   );
   const [alreadyInTheWishlist, setAlreadyInTheWishlist] = useState(false);
+  const [isHeartFilled, setIsHeartFilled] = useState(false);
   const {
     setShake,
     setShowCartMessage,
@@ -44,9 +45,11 @@ export function WishlistProvider({ children }) {
       //if it's not in the wishlist
       if (!isAlreadyInTheWishlist) {
         setWishListItems([...wishListItems, productToPushInTheWishlist]);
+        // setIsHeartFilled(true);
       } else {
         //if already in the wishlist
         setAlreadyInTheWishlist(true);
+        // setIsHeartFilled(false);
         setShake(true);
 
         setTimeout(() => setShake(false), 500);
@@ -71,6 +74,7 @@ export function WishlistProvider({ children }) {
     wishListItems,
     alreadyInTheWishlist,
     removeFromWishlist,
+    isHeartFilled,
   };
   return (
     <WishlistContext.Provider value={value}>
