@@ -12,17 +12,17 @@ function Footer({ newCopyOfCategories }) {
   const isEachCategoryRoute = newCopyOfCategories
     ?.filter(category => category !== "all-products")
     .some(category => location.pathname === `/category/${category}`);
+  const wishListRoute = location.pathname === "/wishlist";
   const navRoute =
     location.pathname === "/about" ||
     location.pathname === "/contact" ||
-    location.pathname === "/signup" ||
-    location.pathname === "/wishlist";
+    location.pathname === "/signup";
 
   return (
     <div
       className={`${isEachCategoryRoute ? "fixed" : ""} ${
         navRoute ? "absolute" : ""
-      }`}
+      } ${wishListRoute ? "static" : ""}`}
     >
       <footer>
         <div className="footer-subscribe">
