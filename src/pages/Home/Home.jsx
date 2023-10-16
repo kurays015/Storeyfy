@@ -45,7 +45,7 @@ function Home() {
         </div>
         <Carousel />
       </div>
-      <FlashSale allproducts={data?.products} />
+      <FlashSale />
       <EcomBanner />
       <OurProduct />
       <GoodService />

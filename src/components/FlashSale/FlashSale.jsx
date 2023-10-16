@@ -5,6 +5,7 @@ import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
 import { useCart } from "../../Context/CartContext";
+import { allProducts } from "../../utils/FetchProductsDetails";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -13,10 +14,11 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { useWishList } from "../../Context/WishListContext";
 
-function FlashSale({ allproducts }) {
+function FlashSale() {
   const { addToCart } = useCart();
-  const { addToWishList, heart } = useWishList();
-  const fifteenPercentAboveProduct = allproducts?.map(
+  const { addToWishList, isHeartFilled } = useWishList();
+  const { data } = allProducts();
+  const fifteenPercentAboveProduct = data?.products.map(
     ({ discountPercentage, id, title, thumbnail, price, rating, category }) => {
       if (Math.round(discountPercentage) > 15) {
         return (
@@ -53,21 +55,37 @@ function FlashSale({ allproducts }) {
                   />
                 </div>
                 <div>
-                  <AiOutlineHeart
-                    title="add to wishlist"
-                    className="addToWishlist-Btn"
-                    onClick={() =>
-                      addToWishList({
-                        id,
-                        title,
-                        thumbnail,
-                        price,
-                        rating,
-                        discountPercentage,
-                        category,
-                      })
-                    }
-                  />
+                  {isHeartFilled ? (
+                    <AiFillHeart
+                      className="remove-icon"
+                      onClick={() =>
+                        addToWishList({
+                          id,
+                          title,
+                          thumbnail,
+                          price,
+                          rating,
+                          discountPercentage,
+                          category,
+                        })
+                      }
+                    />
+                  ) : (
+                    <AiOutlineHeart
+                      className="remove-icon"
+                      onClick={() =>
+                        addToWishList({
+                          id,
+                          title,
+                          thumbnail,
+                          price,
+                          rating,
+                          discountPercentage,
+                          category,
+                        })
+                      }
+                    />
+                  )}
                 </div>
               </div>
             </div>
