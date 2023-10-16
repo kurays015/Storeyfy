@@ -11,12 +11,11 @@ import "swiper/css/navigation";
 //react icons
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
-import { useWishList } from "../../Context/WishlistContext";
+import { useWishList } from "../../Context/WishListContext";
 
 function FlashSale({ allproducts }) {
   const { addToCart } = useCart();
-  const { addToWishList, isHeartFilled } = useWishList();
-
+  const { addToWishList, heart } = useWishList();
   const fifteenPercentAboveProduct = allproducts?.map(
     ({ discountPercentage, id, title, thumbnail, price, rating, category }) => {
       if (Math.round(discountPercentage) > 15) {
@@ -54,39 +53,21 @@ function FlashSale({ allproducts }) {
                   />
                 </div>
                 <div>
-                  {isHeartFilled ? (
-                    <AiFillHeart
-                      title="remove to wishlist"
-                      className="addToWishlist-Btn"
-                      onClick={() =>
-                        addToWishList({
-                          id,
-                          title,
-                          thumbnail,
-                          price,
-                          rating,
-                          discountPercentage,
-                          category,
-                        })
-                      }
-                    />
-                  ) : (
-                    <AiOutlineHeart
-                      title="add to wishlist"
-                      className="addToWishlist-Btn"
-                      onClick={() =>
-                        addToWishList({
-                          id,
-                          title,
-                          thumbnail,
-                          price,
-                          rating,
-                          discountPercentage,
-                          category,
-                        })
-                      }
-                    />
-                  )}
+                  <AiOutlineHeart
+                    title="add to wishlist"
+                    className="addToWishlist-Btn"
+                    onClick={() =>
+                      addToWishList({
+                        id,
+                        title,
+                        thumbnail,
+                        price,
+                        rating,
+                        discountPercentage,
+                        category,
+                      })
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -95,6 +76,23 @@ function FlashSale({ allproducts }) {
       }
     }
   );
+  {
+    /* <AiOutlineHeart
+  title="add to wishlist"
+  className="addToWishlist-Btn"
+  onClick={() =>
+    addToWishList({
+      id,
+      title,
+      thumbnail,
+      price,
+      rating,
+      discountPercentage,
+      category,
+    })
+  }
+    /> */
+  }
 
   return (
     <div className="flashsale-container">
