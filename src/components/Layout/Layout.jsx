@@ -27,7 +27,7 @@ function Layout({ newCopyOfCategories }) {
       return (
         <p>
           {alreadyInTheWishlist
-            ? "Item is already in the wishlist!"
+            ? "Item has been removed from the wishlist"
             : "Item has been added to wishlist."}
         </p>
       );

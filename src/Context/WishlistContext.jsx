@@ -16,14 +16,16 @@ export function WishlistProvider({ children }) {
     wishListItemsFromLocalStorage
   );
   const [isFilled, setIsFilled] = useState(false);
+  const [alreadyInTheWishlist, setAlreadyInTheWishList] = useState(false);
   const {
-    setShake,
     setShowCartMessage,
     setShowWishlistMessage,
     setShowMessageContainer,
   } = useCart();
 
   function addToWishList(productData) {
+    setShowMessageContainer(true);
+    setShowCartMessage(false);
     //data is getting undefined on the first load, need to make sure it's true
     if (productData) {
       //check if the product is already in the wishlist when product clicked id is matched
@@ -33,17 +35,19 @@ export function WishlistProvider({ children }) {
 
       //if it's not in the wishlist, add it
       if (!isAlreadyInTheWishList) {
-        setIsFilled(true);
+        setAlreadyInTheWishList(false);
+        setShowWishlistMessage(true);
         setWishListItems([...wishListItems, productData]);
       } else {
         //if it's in the wishlist, remove it using filter
-        setIsFilled(false);
+        setAlreadyInTheWishList(true);
         const updatedWishlist = wishListItems.filter(
           item => item.id !== productData.id
         );
         setWishListItems(updatedWishlist);
       }
     }
+    setTimeout(() => setShowMessageContainer(false), 4000);
   }
 
   function removeFromWishlist(id) {
@@ -59,6 +63,7 @@ export function WishlistProvider({ children }) {
     addToWishList,
     wishListItems,
     removeFromWishlist,
+    alreadyInTheWishlist,
   };
   return (
     <WishlistContext.Provider value={value}>
