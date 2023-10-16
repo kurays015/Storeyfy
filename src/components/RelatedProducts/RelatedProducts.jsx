@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //react icons
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
-import { useWishList } from "../../Context/WishlistContext";
+import { useWishList } from "../../Context/WishListContext";
 function RelatedProducts({ filtered }) {
   const { addToCart } = useCart();
   const { addToWishList } = useWishList();
