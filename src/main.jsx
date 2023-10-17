@@ -4,7 +4,7 @@ import App from "./App.jsx";
 //react query
 import { QueryClientProvider, QueryClient } from "react-query";
 //context
-import { WishistProvider } from "./Context/WishListContext.jsx";
+import { WishlistProvider } from "./Context/WishlistContext.jsx";
 import { CartProvider } from "./Context/CartContext.jsx";
 
 //components
