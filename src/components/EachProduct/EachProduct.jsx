@@ -25,7 +25,6 @@ function Products() {
 
   if (isLoading) return <h1 className="loading">Getting data...</h1>;
   if (isError) return <h1 className="loading">Error fetching data...</h1>;
-  console.log(data);
   return (
     <>
       <div className="each-productContainer">
