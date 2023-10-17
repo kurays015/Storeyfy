@@ -1,13 +1,13 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useCart } from "./CartContext";
 
-const WishListContext = createContext();
+const WishlistContext = createContext();
 
 export function useWishList() {
-  return useContext(WishListContext);
+  return useContext(WishlistContext);
 }
 
-export function WishListProvider({ children }) {
+export function WishlistProvider({ children }) {
   const wishListItemsFromLocalStorage = JSON.parse(
     localStorage.getItem("wishListItems") || "[]"
   );
@@ -78,8 +78,8 @@ export function WishListProvider({ children }) {
   };
   console.log("working again?!");
   return (
-    <WishListContext.Provider value={value}>
+    <WishlistContext.Provider value={value}>
       {children}
-    </WishListContext.Provider>
+    </WishlistContext.Provider>
   );
 }

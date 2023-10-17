@@ -4,7 +4,7 @@ import App from "./App.jsx";
 //react query
 import { QueryClientProvider, QueryClient } from "react-query";
 //context
-import { WishListProvider } from "./Context/WishListContext.jsx";
+import { WishistProvider } from "./Context/WishListContext.jsx";
 import { CartProvider } from "./Context/CartContext.jsx";
 
 //components
@@ -37,9 +37,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <CartProvider>
-        <WishListProvider>
+        <WishlistProvider>
           <App />
-        </WishListProvider>
+        </WishlistProvider>
       </CartProvider>
     </QueryClientProvider>
   </React.StrictMode>
