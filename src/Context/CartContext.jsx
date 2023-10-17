@@ -47,11 +47,11 @@ export const CartProvider = ({ children }) => {
       const isAlreadyInTheCart = cartItems.some(
         item => item.id === productData.id
       );
-      //if it's not in the cart
+      //if it's not in the cart add it with quantity of 1
       if (!isAlreadyInTheCart) {
         setCartItems([...cartItems, { ...productData, quantity: 1 }]);
       } else {
-        //if already in the cart
+        //if it's already in the cart, show message
         setAlreadyInTheCart(true);
         setShake(true);
         setTimeout(() => setShake(false), 500);
