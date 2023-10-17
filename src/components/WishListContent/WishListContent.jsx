@@ -1,4 +1,4 @@
-import { useWishList } from "../../Context/WishListContext";
+import { useWishList } from "../../Context/WishlistContext";
 import emptyWishlist from "/images/shopping-cart.png";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";

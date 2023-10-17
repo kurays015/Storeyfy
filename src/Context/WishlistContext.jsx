@@ -1,57 +1,65 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useCart } from "./CartContext";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
-const WishListContext = createContext();
+const WishlistContext = createContext();
 
 export function useWishList() {
-  return useContext(WishListContext);
+  return useContext(WishlistContext);
 }
 
-export function WishListProvider({ children }) {
+export function WishlistProvider({ children }) {
   const wishListItemsFromLocalStorage = JSON.parse(
     localStorage.getItem("wishListItems") || "[]"
   );
   const [wishListItems, setWishListItems] = useState(
     wishListItemsFromLocalStorage
   );
+  const [alreadyInTheWishlist, setAlreadyInTheWishlist] = useState(false);
   const [isHeartFilled, setIsHeartFilled] = useState(false);
-  const [alreadyInTheWishlist, setAlreadyInTheWishList] = useState(false);
   const {
+    setShake,
     setShowCartMessage,
     setShowWishlistMessage,
     setShowMessageContainer,
   } = useCart();
 
-  function addToWishList(productData) {
-    setShowMessageContainer(true);
+  function addToWishList(data) {
     setShowCartMessage(false);
-
+    setAlreadyInTheWishlist(false);
     //data is getting undefined on the first load, need to make sure it's true
-    if (productData) {
-      //check if the product is already in the wishlist when product clicked id is matched
-      // const isAlreadyInTheWishList = wishListItems.some(
-      //   item => item.id === productData.id
-      // );
-      // //if it's not in the wishlist, add it
-      // if (!isAlreadyInTheWishList) {
-      //   setIsHeartFilled(true);
-      //   setAlreadyInTheWishList(false);
-      //   setShowWishlistMessage(true);
-      //   setWishListItems([...wishListItems, productData]);
-      // } else {
-      //   //if it's in the wishlist, remove it using filter
-      //   setAlreadyInTheWishList(true);
-      //   setIsHeartFilled(false);
-      //   const updatedWishlist = wishListItems.filter(
-      //     item => item.id !== productData.id
-      //   );
-      //   setWishListItems(updatedWishlist);
-      // }
-    }
-    setTimeout(() => setShowMessageContainer(false), 4000);
-  }
+    if (data) {
+      //product data that will push to wishlist
+      const productToPushInTheWishlist = {
+        id: data.id,
+        title: data.title,
+        thumbnail: data.thumbnail,
+        price: data.price,
+        discount: data.discountPercentage,
+        rating: data.rating,
+        category: data.category,
+      };
+      //check if the product is already in the wishlist
+      const isAlreadyInTheWishlist = wishListItems.find(
+        item => item.id === productToPushInTheWishlist.id
+      );
+      //if it's not in the wishlist
+      if (!isAlreadyInTheWishlist) {
+        setWishListItems([...wishListItems, productToPushInTheWishlist]);
+        // setIsHeartFilled(true);
+      } else {
+        //if already in the wishlist
+        setAlreadyInTheWishlist(true);
+        // setIsHeartFilled(false);
+        setShake(true);
 
+        setTimeout(() => setShake(false), 500);
+      }
+    }
+    //added to wishlist message
+    setShowWishlistMessage(true);
+    setShowMessageContainer(true);
+    setTimeout(() => setShowMessageContainer(false), 3000);
+  }
   function removeFromWishlist(id) {
     const remove = wishListItems.filter(item => item.id !== id);
     setWishListItems(remove);
@@ -64,13 +72,14 @@ export function WishListProvider({ children }) {
   const value = {
     addToWishList,
     wishListItems,
-    removeFromWishlist,
     alreadyInTheWishlist,
+    removeFromWishlist,
     isHeartFilled,
   };
+  console.log("working again?!");
   return (
-    <WishListContext.Provider value={value}>
+    <WishlistContext.Provider value={value}>
       {children}
-    </WishListContext.Provider>
+    </WishlistContext.Provider>
   );
 }

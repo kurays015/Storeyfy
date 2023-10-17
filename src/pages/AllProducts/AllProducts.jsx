@@ -8,12 +8,12 @@ import { useCart } from "../../Context/CartContext";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { HiMagnifyingGlass } from "react-icons/hi2";
-import { useWishList } from "../../Context/WishListContext";
+import { useWishList } from "../../Context/WishlistContext";
 
 function AllProducts({ category }) {
   const { data } = allProducts();
   const { addToCart } = useCart();
-  const { addToWishList, isHeartFilled } = useWishList();
+  const { addToWishList } = useWishList();
 
   return (
     <div className="all-products-parentContainer">
@@ -70,39 +70,21 @@ function AllProducts({ category }) {
                     />
                   </div>
                   <div>
-                    {isHeartFilled ? (
-                      <AiFillHeart
-                        title="remove to wishlist"
-                        className="addToWishlist-Btn"
-                        onClick={() =>
-                          addToWishList({
-                            id,
-                            title,
-                            thumbnail,
-                            price,
-                            rating,
-                            discountPercentage,
-                            category,
-                          })
-                        }
-                      />
-                    ) : (
-                      <AiOutlineHeart
-                        title="add to wishlist"
-                        className="addToWishlist-Btn"
-                        onClick={() =>
-                          addToWishList({
-                            id,
-                            title,
-                            thumbnail,
-                            price,
-                            rating,
-                            discountPercentage,
-                            category,
-                          })
-                        }
-                      />
-                    )}
+                    <AiOutlineHeart
+                      title="add to wishlist"
+                      className="addToWishlist-Btn"
+                      onClick={() =>
+                        addToWishList({
+                          id,
+                          title,
+                          thumbnail,
+                          price,
+                          rating,
+                          discountPercentage,
+                          category,
+                        })
+                      }
+                    />
                   </div>
                 </div>
               </div>

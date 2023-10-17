@@ -2,7 +2,7 @@ import Navigation from "../HeaderNav/Navigation";
 import CartContent from "../../components/CartContent/CartContent";
 import { Outlet } from "react-router-dom";
 import { useCart } from "../../Context/CartContext";
-import { useWishList } from "../../Context/WishListContext";
+import { useWishList } from "../../Context/WishlistContext";
 import Footer from "../Footer/Footer";
 function Layout({ newCopyOfCategories }) {
   const {
@@ -27,7 +27,7 @@ function Layout({ newCopyOfCategories }) {
       return (
         <p>
           {alreadyInTheWishlist
-            ? "Item has been removed from the wishlist"
+            ? "Item is already in the wishlist!"
             : "Item has been added to wishlist."}
         </p>
       );

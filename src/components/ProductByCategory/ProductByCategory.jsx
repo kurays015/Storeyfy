@@ -9,7 +9,7 @@ import { useCart } from "../../Context/CartContext";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { HiMagnifyingGlass } from "react-icons/hi2";
-import { useWishList } from "../../Context/WishListContext";
+import { useWishList } from "../../Context/WishlistContext";
 
 function ProductByCategory({ category }) {
   const { data, isLoading, isError } = productPerCategory(category);

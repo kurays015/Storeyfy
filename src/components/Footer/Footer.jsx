@@ -9,9 +9,9 @@ import { useLocation } from "react-router-dom";
 
 function Footer({ newCopyOfCategories }) {
   const location = useLocation();
-  const isEachCategoryRoute = newCopyOfCategories
-    .filter(category => category !== "all-products")
-    .some(category => location.pathname === `/category/${category}`);
+  const isEachCategoryRoute = newCopyOfCategories.some(
+    category => location.pathname === `/category/${category}`
+  );
   const wishListRoute = location.pathname === "/wishlist";
   const navRoute =
     location.pathname === "/about" ||

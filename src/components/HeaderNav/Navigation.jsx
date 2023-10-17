@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { BsCart2, BsHeart } from "react-icons/bs";
 import { useCart } from "../../Context/CartContext";
-import { useWishList } from "../../Context/WishListContext";
+import { useWishList } from "../../Context/WishlistContext";
 
 function Navigation() {
   const { setShowCart, cartItems } = useCart();

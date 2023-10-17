@@ -7,7 +7,7 @@ import { useCart } from "../../Context/CartContext";
 //react icons
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
-import { useWishList } from "../../Context/WishListContext";
+import { useWishList } from "../../Context/WishlistContext";
 
 function OurProduct() {
   const [productData, setProductData] = useState([]);
