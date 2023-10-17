@@ -17,49 +17,37 @@ export function WishlistProvider({ children }) {
   const [alreadyInTheWishlist, setAlreadyInTheWishlist] = useState(false);
   const [isHeartFilled, setIsHeartFilled] = useState(false);
   const {
-    setShake,
     setShowCartMessage,
     setShowWishlistMessage,
     setShowMessageContainer,
   } = useCart();
 
-  function addToWishList(data) {
+  function addToWishList(productData) {
     setShowCartMessage(false);
-    setAlreadyInTheWishlist(false);
-    //data is getting undefined on the first load, need to make sure it's true
-    if (data) {
-      //product data that will push to wishlist
-      const productToPushInTheWishlist = {
-        id: data.id,
-        title: data.title,
-        thumbnail: data.thumbnail,
-        price: data.price,
-        discount: data.discountPercentage,
-        rating: data.rating,
-        category: data.category,
-      };
-      //check if the product is already in the wishlist
-      const isAlreadyInTheWishlist = wishListItems.find(
-        item => item.id === productToPushInTheWishlist.id
+    setShowMessageContainer(true);
+    setShowWishlistMessage(true);
+    //productData is getting undefined on the first load, need to make sure it's true
+    if (productData) {
+      //check if it's in the wishlist or not
+      const isAlreadyInTheWishList = wishListItems.some(
+        item => item.id === productData.id
       );
-      //if it's not in the wishlist
-      if (!isAlreadyInTheWishlist) {
-        setWishListItems([...wishListItems, productToPushInTheWishlist]);
-        // setIsHeartFilled(true);
+      //if it's not in the wishlist, add it
+      if (!isAlreadyInTheWishList) {
+        setAlreadyInTheWishlist(false);
+        setWishListItems([...wishListItems, productData]);
       } else {
-        //if already in the wishlist
+        //if it's already in the wishlist, remove it
         setAlreadyInTheWishlist(true);
-        // setIsHeartFilled(false);
-        setShake(true);
-
-        setTimeout(() => setShake(false), 500);
+        const updatedWishList = wishListItems.filter(
+          item => item.id !== productData.id
+        );
+        setWishListItems(updatedWishList);
       }
     }
-    //added to wishlist message
-    setShowWishlistMessage(true);
-    setShowMessageContainer(true);
     setTimeout(() => setShowMessageContainer(false), 3000);
   }
+
   function removeFromWishlist(id) {
     const remove = wishListItems.filter(item => item.id !== id);
     setWishListItems(remove);
@@ -76,7 +64,6 @@ export function WishlistProvider({ children }) {
     removeFromWishlist,
     isHeartFilled,
   };
-  console.log("working again?!");
   return (
     <WishlistContext.Provider value={value}>
       {children}

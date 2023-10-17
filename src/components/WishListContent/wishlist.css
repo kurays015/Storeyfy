@@ -37,7 +37,8 @@
   transition: all 200ms ease-in-out;
   cursor: pointer;
 }
-.move-tocart-icon:hover {
+.move-tocart-icon:hover,
+.remove-icon:hover {
   transform: scale(1.15);
   color: #373737;
 }

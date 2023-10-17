@@ -19,16 +19,16 @@ function Layout({ newCopyOfCategories }) {
       return (
         <p>
           {alreadyInTheCart
-            ? "Item is already in the cart!"
-            : "Item has been added to cart."}
+            ? "The item is already in the cart!"
+            : "The item has been added to cart."}
         </p>
       );
     } else if (showWishlistMessage) {
       return (
         <p>
           {alreadyInTheWishlist
-            ? "Item is already in the wishlist!"
-            : "Item has been added to wishlist."}
+            ? "The item has been removed from the wishlist."
+            : "The item has been added to wishlist."}
         </p>
       );
     }

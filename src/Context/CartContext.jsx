@@ -38,31 +38,22 @@ export const CartProvider = ({ children }) => {
   function handleImageHoverAndClick(img) {
     setCurrentImage(img);
   }
-  function addToCart(data) {
+  function addToCart(productData) {
     setAlreadyInTheCart(false);
     setShowWishlistMessage(false);
     //data is getting undefined on the first load, need to make sure it,s true
-    if (data) {
-      //product data that will push to cart
-      const productToPushInTheCart = {
-        id: data.id,
-        title: data.title,
-        thumbnail: data.thumbnail,
-        price: data.price,
-        quantity: 1,
-      };
+    if (productData) {
       //check if the product is already in the cart
-      const isAlreadyInTheCart = cartItems.find(
-        item => item.id === productToPushInTheCart.id
+      const isAlreadyInTheCart = cartItems.some(
+        item => item.id === productData.id
       );
       //if it's not in the cart
       if (!isAlreadyInTheCart) {
-        setCartItems([...cartItems, productToPushInTheCart]);
+        setCartItems([...cartItems, { ...productData, quantity: 1 }]);
       } else {
         //if already in the cart
         setAlreadyInTheCart(true);
         setShake(true);
-
         setTimeout(() => setShake(false), 500);
       }
     }
