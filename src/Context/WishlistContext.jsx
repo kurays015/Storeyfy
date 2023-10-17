@@ -2,13 +2,13 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { useCart } from "./CartContext";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
-const WishlistContext = createContext();
+const WishListContext = createContext();
 
 export function useWishList() {
-  return useContext(WishlistContext);
+  return useContext(WishListContext);
 }
 
-export function WishlistProvider({ children }) {
+export function WishListProvider({ children }) {
   const wishListItemsFromLocalStorage = JSON.parse(
     localStorage.getItem("wishListItems") || "[]"
   );
@@ -69,8 +69,8 @@ export function WishlistProvider({ children }) {
     isHeartFilled,
   };
   return (
-    <WishlistContext.Provider value={value}>
+    <WishListContext.Provider value={value}>
       {children}
-    </WishlistContext.Provider>
+    </WishListContext.Provider>
   );
 }
