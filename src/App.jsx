@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { allCategories } from "./utils/FetchProductsDetails";
 
@@ -16,11 +16,8 @@ import AllProducts from "./pages/AllProducts/AllProducts";
 import WishList from "./components/WishListContent/WishListContent";
 
 function App() {
-  const { data, isLoading, isError } = allCategories();
+  const { data } = allCategories();
   const newCopyOfCategories = data ? [...data, "all-products"] : [];
-
-  // if (isLoading) return <h1>Getting data...</h1>;
-  // if (isError) return <h1>ERROR!</h1>;
 
   const productCategoryRoute = newCopyOfCategories?.map((category, index) => (
     <React.Fragment key={index}>
