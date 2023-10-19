@@ -2,16 +2,22 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 // Custom hook to fetch data and handle loading/error states
-export function useFetchData(queryKey, url) {
-  return useQuery(queryKey, async () => {
-    const { data } = await axios.get(url);
-    return data;
+export const useFetchData = (queryKey, url) => {
+  const { data, isLoading, isError } = useQuery(queryKey, async () => {
+    try {
+      const { data } = await axios.get(url);
+      return data;
+    } catch (error) {
+      console.log(error);
+      throw new Error("Error fetching data");
+    }
   });
-}
+  return { data, isLoading, isError };
+};
 
 export const allProducts = () => {
   return useFetchData(
-    "allProducts",
+    "getProducts",
     "https://dummyjson.com/products?limit=100"
   );
 };
@@ -25,21 +31,14 @@ export const allCategories = () => {
 
 export const fetchEachProductById = id => {
   return useFetchData(
-    "eachProductById",
+    `eachProduct-${id}`,
     `https://dummyjson.com/products/${id}`
   );
 };
 
 export const productPerCategory = category => {
   return useFetchData(
-    "productsByCategory",
+    `getProductsByCategory-${category}`,
     `https://dummyjson.com/products/category/${category}`
-  );
-};
-
-export const searchProducts = productSearched => {
-  return useFetchData(
-    "searchProducts",
-    `https://dummyjson.com/products/search?q=${productSearched}`
   );
 };

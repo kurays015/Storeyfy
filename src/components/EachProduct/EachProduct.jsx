@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
-import { fetchEachProductById } from "../../utils/FetchProductsDetails";
-import { productPerCategory } from "../../utils/FetchProductsDetails";
+import { fetchEachProductById } from "../../utils/useFetchData";
+import { productPerCategory } from "../../utils/useFetchData";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
 import { useCart } from "../../Context/CartContext";
 
@@ -25,7 +25,6 @@ function Products() {
 
   if (isLoading) return <h1 className="loading">Getting data...</h1>;
   if (isError) return <h1 className="loading">Error fetching data...</h1>;
-  console.log(data);
   return (
     <>
       <div className="each-productContainer">

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { allProducts } from "../../utils/FetchProductsDetails";
+import { allProducts } from "../../utils/useFetchData";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { Link } from "react-router-dom";
 import { StarRatings } from "../../utils/StarRatings";

@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
 import { CategoryTitle } from "../../utils/CategoryTitle";
-import { productPerCategory } from "../../utils/FetchProductsDetails";
+import { productPerCategory } from "../../utils/useFetchData";
 import { useCart } from "../../Context/CartContext";
 //react icons
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
-import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useWishList } from "../../Context/WishlistContext";
 
 function ProductByCategory({ category }) {
@@ -33,8 +32,8 @@ function ProductByCategory({ category }) {
             id,
             category,
           }) => (
-            <React.Fragment>
-              <div key={id} className="product-card">
+            <React.Fragment key={id}>
+              <div className="product-card">
                 <div className="discount">
                   {Math.round(discountPercentage)}% OFF!
                 </div>

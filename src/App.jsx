@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { allCategories } from "./utils/FetchProductsDetails";
+import { allCategories } from "./utils/useFetchData";
 
 //components
 import Layout from "./components/Layout/Layout";
@@ -20,7 +20,7 @@ function App() {
   const newCopyOfCategories = data ? [...data, "all-products"] : [];
 
   const productCategoryRoute = newCopyOfCategories?.map((category, index) => (
-    <React.Fragment key={index}>
+    <React.Fragment key={category}>
       <Route
         path="category"
         element={

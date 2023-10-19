@@ -10,7 +10,7 @@ import img1 from "/images/shop1.jpg";
 import img2 from "/images/shop2.jpg";
 import img3 from "/images/shop3.jpg";
 //react icons
-import { allProducts } from "../../utils/FetchProductsDetails";
+import { allProducts } from "../../utils/useFetchData";
 import { BsArrowRight } from "react-icons/bs";
 import GoodService from "../../components/GoodService/GoodService";
 
