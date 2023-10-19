@@ -13,11 +13,10 @@ import { useWishList } from "../../Context/WishlistContext";
 function AllProducts({ category }) {
   const [searchMessage, setSearchMessage] = useState(false);
   const { data } = allProducts();
-  const [dataToShow, setDataToShow] = useState(data?.products || []);
+  const [renderedProducts, setRenderedProducts] = useState([]);
   const inputRef = useRef();
   const { addToCart } = useCart();
   const { addToWishList } = useWishList();
-
   function handleSubmit(e) {
     e.preventDefault();
     const inputValue = inputRef.current.value;
@@ -27,14 +26,17 @@ function AllProducts({ category }) {
       }
     });
     if (filteredSearch.length) {
-      // If no products were found, console log "product not found"
-      setDataToShow(filteredSearch);
+      setRenderedProducts(filteredSearch);
       setSearchMessage(false);
     } else {
       setSearchMessage(true);
     }
     inputRef.current.value = "";
   }
+
+  const currentData = renderedProducts.length
+    ? renderedProducts
+    : data?.products || [];
 
   return (
     <div className="all-products-parentContainer">
@@ -49,9 +51,9 @@ function AllProducts({ category }) {
       </form>
       <div className="product-container">
         {searchMessage ? (
-          <h5 style={{ color: "#808080" }}>Product not found...</h5>
+          <h3 style={{ color: "#808080" }}>No product found...</h3>
         ) : (
-          dataToShow.map(
+          currentData.map(
             ({
               title,
               price,
