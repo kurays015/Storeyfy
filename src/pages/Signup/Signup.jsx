@@ -1,7 +1,7 @@
 function Signup() {
   return (
-    <div style={{ marginTop: "5em" }}>
-      <h1 style={{ color: "gray" }}>In progress...</h1>
+    <div style={{ margin: "6em 17em" }}>
+      <h1 style={{ color: "gray" }}>In progress(still learning backend)...</h1>
     </div>
   );
 }

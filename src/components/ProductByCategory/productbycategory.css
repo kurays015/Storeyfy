@@ -1,5 +1,5 @@
 .product-byCategory {
-  margin: 0.5em 0 0 12em;
+  margin: 0.5em 0 0 2em;
 }
 .loading {
   margin: 1em 0 0 7em;
@@ -69,6 +69,7 @@
   text-align: center;
   color: #db4444;
   font-size: 1.5rem;
+  margin: 1em 0;
 }
 .search {
   margin-bottom: 0.5em;

@@ -22,12 +22,6 @@ function ProductByCategory({ category }) {
   return (
     <div className="product-byCategory">
       <h1 className="category-name">{CategoryTitle(category)}</h1>
-      <div className="search">
-        <label>
-          <HiMagnifyingGlass />
-        </label>
-        <input type="text" placeholder="search product" />
-      </div>
       <div className="product-container">
         {data?.products.map(
           ({

@@ -35,7 +35,10 @@ export function WishlistProvider({ children }) {
       //if it's not in the wishlist, add it
       if (!isAlreadyInTheWishList) {
         setAlreadyInTheWishlist(false);
-        setWishListItems([...wishListItems, productData]);
+        setWishListItems([
+          ...wishListItems,
+          { ...productData, isFilled: false },
+        ]);
       } else {
         //if it's already in the wishlist, remove it
         setAlreadyInTheWishlist(true);
@@ -47,6 +50,7 @@ export function WishlistProvider({ children }) {
     }
     setTimeout(() => setShowMessageContainer(false), 3000);
   }
+  console.log(wishListItems);
 
   function removeFromWishlist(id) {
     const remove = wishListItems.filter(item => item.id !== id);

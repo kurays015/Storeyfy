@@ -1,5 +1,6 @@
 .all-products-parentContainer {
-  margin: 0.5em 0 0 12em;
+  margin: 0.5em 0 0 2em;
+  width: 100%;
 }
 .shortcut-icons {
   display: flex;
