@@ -15,7 +15,7 @@ import { useWishList } from "../../Context/WishlistContext";
 
 function FlashSale({ allproducts }) {
   const { addToCart } = useCart();
-  const { addToWishList, isHeartFilled } = useWishList();
+  const { addToWishList } = useWishList();
 
   const fifteenPercentAboveProduct = allproducts?.map(
     ({ discountPercentage, id, title, thumbnail, price, rating, category }) => {
@@ -54,39 +54,21 @@ function FlashSale({ allproducts }) {
                   />
                 </div>
                 <div>
-                  {isHeartFilled ? (
-                    <AiFillHeart
-                      title="remove to wishlist"
-                      className="addToWishlist-Btn"
-                      onClick={() =>
-                        addToWishList({
-                          id,
-                          title,
-                          thumbnail,
-                          price,
-                          rating,
-                          discountPercentage,
-                          category,
-                        })
-                      }
-                    />
-                  ) : (
-                    <AiOutlineHeart
-                      title="add to wishlist"
-                      className="addToWishlist-Btn"
-                      onClick={() =>
-                        addToWishList({
-                          id,
-                          title,
-                          thumbnail,
-                          price,
-                          rating,
-                          discountPercentage,
-                          category,
-                        })
-                      }
-                    />
-                  )}
+                  <AiOutlineHeart
+                    title="add to wishlist"
+                    className="addToWishlist-Btn"
+                    onClick={() =>
+                      addToWishList({
+                        id,
+                        title,
+                        thumbnail,
+                        price,
+                        rating,
+                        discountPercentage,
+                        category,
+                      })
+                    }
+                  />
                 </div>
               </div>
             </div>

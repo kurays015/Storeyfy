@@ -9,13 +9,12 @@ export function useWishList() {
 
 export function WishlistProvider({ children }) {
   const wishListItemsFromLocalStorage = JSON.parse(
-    localStorage.getItem("wishListItems") || "[]"
+    localStorage.getItem("wishListItems")
   );
   const [wishListItems, setWishListItems] = useState(
-    wishListItemsFromLocalStorage
+    () => wishListItemsFromLocalStorage || []
   );
   const [alreadyInTheWishlist, setAlreadyInTheWishlist] = useState(false);
-  const [isHeartFilled, setIsHeartFilled] = useState(false);
   const {
     setShowCartMessage,
     setShowWishlistMessage,
@@ -37,7 +36,7 @@ export function WishlistProvider({ children }) {
         setAlreadyInTheWishlist(false);
         setWishListItems([
           ...wishListItems,
-          { ...productData, isFilled: false },
+          { ...productData, isFilled: true },
         ]);
       } else {
         //if it's already in the wishlist, remove it
@@ -50,7 +49,7 @@ export function WishlistProvider({ children }) {
     }
     setTimeout(() => setShowMessageContainer(false), 3000);
   }
-  console.log(wishListItems);
+  // console.log(wishListItems);
 
   function removeFromWishlist(id) {
     const remove = wishListItems.filter(item => item.id !== id);
@@ -66,7 +65,6 @@ export function WishlistProvider({ children }) {
     wishListItems,
     alreadyInTheWishlist,
     removeFromWishlist,
-    isHeartFilled,
   };
   return (
     <WishlistContext.Provider value={value}>
