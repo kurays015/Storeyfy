@@ -8,9 +8,11 @@ export function useCart() {
 export const CartProvider = ({ children }) => {
   //get the cartItems and parse it back
   const cartItemsFromLocalStorage = JSON.parse(
-    localStorage.getItem("cartItems") || "[]"
+    localStorage.getItem("cartItems")
   );
-  const [cartItems, setCartItems] = useState(cartItemsFromLocalStorage);
+  const [cartItems, setCartItems] = useState(
+    () => cartItemsFromLocalStorage || []
+  );
   const [showCart, setShowCart] = useState(false);
   const [alreadyInTheCart, setAlreadyInTheCart] = useState(false);
   const [showCartMessage, setShowCartMessage] = useState(false);
