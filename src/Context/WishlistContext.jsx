@@ -49,15 +49,14 @@ export function WishlistProvider({ children }) {
         setAlreadyInTheWishlist(false);
         setWishListItems([...wishListItems, productData]);
         setInWishList([...inWishList, productData.id]);
-      } else {
-        //if it's already in the wishlist, remove it
-        setAlreadyInTheWishlist(true);
       }
     }
     setTimeout(() => setShowMessageContainer(false), 3000);
+    console.log(inWishList);
   }
 
   function removeFromWishlist(id) {
+    setAlreadyInTheWishlist(true);
     setInWishList(inWishList.filter(itemId => itemId !== id));
     const remove = wishListItems.filter(item => item.id !== id);
     setWishListItems(remove);
