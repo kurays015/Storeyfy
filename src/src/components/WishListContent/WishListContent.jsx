@@ -22,18 +22,10 @@ function WishList() {
       {wishListItems.length ? (
         <div className="wishlist-grid">
           {wishListItems.map(
-            ({
-              id,
-              category,
-              title,
-              rating,
-              price,
-              discountPercentage,
-              thumbnail,
-            }) => (
+            ({ id, category, title, rating, price, discount, thumbnail }) => (
               <div key={id} className="wishlist-card">
                 <div className="wishlist-discount">
-                  {Math.round(discountPercentage)}% OFF!
+                  {Math.round(discount)}% OFF!
                 </div>
                 <div
                   className="wishlist-img-container"

@@ -1,0 +1,8 @@
+/* .layout-container {
+  background-color: lightblue;
+} */
+.product-in-category {
+  margin: 0 17em;
+  padding: 5em 0;
+  display: flex;
+}

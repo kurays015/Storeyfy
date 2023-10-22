@@ -15,24 +15,11 @@ export function WishlistProvider({ children }) {
     () => wishListItemsFromLocalStorage || []
   );
   const [alreadyInTheWishlist, setAlreadyInTheWishlist] = useState(false);
-
-  const heartFilledFromLocalStorage = JSON.parse(
-    localStorage.getItem("heartFilled")
-  );
-
-  const [inWishList, setInWishList] = useState(
-    () => heartFilledFromLocalStorage || []
-  );
-
   const {
     setShowCartMessage,
     setShowWishlistMessage,
     setShowMessageContainer,
   } = useCart();
-
-  function isInWishList(id) {
-    return inWishList.includes(id);
-  }
 
   function addToWishList(productData) {
     setShowCartMessage(false);
@@ -47,34 +34,37 @@ export function WishlistProvider({ children }) {
       //if it's not in the wishlist, add it
       if (!isAlreadyInTheWishList) {
         setAlreadyInTheWishlist(false);
-        setWishListItems([...wishListItems, productData]);
-        setInWishList([...inWishList, productData.id]);
+        setWishListItems([
+          ...wishListItems,
+          { ...productData, isFilled: true },
+        ]);
       } else {
         //if it's already in the wishlist, remove it
         setAlreadyInTheWishlist(true);
+        const updatedWishList = wishListItems.filter(
+          item => item.id !== productData.id
+        );
+        setWishListItems(updatedWishList);
       }
     }
     setTimeout(() => setShowMessageContainer(false), 3000);
   }
+  // console.log(wishListItems);
 
   function removeFromWishlist(id) {
-    setInWishList(inWishList.filter(itemId => itemId !== id));
     const remove = wishListItems.filter(item => item.id !== id);
     setWishListItems(remove);
   }
 
   useEffect(() => {
     localStorage.setItem("wishListItems", JSON.stringify(wishListItems));
-    localStorage.setItem("heartFilled", JSON.stringify(inWishList));
-  }, [wishListItems, inWishList]);
+  }, [wishListItems]);
 
   const value = {
     addToWishList,
     wishListItems,
     alreadyInTheWishlist,
     removeFromWishlist,
-    inWishList,
-    isInWishList,
   };
   return (
     <WishlistContext.Provider value={value}>

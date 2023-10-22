@@ -14,7 +14,7 @@ function OurProduct() {
   const { data } = allProducts();
 
   const { addToCart } = useCart();
-  const { addToWishList, isInWishList, removeFromWishlist } = useWishList();
+  const { addToWishList } = useWishList();
 
   useEffect(() => {
     if (data) {
@@ -81,27 +81,21 @@ function OurProduct() {
                     />
                   </div>
                   <div>
-                    {isInWishList(id) ? (
-                      <AiFillHeart
-                        onClick={() => removeFromWishlist(id)}
-                        className="add-removeToWishlist-Btn"
-                      />
-                    ) : (
-                      <AiOutlineHeart
-                        onClick={() =>
-                          addToWishList({
-                            title,
-                            price,
-                            rating,
-                            discountPercentage,
-                            thumbnail,
-                            id,
-                            category,
-                          })
-                        }
-                        className="add-removeToWishlist-Btn"
-                      />
-                    )}
+                    <AiOutlineHeart
+                      title="add to wishlist"
+                      className="addToWishlist-Btn"
+                      onClick={() =>
+                        addToWishList({
+                          id,
+                          title,
+                          thumbnail,
+                          price,
+                          rating,
+                          discountPercentage,
+                          category,
+                        })
+                      }
+                    />
                   </div>
                 </div>
               </div>

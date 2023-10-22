@@ -9,13 +9,13 @@
   padding: 0.5em;
 }
 .addToCart-Btn,
-.add-removeToWishlist-Btn {
+.addToWishlist-Btn {
   font-size: 1.7rem;
   color: #808080;
   transition: all 200ms ease-in-out;
 }
 .addToCart-Btn:hover,
-.add-removeToWishlist-Btn:hover {
+.addToWishlist-Btn:hover {
   transform: scale(1.15);
   color: #373737;
 }

@@ -1,0 +1,64 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 17em;
+  border-bottom: 1px solid rgb(189, 172, 172);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: #fff;
+}
+
+header h1 {
+  color: #000000;
+  font-weight: 700;
+}
+header a {
+  text-decoration: none;
+  color: #000000;
+}
+header nav {
+  display: flex;
+  justify-content: center;
+}
+header nav ul {
+  display: flex;
+  gap: 1em;
+}
+header nav ul li {
+  list-style: none;
+}
+.header-cart-save-container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  color: rgb(102, 83, 83);
+}
+.header-cart-save-container h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+.cart-icon,
+.wishlist-icon {
+  position: relative;
+}
+.cart-icon div,
+.wishlist-icon div {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  top: -5px;
+  right: -8px;
+  color: #fff;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

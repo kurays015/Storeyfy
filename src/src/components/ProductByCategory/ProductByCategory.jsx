@@ -16,7 +16,7 @@ function ProductByCategory({ category }) {
   if (isError) return <h1>Error!</h1>;
 
   const { addToCart } = useCart();
-  const { addToWishList, isInWishList, removeFromWishlist } = useWishList();
+  const { addToWishList } = useWishList();
 
   return (
     <div className="product-byCategory">
@@ -65,27 +65,21 @@ function ProductByCategory({ category }) {
                     />
                   </div>
                   <div>
-                    {isInWishList(id) ? (
-                      <AiFillHeart
-                        onClick={() => removeFromWishlist(id)}
-                        className="add-removeToWishlist-Btn"
-                      />
-                    ) : (
-                      <AiOutlineHeart
-                        onClick={() =>
-                          addToWishList({
-                            title,
-                            price,
-                            rating,
-                            discountPercentage,
-                            thumbnail,
-                            id,
-                            category,
-                          })
-                        }
-                        className="add-removeToWishlist-Btn"
-                      />
-                    )}
+                    <AiOutlineHeart
+                      title="add to wishlist"
+                      className="addToWishlist-Btn"
+                      onClick={() =>
+                        addToWishList({
+                          id,
+                          title,
+                          thumbnail,
+                          price,
+                          rating,
+                          discountPercentage,
+                          category,
+                        })
+                      }
+                    />
                   </div>
                 </div>
               </div>
