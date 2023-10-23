@@ -25,7 +25,6 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  position: relative;
 }
 .shopnow-btn-container {
   position: absolute;
@@ -35,7 +34,6 @@
   align-items: center;
   gap: 0.3em;
   color: #faebd7;
-  font-size: 2rem;
   text-decoration: none;
 }
 .shopnow-btn {
@@ -123,6 +121,7 @@
 }
 .arrow {
   animation: arrowAnimation 1s linear infinite;
+  font-size: 2rem;
 }
 @keyframes arrowAnimation {
   0% {
@@ -178,5 +177,63 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .main {
+    margin: 8em 1em;
+  }
+  .hero-main {
+    height: 100%;
+    gap: 0.5em;
+  }
+  .carousel1 {
+    height: 100%;
+  }
+  .banner {
+    height: 200px;
+    gap: 0.5em;
+    width: 100%;
+    justify-content: center;
+  }
+  .firstImg-container {
+    width: 300px;
+  }
+  .hero-img3 {
+    width: 100%;
+  }
+  .secondImg-container {
+    gap: 0.5em;
+  }
+
+  .overlay {
+    height: calc(50% - 0.2em);
+  }
+  .overlay2 {
+    height: calc(50% - 0.2em);
+  }
+
+  .shopnow-btn-container {
+    position: absolute;
+    bottom: 2%;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    color: #faebd7;
+    text-decoration: none;
+  }
+  .shopnow-btn {
+    color: #faebd7;
+    font-size: 0.5rem;
+    text-decoration: none;
+  }
+  .shopnow-btn:hover {
+    text-decoration: underline;
+  }
+  .arrow {
+    font-size: 0.7rem;
+    animation: arrowAnimation 1.5s linear infinite;
   }
 }
