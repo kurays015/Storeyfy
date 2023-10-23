@@ -5,16 +5,19 @@
   margin: 0.5em 0;
 }
 
-/* Style the individual pagination dots */
 .swiper-pagination-bullet {
-  background-color: #0c0b0b; /* Change the background color */
-  border-radius: 50%; /* Make the dots round */
+  background-color: transparent; /* Remove the default background color */
+  border: 1px solid #f6f5f5; /* Set a border for the bullets */
+  width: 10px; /* Adjust bullet width as needed */
+  height: 10px; /* Adjust bullet height as needed */
+  margin: 0 5px; /* Adjust bullet spacing as needed */
   cursor: pointer;
 }
 
-/* Style the active pagination dot */
+/* Style the active bullet */
 .swiper-pagination-bullet-active {
-  background-color: #222; /* Change the active dot color */
+  background-color: #db4444; /* Set the active bullet color */
+  /* You can also add other styles as needed */
 }
 .mySwiper {
   width: 100%;
