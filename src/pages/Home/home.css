@@ -179,6 +179,19 @@
     transform: translateX(0);
   }
 }
+/* Style the individual pagination bullets */
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+/* Style the active pagination bullet */
+.swiper-pagination-bullet-active {
+  background-color: #db4444;
+}
 
 @media screen and (max-width: 400px) {
   .main {
@@ -192,13 +205,13 @@
     height: 100%;
   }
   .banner {
-    height: 200px;
+    height: 230px;
     gap: 0.5em;
     width: 100%;
     justify-content: center;
   }
   .firstImg-container {
-    width: 300px;
+    width: 350px;
   }
   .hero-img3 {
     width: 100%;
@@ -235,5 +248,21 @@
   .arrow {
     font-size: 0.7rem;
     animation: arrowAnimation 1.5s linear infinite;
+  }
+  @keyframes arrowAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(3px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  /* Style the individual pagination bullets */
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
   }
 }
