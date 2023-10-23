@@ -140,7 +140,10 @@
   }
   .flashsale-img-container {
     width: 100%;
-    height: 150px;
+  }
+  .flashsale-card {
+    justify-content: space-between;
+    height: 450px;
   }
   .flashsale-discount {
     top: 3%;
