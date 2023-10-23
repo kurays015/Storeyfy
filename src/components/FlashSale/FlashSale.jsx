@@ -86,7 +86,7 @@ function FlashSale({ allproducts }) {
 
   return (
     <div className="flashsale-container">
-      <div className="topic">
+      <div className="topic-flashsales">
         <div className="blank"></div>
         <h5>Today's</h5>
       </div>
@@ -111,13 +111,23 @@ function FlashSale({ allproducts }) {
           nextEl: ".custom-next-button", // Custom class for the next button
         }}
         className="mySwiper2"
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+          },
+          400: {
+            slidesPerView: 2,
+            spaceBetween: 30, // Change to 2 slides per view at 400px or less
+          },
+          768: {
+            slidesPerView: 5,
+          },
+        }}
       >
         {fifteenPercentAboveProduct}
       </Swiper>
       <div className="view-all-products">
-        <Link to="category/all-products">
-          <h2>View All Products</h2>
-        </Link>
+        <Link to="category/all-products">View All Products</Link>
       </div>
     </div>
   );

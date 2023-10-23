@@ -14,9 +14,10 @@
 .flashsale-container h5 {
   color: #db4444;
 }
-.topic {
+.topic-flashsales {
   display: flex;
   align-items: center;
+  margin-bottom: 2em;
   gap: 0.3em;
 }
 .blank {
@@ -121,10 +122,43 @@
   background-color: #db4444;
   padding: 0.7em 2em;
   border-radius: 4px;
-}
-.view-all-products h2 {
-  color: #fff;
-  letter-spacing: 0.5px;
   font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: #fff;
   font-weight: 400;
+}
+
+@media screen and (max-width: 400px) {
+  .flashsale-container {
+    margin-top: 3.5em;
+  }
+  .flashsale-container h1 {
+    font-size: 1.5rem;
+  }
+  .prev-next-container {
+    padding-right: 0;
+  }
+  .flashsale-img-container {
+    width: 100%;
+    height: 150px;
+  }
+  .flashsale-discount {
+    top: 3%;
+    left: 5%;
+    font-size: 0.6rem;
+  }
+  .view-all-products a {
+    background-color: #db4444;
+    padding: 0.7em 2em;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .flashsale-img {
+    object-fit: unset;
+  }
+  .flashsale-title {
+    width: 150px;
+  }
 }
