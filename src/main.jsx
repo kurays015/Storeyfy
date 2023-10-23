@@ -23,6 +23,7 @@ import "./components/Footer/footer.css";
 import "./components/RelatedProducts/relatedproducts.css";
 import "./components/WishListContent/wishlist.css";
 import "./components/GoodService/goodservice.css";
+import "./components/BurgerMenu/burger-menu.css";
 
 //pages css
 import "./index.css";
@@ -30,6 +31,7 @@ import "./pages/Home/home.css";
 import "./pages/About/about.css";
 import "./pages/Contact/contact.css";
 import "./pages/AllProducts/allproducts.css";
+import { BurgerMenuProvider } from "./Context/BurgerMenuContext.jsx";
 
 const queryClient = new QueryClient();
 
@@ -38,7 +40,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <QueryClientProvider client={queryClient}>
       <CartProvider>
         <WishlistProvider>
-          <App />
+          <BurgerMenuProvider>
+            <App />
+          </BurgerMenuProvider>
         </WishlistProvider>
       </CartProvider>
     </QueryClientProvider>

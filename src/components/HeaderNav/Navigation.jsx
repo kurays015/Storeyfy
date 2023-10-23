@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { BsCart2, BsHeart } from "react-icons/bs";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { useCart } from "../../Context/CartContext";
 import { useWishList } from "../../Context/WishlistContext";
-
+import { useBurgerMenu } from "../../Context/BurgerMenuContext";
 function Navigation() {
   const { setShowCart, cartItems } = useCart();
   const { wishListItems } = useWishList();
+  const { showBurgerNavMenu, setShowBurgerNavMenu } = useBurgerMenu();
   return (
     <header>
       <Link to="/">
@@ -41,6 +43,12 @@ function Navigation() {
           {cartItems.length ? <div>{cartItems.length}</div> : ""}
           <BsCart2 className="addto-cart" onClick={() => setShowCart(true)} />
         </h3>
+        <div>
+          <RxHamburgerMenu
+            onClick={() => setShowBurgerNavMenu(true)}
+            className="burger-menu-icon"
+          />
+        </div>
       </div>
     </header>
   );

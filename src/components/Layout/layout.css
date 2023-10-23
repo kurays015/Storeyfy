@@ -1,6 +1,6 @@
-/* .layout-container {
-  background-color: lightblue;
-} */
+.layout-container {
+  position: relative;
+}
 .product-in-category {
   margin: 0 17em;
   padding: 5em 0;
