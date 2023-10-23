@@ -20,7 +20,7 @@ export function WishlistProvider({ children }) {
     localStorage.getItem("heartFilled")
   );
 
-  const [likedItems, setLikedItems] = useState(
+  const [likedItemsId, setLikedItemsId] = useState(
     () => heartFilledFromLocalStorage || []
   );
 
@@ -31,7 +31,7 @@ export function WishlistProvider({ children }) {
   } = useCart();
 
   function isInWishList(id) {
-    return likedItems.includes(id);
+    return likedItemsId.includes(id);
   }
 
   function addToWishList(productData) {
@@ -48,23 +48,26 @@ export function WishlistProvider({ children }) {
       if (!isAlreadyInTheWishList) {
         setAlreadyInTheWishlist(false);
         setWishListItems([...wishListItems, productData]);
-        setLikedItems([...likedItems, productData.id]);
+        setLikedItemsId([...likedItemsId, productData.id]);
       }
     }
     setTimeout(() => setShowMessageContainer(false), 3000);
   }
 
   function removeFromWishlist(id) {
+    //remove heart filled from wishlist items
+    const removeLikedItems = likedItemsId.filter(itemId => itemId !== id);
+    setLikedItemsId(removeLikedItems);
+    //remove item from wishlist
+    const removeWishListItems = wishListItems.filter(item => item.id !== id);
+    setWishListItems(removeWishListItems);
     setAlreadyInTheWishlist(true);
-    setLikedItems(likedItems.filter(itemId => itemId !== id));
-    const remove = wishListItems.filter(item => item.id !== id);
-    setWishListItems(remove);
   }
 
   useEffect(() => {
     localStorage.setItem("wishListItems", JSON.stringify(wishListItems));
-    localStorage.setItem("heartFilled", JSON.stringify(likedItems));
-  }, [wishListItems, likedItems]);
+    localStorage.setItem("heartFilled", JSON.stringify(likedItemsId));
+  }, [wishListItems, likedItemsId]);
 
   const value = {
     addToWishList,
