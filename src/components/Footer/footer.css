@@ -3,8 +3,9 @@ footer {
   background-image: url("/images/newsletter.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3em;
   height: 25vh;
 }
 
@@ -104,27 +105,27 @@ footer ul {
     font-size: 0.8rem;
   }
   footer {
-    padding: 1em 1em 0;
+    padding: 1em 0.5em 0;
     gap: 0.5em;
     height: 15vh;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
   }
   footer h3 {
     font-size: 0.6rem;
   }
   .footer-icons {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
   .footer-subscribe button {
     font-size: 0.6rem;
   }
   .footer-subscribe input {
     font-size: 0.6rem;
-    padding: 0;
+    padding: 0.5em;
+    width: 100px;
   }
   .footer-subscribe {
     gap: 0.5em;
+    /* background-color: red; */
   }
   footer ul {
     line-height: 12px;

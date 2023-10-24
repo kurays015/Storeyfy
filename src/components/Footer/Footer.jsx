@@ -34,8 +34,8 @@ function Footer({ newCopyOfCategories }) {
           <h3>Contact</h3>
           <div>
             <ul>
-              <li>Phone: +1 (0) 000 0000 001</li>
-              <li>Email: yourmail@example.com</li>
+              <li>Phone: 1234567890</li>
+              <li>Email: @gmail.com</li>
               <li>Address: 1234 Street Name City, AA 99999</li>
             </ul>
           </div>
