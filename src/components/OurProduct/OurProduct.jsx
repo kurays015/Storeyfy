@@ -27,11 +27,11 @@ function OurProduct() {
 
   return (
     <div className="our-product-container">
-      <div className="topic">
+      <div className="our-product-topic">
         <div className="blank"></div>
         <h5>Our Products</h5>
       </div>
-      <div className="flashsale-header">
+      <div className="our-product-header">
         <h1>Explore Our Products</h1>
       </div>
       <div className="explore-productContainer">

@@ -112,7 +112,7 @@ function FlashSale({ allproducts }) {
         }}
         className="mySwiper2"
         breakpoints={{
-          320: {
+          300: {
             slidesPerView: 1,
           },
           400: {

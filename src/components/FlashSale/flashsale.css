@@ -63,7 +63,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  width: 200px;
+  width: 100%;
   font-weight: 500;
 }
 .flashsale-price {
@@ -148,7 +148,7 @@
   .flashsale-discount {
     top: 3%;
     left: 5%;
-    font-size: 0.6rem;
+    font-size: 0.9rem;
   }
   .view-all-products a {
     background-color: #db4444;
@@ -161,7 +161,10 @@
   .flashsale-img {
     object-fit: unset;
   }
-  .flashsale-title {
-    width: 150px;
+  .flashsale-details {
+    line-height: 40px;
+  }
+  .topic-flashsales {
+    margin-bottom: 1em;
   }
 }

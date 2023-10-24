@@ -6,3 +6,23 @@
   padding: 5em 0;
   display: flex;
 }
+.message-notif {
+  background-color: #db4444;
+  z-index: 999;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transition: all 300ms ease-in-out;
+  padding: 0.5em 1.5em;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  display: none;
+}
+
+.show {
+  display: block;
+}
