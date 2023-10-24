@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useBurgerMenu } from "../../Context/BurgerMenuContext";
 import { HiXMark } from "react-icons/hi2";
+import { ScrollBarRemover } from "../../utils/ScrollBarRemover";
 
 function BurgerMenu() {
   const { showBurgerNavMenu, handleBugerMenuToggle } = useBurgerMenu();
+
+  useEffect(() => {
+    ScrollBarRemover(showBurgerNavMenu);
+  }, [showBurgerNavMenu]);
 
   return (
     <nav className={`burger-nav ${showBurgerNavMenu ? "show-menu" : ""}`}>

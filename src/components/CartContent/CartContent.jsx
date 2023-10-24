@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import emptyCartImg from "/images/emptycart.png";
 import { RxExit } from "react-icons/rx";
 import { HiXMark } from "react-icons/hi2";
 import { useCart } from "../../Context/CartContext";
+import { ScrollBarRemover } from "../../utils/ScrollBarRemover";
 
 function CartContent() {
   const {
@@ -17,6 +18,10 @@ function CartContent() {
   } = useCart();
 
   const cartTotal = cartTotalPrice();
+
+  useEffect(() => {
+    ScrollBarRemover(showCart);
+  }, [showCart]);
 
   return (
     <>

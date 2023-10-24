@@ -9,3 +9,6 @@
 body {
   background-color: #fff;
 }
+.remove-scrollBar {
+  overflow-y: hidden;
+}

@@ -4,13 +4,8 @@ import axios from "axios";
 // Custom hook to fetch data and handle loading/error states
 export const useFetchData = (queryKey, url) => {
   const { data, isLoading, isError } = useQuery(queryKey, async () => {
-    try {
-      const { data } = await axios.get(url);
-      return data;
-    } catch (error) {
-      console.log(error);
-      throw new Error("Error fetching data");
-    }
+    const { data } = await axios.get(url);
+    return data;
   });
   return { data, isLoading, isError };
 };
