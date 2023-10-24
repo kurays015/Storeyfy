@@ -107,6 +107,8 @@ footer ul {
     padding: 1em 1em 0;
     gap: 0.5em;
     height: 15vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
   footer h3 {
     font-size: 0.6rem;
@@ -125,7 +127,7 @@ footer ul {
     gap: 0.5em;
   }
   footer ul {
-    line-height: 15px;
+    line-height: 12px;
   }
   .footer-socials ul {
     gap: 0.3em;
