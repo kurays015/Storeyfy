@@ -4,19 +4,26 @@ import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { Link } from "react-router-dom";
 import { StarRatings } from "../../utils/StarRatings";
 import { useCart } from "../../Context/CartContext";
-//react icons
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { FaCartPlus } from "react-icons/fa";
-import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useWishList } from "../../Context/WishlistContext";
 
+//react icons
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { BiFirstPage, BiLastPage } from "react-icons/bi";
+import { FaCartPlus } from "react-icons/fa";
+import { HiMagnifyingGlass } from "react-icons/hi2";
+
 function AllProducts({ category }) {
+  const totalPages = 100;
+  const dataPerPage = 20;
   const [searchMessage, setSearchMessage] = useState(false);
-  const { data } = allProducts();
+  const [page, setPage] = useState(1);
+  const [skip, setSkip] = useState(0);
+  const { data, isLoading } = allProducts(dataPerPage, skip);
   const [renderedProducts, setRenderedProducts] = useState([]);
   const inputRef = useRef();
   const { addToCart } = useCart();
   const { addToWishList, removeFromWishlist, isInWishList } = useWishList();
+
   function handleSubmit(e) {
     e.preventDefault();
     const inputValue = inputRef.current.value;
@@ -34,9 +41,36 @@ function AllProducts({ category }) {
     inputRef.current.value = "";
   }
 
+  const prev = () => {
+    setPage(prevPage => Math.max(prevPage - 1, 1));
+    setSkip(prev => prev - 20);
+    window.scrollTo(0, 0);
+  };
+  const next = () => {
+    setPage(prevPage => prevPage + 1);
+    setSkip(prev => prev + 20);
+    window.scrollTo(0, 0);
+  };
+  const goToFirstPage = () => {
+    setPage(1);
+    setSkip(0);
+    window.scrollTo(0, 0);
+  };
+  const goToLastPage = () => {
+    const lastPage = totalPages / dataPerPage;
+    const skipForLastPage = (lastPage - 1) * dataPerPage;
+    setPage(lastPage);
+    setSkip(skipForLastPage);
+    window.scrollTo(0, 0);
+  };
+
   const currentData = renderedProducts.length
     ? renderedProducts
     : data?.products || [];
+
+  if (isLoading) {
+    return <p className="loading">Loading data...</p>;
+  }
 
   return (
     <div className="all-products-parentContainer">
@@ -49,6 +83,7 @@ function AllProducts({ category }) {
         </label>
         <input ref={inputRef} type="search" placeholder="search product" />
       </form>
+
       <div className="product-container">
         {searchMessage ? (
           <h3 style={{ color: "#808080" }}>No product found...</h3>
@@ -127,26 +162,35 @@ function AllProducts({ category }) {
           )
         )}
       </div>
+      <div className="pagination">
+        <button
+          className="first-page"
+          disabled={page === 1}
+          onClick={goToFirstPage}
+        >
+          <BiFirstPage className="first-page-icon" />
+        </button>
+        <button className="first-pagebtn" disabled={page === 1} onClick={prev}>
+          prev
+        </button>
+        <span>{page}</span>
+        <button
+          className="last-pagebtn"
+          disabled={page >= totalPages / dataPerPage}
+          onClick={next}
+        >
+          next
+        </button>
+        <button
+          className="last-page"
+          onClick={goToLastPage}
+          disabled={page >= totalPages / dataPerPage}
+        >
+          <BiLastPage className="last-page-icon" />
+        </button>
+      </div>
     </div>
   );
 }
 
 export default AllProducts;
-{
-  /* <AiOutlineHeart
-title="add to wishlist"
-className="addToWishlist-Btn"
-onClick={() =>
-  addToWishList({
-    id,
-    title,
-    thumbnail,
-    price,
-    rating,
-    discountPercentage,
-    category,
-    inWishList,
-  })
-}
-/> */
-}

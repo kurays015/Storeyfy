@@ -16,10 +16,6 @@
 }
 .product-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  transition: all 0.2s ease-in;
   cursor: pointer;
   border: 1px solid #eae7e7;
   border-radius: 10px;
