@@ -6,9 +6,12 @@ import {
   BiLogoYoutube,
 } from "react-icons/bi";
 import { useLocation } from "react-router-dom";
+import { useCategory } from "../../Context/CategoryContext";
 
-function Footer({ newCopyOfCategories }) {
+function Footer() {
   const location = useLocation();
+  const { newCopyOfCategories } = useCategory();
+
   const isEachCategoryRoute = newCopyOfCategories
     .filter(category => category !== "all-products")
     .some(category => location.pathname === `/category/${category}`);

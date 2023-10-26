@@ -10,12 +10,10 @@ import img1 from "/images/shop1.jpg";
 import img2 from "/images/shop2.jpg";
 import img3 from "/images/shop3.jpg";
 //react icons
-import { allProducts } from "../../utils/useFetchData";
 import { BsArrowRight } from "react-icons/bs";
 import GoodService from "../../components/GoodService/GoodService";
 
 function Home() {
-  const { data } = allProducts();
   return (
     <div className="main">
       <div className="banner">
@@ -45,7 +43,7 @@ function Home() {
         </div>
         <Carousel />
       </div>
-      <FlashSale allproducts={data?.products} />
+      <FlashSale />
       <EcomBanner />
       <OurProduct />
       <GoodService />

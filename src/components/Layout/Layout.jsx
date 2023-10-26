@@ -5,7 +5,7 @@ import { useCart } from "../../Context/CartContext";
 import { useWishList } from "../../Context/WishlistContext";
 import Footer from "../Footer/Footer";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
-function Layout({ newCopyOfCategories }) {
+function Layout() {
   const {
     alreadyInTheCart,
     showCartMessage,
@@ -47,7 +47,7 @@ function Layout({ newCopyOfCategories }) {
       <BurgerMenu />
       <Navigation />
       <Outlet />
-      <Footer newCopyOfCategories={newCopyOfCategories} />
+      <Footer />
     </div>
   );
 }

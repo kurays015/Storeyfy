@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
 import Categories from "../Categories/Categories";
-function CategoryLayout({ originalCategories }) {
+function CategoryLayout() {
   return (
     <>
       <div className="product-in-category">
-        <Categories originalCategories={originalCategories} />
+        <Categories />
         <Outlet />
       </div>
     </>

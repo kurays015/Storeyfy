@@ -6,6 +6,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 //context
 import { WishlistProvider } from "./Context/WishlistContext.jsx";
 import { CartProvider } from "./Context/CartContext.jsx";
+import { CategoryProvider } from "./Context/CategoryContext.jsx";
 
 //components
 import "./components/HeaderNav/header.css";
@@ -39,11 +40,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <CartProvider>
-        <WishlistProvider>
-          <BurgerMenuProvider>
-            <App />
-          </BurgerMenuProvider>
-        </WishlistProvider>
+        <CategoryProvider>
+          <WishlistProvider>
+            <BurgerMenuProvider>
+              <App />
+            </BurgerMenuProvider>
+          </WishlistProvider>
+        </CategoryProvider>
       </CartProvider>
     </QueryClientProvider>
   </React.StrictMode>

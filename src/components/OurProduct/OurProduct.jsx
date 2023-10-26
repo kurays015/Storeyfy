@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { allProducts } from "../../utils/useFetchData";
+import { randomProducts } from "../../utils/useFetchData";
 import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
@@ -11,7 +11,7 @@ import { useWishList } from "../../Context/WishlistContext";
 
 function OurProduct() {
   const [productData, setProductData] = useState([]);
-  const { data } = allProducts();
+  const { data } = randomProducts();
 
   const { addToCart } = useCart();
   const { addToWishList, isInWishList, removeFromWishlist } = useWishList();

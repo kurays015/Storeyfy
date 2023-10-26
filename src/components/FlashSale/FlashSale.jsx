@@ -5,6 +5,7 @@ import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
 import { useCart } from "../../Context/CartContext";
+import { randomProducts } from "../../utils/useFetchData";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -13,11 +14,12 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { useWishList } from "../../Context/WishlistContext";
 
-function FlashSale({ allproducts }) {
+function FlashSale() {
   const { addToCart } = useCart();
   const { addToWishList, isInWishList, removeFromWishlist } = useWishList();
+  const { data } = randomProducts();
 
-  const fifteenPercentAboveProduct = allproducts?.map(
+  const fifteenPercentAboveProduct = data?.products.map(
     ({ discountPercentage, id, title, thumbnail, price, rating, category }) => {
       if (Math.round(discountPercentage) > 15) {
         return (

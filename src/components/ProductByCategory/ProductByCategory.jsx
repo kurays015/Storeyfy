@@ -12,12 +12,11 @@ import { useWishList } from "../../Context/WishlistContext";
 
 function ProductByCategory({ category }) {
   const { data, isLoading, isError } = productPerCategory(category);
+  const { addToWishList, isInWishList, removeFromWishlist } = useWishList();
+  const { addToCart } = useCart();
+
   if (isLoading) return <h1 className="loading">Loading products...</h1>;
   if (isError) return <h1>Error!</h1>;
-
-  const { addToCart } = useCart();
-  const { addToWishList, isInWishList, removeFromWishlist } = useWishList();
-
   return (
     <div className="product-byCategory">
       <h1 className="category-name">{CategoryTitle(category)}</h1>

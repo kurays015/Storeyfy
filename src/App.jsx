@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { allCategories } from "./utils/useFetchData";
 
 //components
 import Layout from "./components/Layout/Layout";
@@ -14,22 +13,14 @@ import EachProducts from "./components/EachProduct/EachProduct";
 import Signup from "./pages/Signup/Signup";
 import AllProducts from "./pages/AllProducts/AllProducts";
 import WishList from "./components/WishListContent/WishListContent";
+import { useCategory } from "./Context/CategoryContext";
 
 function App() {
-  const { data } = allCategories();
-  const newCopyOfCategories = data ? [...data, "all-products"] : [];
+  const { newCopyOfCategories } = useCategory();
 
-  const productCategoryRoute = newCopyOfCategories?.map((category, index) => (
+  const productCategoryRoute = newCopyOfCategories?.map(category => (
     <React.Fragment key={category}>
-      <Route
-        path="category"
-        element={
-          <CategoryLayout
-            category={category}
-            originalCategories={newCopyOfCategories}
-          />
-        }
-      >
+      <Route path="category" element={<CategoryLayout />}>
         <Route
           path={`${category}`}
           element={<ProductByCategory category={category} />}
@@ -46,7 +37,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route element={<Layout newCopyOfCategories={newCopyOfCategories} />}>
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
