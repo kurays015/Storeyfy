@@ -146,4 +146,7 @@ footer ul {
     font-size: 0.6rem;
     letter-spacing: 1px;
   }
+  .fixed {
+    position: static;
+  }
 }

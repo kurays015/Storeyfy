@@ -9,7 +9,6 @@ import { useCart } from "../../Context/CartContext";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { useWishList } from "../../Context/WishlistContext";
-import MobileCategory from "../MobileCategories/MobileCategories";
 
 function ProductByCategory({ category }) {
   const { data, isLoading, isError } = productPerCategory(category);
@@ -21,7 +20,6 @@ function ProductByCategory({ category }) {
   return (
     <div className="product-byCategory">
       <h1 className="category-name">{CategoryTitle(category)}</h1>
-      <MobileCategory />
       <div className="product-container">
         {data?.products.map(
           ({

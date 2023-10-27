@@ -1,6 +1,11 @@
+.mobile-categories {
+  display: none;
+}
+
 @media screen and (max-width: 400px) {
   .mobile-categories {
     text-align: center;
+    display: block;
   }
   .mobile-categories label {
     font-size: 0.8rem;
@@ -8,5 +13,8 @@
   }
   .mobile-categories {
     margin: 1em 0;
+  }
+  .mobile-categories select {
+    outline: none;
   }
 }

@@ -26,3 +26,10 @@
 .show {
   display: block;
 }
+@media screen and (max-width: 400px) {
+  .product-in-category {
+    flex-direction: column;
+    padding-top: 7em;
+    margin: 0;
+  }
+}

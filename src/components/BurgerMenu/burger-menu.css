@@ -1,7 +1,9 @@
 .burger-nav {
-  padding: 8em 2em 2em 2em;
+  padding: 2em;
   position: fixed;
   z-index: 1000001;
+  display: flex;
+  align-items: center;
   background-color: #fff;
   height: 100%;
   width: 100%;
@@ -15,7 +17,10 @@
 .burger-nav a {
   text-decoration: none;
   color: #222;
-  font-size: 4rem;
+  font-size: 3rem;
+}
+.burger-nav a:active {
+  color: #db4444;
 }
 .burger-nav button {
   all: unset;

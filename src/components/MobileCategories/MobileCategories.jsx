@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCategory } from "../../Context/CategoryContext";
+import { CategoryTitle } from "../../utils/CategoryTitle";
 
 function MobileCategory() {
   const { newCopyOfCategories } = useCategory();
@@ -17,9 +18,9 @@ function MobileCategory() {
       <label htmlFor="category-select">Categories:</label>
       <select name="category" id="category-select" onChange={changeRoute}>
         <option value="">Choose a category</option>
-        {newCopyOfCategories.map(category => (
+        {newCopyOfCategories.sort().map(category => (
           <option key={category} value={category}>
-            {category}
+            {CategoryTitle(category)}
           </option>
         ))}
       </select>

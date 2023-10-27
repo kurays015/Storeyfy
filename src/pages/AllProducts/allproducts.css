@@ -1,6 +1,7 @@
 .all-products-parentContainer {
   margin: 0.5em 0 0 2em;
   width: 100%;
+  position: relative;
 }
 .shortcut-icons {
   display: flex;
@@ -56,23 +57,17 @@
     grid-template-columns: repeat(1, 1fr);
   }
   .all-products-parentContainer {
-    margin: 0 1em;
+    margin: 0;
+    padding: 0 1em;
   }
   .search {
     justify-content: center;
     margin-bottom: 1em;
   }
-  .product-in-category {
-    margin: 0;
-    height: 100%;
-    justify-content: center;
-  }
+
   .category-container {
     position: absolute;
     display: none;
-  }
-  .category-name {
-    margin: 1.5em 0 0.5em;
   }
   .product-card {
     border: 2px solid #808080;

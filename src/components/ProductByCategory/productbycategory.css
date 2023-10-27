@@ -1,5 +1,6 @@
 .product-byCategory {
   margin: 0.5em 0 0 2em;
+  position: relative;
 }
 .loading {
   margin: 1em 0 0 1em;
@@ -89,4 +90,18 @@
 .search input::placeholder {
   font-size: 0.8rem;
   padding-left: 0.3em;
+}
+
+@media screen and (max-width: 400px) {
+  .product-byCategory {
+    margin: 0 1em;
+  }
+  .loading {
+    font-size: 1rem;
+    text-align: center;
+    height: 100vh;
+  }
+  .category-name {
+    margin: 0.5em;
+  }
 }
