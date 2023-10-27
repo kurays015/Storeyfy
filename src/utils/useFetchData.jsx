@@ -3,19 +3,15 @@ import axios from "axios";
 
 // Custom hook to fetch data and handle loading/error states
 export const useFetchData = (queryKey, url, limit, skip) => {
-  const { data, isLoading, isError } = useQuery(
+  const { data, isLoading, isError, error } = useQuery(
     [queryKey, limit, skip],
     async () => {
-      try {
-        const { data } = await axios.get(url);
-        return data;
-      } catch (error) {
-        console.log(error);
-      }
+      const { data } = await axios.get(url);
+      return data;
     },
     {
       onError: error => console.error(`Error in query ${queryKey}:`, error),
-      onSettled: (data, error) =>
+      onSettled: (_, error) =>
         console.log(
           `Query ${queryKey} has settled. Error: ${
             error ? error.message : "None"
@@ -23,7 +19,7 @@ export const useFetchData = (queryKey, url, limit, skip) => {
         ),
     }
   );
-  return { data, isLoading, isError };
+  return { data, isLoading, isError, error };
 };
 
 export const allProducts = (limit, skip) => {

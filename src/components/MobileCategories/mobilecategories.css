@@ -1,0 +1,12 @@
+@media screen and (max-width: 400px) {
+  .mobile-categories {
+    text-align: center;
+  }
+  .mobile-categories label {
+    font-size: 0.8rem;
+    margin-right: 0.5em;
+  }
+  .mobile-categories {
+    margin: 1em 0;
+  }
+}

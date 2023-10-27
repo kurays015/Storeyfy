@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { StarRatings } from "../../utils/StarRatings";
 import { useCart } from "../../Context/CartContext";
 import { useWishList } from "../../Context/WishlistContext";
+import MobileCategories from "../../components/MobileCategories/MobileCategories";
 
 //react icons
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
@@ -69,9 +70,8 @@ function AllProducts({ category }) {
     : data?.products || [];
 
   if (isLoading) {
-    return <p className="loading">Loading data...</p>;
+    return <p className="mobile-loading">Loading data...</p>;
   }
-
   return (
     <div className="all-products-parentContainer">
       <h1 className="category-name">
@@ -83,7 +83,7 @@ function AllProducts({ category }) {
         </label>
         <input ref={inputRef} type="search" placeholder="search product" />
       </form>
-
+      <MobileCategories />
       <div className="product-container">
         {searchMessage ? (
           <h3 style={{ color: "#808080" }}>No product found...</h3>

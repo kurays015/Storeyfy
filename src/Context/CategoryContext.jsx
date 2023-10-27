@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import { allCategories } from "../utils/useFetchData";
+
 const CategoryContext = createContext();
 
 export function useCategory() {

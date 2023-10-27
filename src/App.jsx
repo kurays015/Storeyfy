@@ -17,7 +17,6 @@ import { useCategory } from "./Context/CategoryContext";
 
 function App() {
   const { newCopyOfCategories } = useCategory();
-
   const productCategoryRoute = newCopyOfCategories?.map(category => (
     <React.Fragment key={category}>
       <Route path="category" element={<CategoryLayout />}>

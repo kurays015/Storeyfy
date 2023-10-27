@@ -25,6 +25,7 @@ import "./components/RelatedProducts/relatedproducts.css";
 import "./components/WishListContent/wishlist.css";
 import "./components/GoodService/goodservice.css";
 import "./components/BurgerMenu/burger-menu.css";
+import "./components/MobileCategories/mobilecategories.css";
 
 //pages css
 import "./index.css";
