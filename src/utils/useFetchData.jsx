@@ -6,8 +6,21 @@ export const useFetchData = (queryKey, url, limit, skip) => {
   const { data, isLoading, isError } = useQuery(
     [queryKey, limit, skip],
     async () => {
-      const { data } = await axios.get(url);
-      return data;
+      try {
+        const { data } = await axios.get(url);
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    {
+      onError: error => console.error(`Error in query ${queryKey}:`, error),
+      onSettled: (data, error) =>
+        console.log(
+          `Query ${queryKey} has settled. Error: ${
+            error ? error.message : "None"
+          }`
+        ),
     }
   );
   return { data, isLoading, isError };
@@ -15,7 +28,7 @@ export const useFetchData = (queryKey, url, limit, skip) => {
 
 export const allProducts = (limit, skip) => {
   return useFetchData(
-    "getProducts",
+    `getProducts-${limit}-${skip}`,
     `https://dummyjson.com/products?limit=${limit}&skip=${skip}&select=title,thumbnail,price,id,discountPercentage,rating`,
     limit,
     skip

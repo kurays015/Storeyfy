@@ -44,6 +44,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           {productCategoryRoute}
           <Route path="/wishlist" element={<WishList />} />
+          {/* <Route path="*" element={<h1>Not found</h1>} /> */}
         </Route>
       </Routes>
     </Router>
