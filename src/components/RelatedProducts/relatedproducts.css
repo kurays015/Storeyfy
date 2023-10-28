@@ -10,7 +10,19 @@
 .topic-related-products {
   margin: 7em 0 2em;
   color: #db444d;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
 }
 .thumbnail {
   object-fit: contain;
+}
+
+@media screen and (max-width: 400px) {
+  .topic-related-products {
+    margin: 2em 0 2em;
+  }
+  .related-products-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

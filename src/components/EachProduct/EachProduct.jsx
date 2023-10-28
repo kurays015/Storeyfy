@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
 import { fetchEachProductById } from "../../utils/useFetchData";
@@ -25,10 +25,15 @@ function Products() {
 
   if (isLoading) return <h1 className="loading">Getting data...</h1>;
   if (isError) return <h1 className="loading">Error fetching data...</h1>;
+
+  window.scrollTo(0, 0);
   return (
     <>
       <div className="each-productContainer">
-        <div style={{ display: "flex" }}>
+        <Link to={`/category/${data?.category}`} className="back-btn">
+          Back
+        </Link>
+        <div className="flex-container">
           <div className="images-container">
             <div className="main-img-container">
               <img src={currentImage} alt={data?.title} className="main-img" />
@@ -46,6 +51,7 @@ function Products() {
             </div>
           </div>
           <div className="product-specs">
+            <h2 className="prod-title">{data?.title.toUpperCase()}</h2>
             <div>Brand: {data?.brand}</div>
             <div>
               Category:{" "}
@@ -62,7 +68,6 @@ function Products() {
               </span>{" "}
               left
             </p>
-            <h2 className="prod-title">{data?.title.toUpperCase()}</h2>
             <div className="stars-rating-container">
               Rating: {StarRatings(data?.rating)}
             </div>
@@ -71,7 +76,12 @@ function Products() {
               <p>{data?.description}</p>
             </div>
             <div className="prod-price">
-              Price: <span>{CurrencyFormatter(data?.price)}</span>
+              <span>{CurrencyFormatter(data?.price)}</span>
+              <del>
+                {CurrencyFormatter(
+                  data?.price / (1 - Math.round(data?.discountPercentage) / 100)
+                )}
+              </del>
             </div>
             <div className="cartbuy-btn">
               <button className="buynow-btn">Buy Now</button>

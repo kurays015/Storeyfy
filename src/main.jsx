@@ -15,7 +15,7 @@ import "./components/ProductByCategory/productbycategory.css";
 import "./components/Categories/categories.css";
 import "./components/ProductByCategory/productbycategory.css";
 import "./components/Layout/layout.css";
-import "./components/EachProduct/product.css";
+import "./components/EachProduct/eachproduct.css";
 import "./components/FlashSale/flashsale.css";
 import "./components/EcomBannerImg/ecom-banner.css";
 import "./components/OurProduct/ourproduct.css";

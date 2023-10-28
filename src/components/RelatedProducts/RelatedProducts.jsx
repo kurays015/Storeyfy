@@ -34,7 +34,7 @@ function RelatedProducts({ filtered }) {
               </Link>
 
               <div className="details">
-                <Link to={`${id}`}>
+                <Link to={`/category/${category}/${id}`}>
                   <h4>{title}</h4>
                 </Link>
                 <div>
