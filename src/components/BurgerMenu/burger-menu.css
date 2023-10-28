@@ -16,8 +16,9 @@
 }
 .burger-nav a {
   text-decoration: none;
-  color: #222;
   font-size: 3rem;
+  font-weight: 500;
+  color: #373737;
 }
 .burger-nav a:active {
   color: #db4444;

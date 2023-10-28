@@ -71,6 +71,8 @@ function AllProducts({ category }) {
   if (isLoading) {
     return <h1 className="loading">Loading data...</h1>;
   }
+
+  window.scrollTo(0, 0);
   return (
     <div className="all-products-parentContainer">
       <h1 className="category-name">
