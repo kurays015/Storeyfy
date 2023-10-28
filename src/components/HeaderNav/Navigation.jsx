@@ -4,14 +4,16 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { useCart } from "../../Context/CartContext";
 import { useWishList } from "../../Context/WishlistContext";
 import { useBurgerMenu } from "../../Context/BurgerMenuContext";
+import storeyfyLogo from "/images/Storeyfy-logo.png";
 function Navigation() {
   const { setShowCart, cartItems } = useCart();
   const { wishListItems } = useWishList();
-  const { showBurgerNavMenu, setShowBurgerNavMenu } = useBurgerMenu();
+  const { setShowBurgerNavMenu } = useBurgerMenu();
   return (
     <header>
       <Link to="/">
-        <h1>Storeyfy</h1>
+        <img src={storeyfyLogo} alt="store-logo" className="store-logo" />
+        {/* <h1>Storeyfy</h1> */}
       </Link>
       <nav>
         <ul>

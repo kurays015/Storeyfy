@@ -30,6 +30,9 @@ header nav ul {
 header nav ul li {
   list-style: none;
 }
+.store-logo {
+  width: 200px;
+}
 .header-cart-save-container {
   display: flex;
   align-items: center;
