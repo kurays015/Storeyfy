@@ -32,4 +32,12 @@
     padding-top: 7em;
     margin: 0;
   }
+  .message-notif {
+    top: 90%;
+    left: 50%;
+    bottom: unset;
+    right: unset;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+  }
 }
