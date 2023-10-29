@@ -16,14 +16,6 @@ export function WishlistProvider({ children }) {
   );
   const [alreadyInTheWishlist, setAlreadyInTheWishlist] = useState(false);
 
-  const heartFilledFromLocalStorage = JSON.parse(
-    localStorage.getItem("heartFilled")
-  );
-
-  const [likedItemsId, setLikedItemsId] = useState(
-    () => heartFilledFromLocalStorage || []
-  );
-
   const {
     setShowCartMessage,
     setShowWishlistMessage,
@@ -31,7 +23,7 @@ export function WishlistProvider({ children }) {
   } = useCart();
 
   function isInWishList(id) {
-    return likedItemsId.includes(id);
+    return wishListItems.some(item => item.id === id);
   }
 
   function addToWishList(productData) {
@@ -48,17 +40,14 @@ export function WishlistProvider({ children }) {
       if (!isAlreadyInTheWishList) {
         setAlreadyInTheWishlist(false);
         setWishListItems([...wishListItems, productData]);
-        setLikedItemsId([...likedItemsId, productData.id]);
       }
     }
     setTimeout(() => setShowMessageContainer(false), 3000);
   }
+  console.log(wishListItems);
 
   function removeFromWishlist(id) {
-    //remove heart filled from wishlist items
-    const removeLikedItems = likedItemsId.filter(itemId => itemId !== id);
-    setLikedItemsId(removeLikedItems);
-    //remove item from wishlist
+    //remove item from wishlist and remove the filled heart icon
     const removeWishListItems = wishListItems.filter(item => item.id !== id);
     setWishListItems(removeWishListItems);
     setAlreadyInTheWishlist(true);
@@ -66,8 +55,7 @@ export function WishlistProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem("wishListItems", JSON.stringify(wishListItems));
-    localStorage.setItem("heartFilled", JSON.stringify(likedItemsId));
-  }, [wishListItems, likedItemsId]);
+  }, [wishListItems]);
 
   const value = {
     addToWishList,
