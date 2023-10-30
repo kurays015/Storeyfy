@@ -16,6 +16,7 @@ function WishList() {
     // Remove "wishlist" from the current path and navigate to the new path
     navigate(`/category/${category}/${id}`);
   };
+  window.scrollTo(0, 0);
   return (
     <div className="wishlist-container">
       <h1>My wishlist({wishListItems.length})</h1>

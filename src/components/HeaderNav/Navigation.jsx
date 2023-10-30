@@ -13,7 +13,6 @@ function Navigation() {
     <header>
       <Link to="/">
         <img src={storeyfyLogo} alt="store-logo" className="store-logo" />
-        {/* <h1>Storeyfy</h1> */}
       </Link>
       <nav>
         <ul>
