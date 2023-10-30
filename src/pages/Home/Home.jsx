@@ -11,7 +11,6 @@ import img2 from "/images/shop2.jpg";
 import img3 from "/images/shop3.jpg";
 //react icons
 import { BsArrowRight } from "react-icons/bs";
-import GoodService from "../../components/GoodService/GoodService";
 
 function Home() {
   return (
@@ -46,7 +45,6 @@ function Home() {
       <FlashSale />
       <EcomBanner />
       <OurProduct />
-      <GoodService />
     </div>
   );
 }

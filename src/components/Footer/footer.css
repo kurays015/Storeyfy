@@ -1,152 +1,47 @@
-footer {
-  padding: 3em 10em;
-  background-image: url("/images/newsletter.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3em;
-  height: 25vh;
-}
-
-footer h3 {
-  margin-bottom: 0.5em 0;
-  color: #000000;
-  text-transform: uppercase;
-}
-footer li {
-  list-style: none;
-  font-size: 0.9rem;
-}
-footer a {
-  text-decoration: none;
-  color: #242424;
-}
-footer ul {
-  line-height: 25px;
-}
-.footer-socials ul {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  margin-top: 1em;
-}
-
-.footer-icons {
-  font-size: 1.7rem;
-  transition: all 0.3s ease-in-out;
-  opacity: 0.8;
-  color: #222;
-}
-.footer-socials li:hover .footer-icons {
-  opacity: 1;
-  color: #000000;
-}
-
-.footer-subscribe {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-.footer-subscribe button {
-  all: unset;
-  background-color: #373737;
-  color: #fff;
-  text-align: center;
-  padding: 0.5em;
-  font-weight: 500;
-  font-size: 1.2rem;
-  letter-spacing: 0.5px;
-  transition: all 200ms ease-in-out;
-  cursor: pointer;
-}
-.footer-subscribe button:hover {
-  background-color: #db4444;
-}
-.footer-subscribe input {
-  all: unset;
-  text-align: center;
-  background-color: #fff;
-  padding: 0.5em;
-  font-size: 1rem;
-}
-
-.footer-subscribe input::placeholder {
-  color: #808080;
-}
-
-.copyright {
+.myFooter {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.7em;
-  background-color: #145364;
+  height: 25vh;
+  background-color: #282828;
+  color: #808080;
+}
+.socials-container {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+.socials-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.socials-icon:hover {
+  transform: scale(1.1);
   color: #fff;
 }
-.copyright h5 {
-  font-weight: 400;
-}
-.absolute {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.myFooter small {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 .fixed {
   position: fixed;
   bottom: 0;
   width: 100%;
 }
-.static {
-  position: static;
+.navFixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 @media screen and (max-width: 400px) {
-  .footer-subscribe h1 {
-    font-size: 0.8rem;
-  }
-  footer {
-    padding: 1em 0.5em 0;
-    gap: 0.5em;
-    height: 15vh;
-  }
-  footer h3 {
-    font-size: 0.6rem;
-  }
-  .footer-icons {
-    font-size: 0.7rem;
-  }
-  .footer-subscribe button {
-    font-size: 0.6rem;
-  }
-  .footer-subscribe input {
-    font-size: 0.6rem;
-    padding: 0.5em;
-    width: 100px;
-  }
-  .footer-subscribe {
-    gap: 0.5em;
-    /* background-color: red; */
-  }
-  footer ul {
-    line-height: 12px;
-  }
-  .footer-socials ul {
-    gap: 0.3em;
-    margin-top: 0;
-  }
-  .footer-links a,
-  .footer-news a {
-    font-size: 0.4rem;
-  }
-  .footer-contact li {
-    font-size: 0.4rem;
-  }
-  .copyright h5 {
-    font-weight: 400;
-    font-size: 0.6rem;
-    letter-spacing: 1px;
-  }
   .fixed {
     position: static;
+  }
+
+  .myFooter small {
+    font-size: 1rem;
   }
 }

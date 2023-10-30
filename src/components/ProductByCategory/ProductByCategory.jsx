@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CurrencyFormatter } from "../../utils/CurrencyFormatter";
 import { StarRatings } from "../../utils/StarRatings";
@@ -17,6 +17,7 @@ function ProductByCategory({ category }) {
 
   if (isLoading) return <h1 className="loading">Loading products...</h1>;
   if (isError) return <h1>Error!</h1>;
+
   return (
     <div className="product-byCategory">
       <h1 className="category-name">{CategoryTitle(category)}</h1>

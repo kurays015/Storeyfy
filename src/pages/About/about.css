@@ -1,6 +1,15 @@
 .about-container {
   padding: 8em 17em;
 }
-.about-container h2 {
+.about-container h1 {
   color: #db4444;
+}
+@media screen and (max-width: 400px) {
+  .about-container {
+    padding: 7em 1em;
+  }
+  .about-container h1 {
+    text-align: center;
+    font-size: 1rem;
+  }
 }

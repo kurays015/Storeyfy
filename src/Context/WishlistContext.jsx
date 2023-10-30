@@ -44,7 +44,6 @@ export function WishlistProvider({ children }) {
     }
     setTimeout(() => setShowMessageContainer(false), 3000);
   }
-  console.log(wishListItems);
 
   function removeFromWishlist(id) {
     //remove item from wishlist and remove the filled heart icon

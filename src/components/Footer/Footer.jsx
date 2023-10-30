@@ -2,7 +2,6 @@ import { RiTwitterXLine } from "react-icons/ri";
 import {
   BiLogoFacebookCircle,
   BiLogoInstagram,
-  BiLogoGooglePlus,
   BiLogoYoutube,
 } from "react-icons/bi";
 import { useLocation } from "react-router-dom";
@@ -15,100 +14,33 @@ function Footer() {
   const isEachCategoryRoute = newCopyOfCategories
     .filter(category => category !== "all-products")
     .some(category => location.pathname === `/category/${category}`);
-  const wishListRoute = location.pathname === "/wishlist";
   const navRoute =
-    location.pathname === "/about" ||
-    location.pathname === "/contact" ||
-    location.pathname === "/signup";
+    location.pathname === "/about" || location.pathname === "/signup";
 
   return (
-    <div
-      className={`${isEachCategoryRoute ? "fixed" : ""} ${
-        navRoute ? "absolute" : ""
-      } ${wishListRoute ? "static" : ""}`}
+    <footer
+      className={`myFooter ${isEachCategoryRoute ? "fixed" : ""} ${
+        navRoute ? "navFixed" : ""
+      } `}
     >
-      <footer>
-        <div className="footer-subscribe">
-          <h1>Storeyfy</h1>
-          <input type="email" placeholder="your@email.com" />
-          <button>Subscribe</button>
-        </div>
-        <div className="footer-contact">
-          <h3>Contact</h3>
+      <div>
+        <div className="socials-container">
           <div>
-            <ul>
-              <li>Phone: 1234567890</li>
-              <li>Email: @gmail.com</li>
-              <li>Address: 1234 Street Name City, AA 99999</li>
-            </ul>
+            <BiLogoFacebookCircle className="socials-icon" />
           </div>
-          <div className="footer-socials">
-            <ul>
-              <li>
-                <a href="#">
-                  <BiLogoFacebookCircle className="footer-icons" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <BiLogoInstagram className="footer-icons" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <BiLogoGooglePlus className="footer-icons" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <BiLogoYoutube className="footer-icons" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <RiTwitterXLine className="footer-icons" />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-news">
-          <h3>Recent News</h3>
           <div>
-            <ul>
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Services</a>
-              </li>
-              <li>
-                <a href="#">Get in touch</a>
-              </li>
-            </ul>
+            <BiLogoYoutube className="socials-icon" />
           </div>
-        </div>
-        <div className="footer-links">
-          <h3>Links</h3>
           <div>
-            <ul>
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">Terms of Use</a>
-              </li>
-              <li>
-                <a href="#">FAQ</a>
-              </li>
-            </ul>
+            <BiLogoInstagram className="socials-icon" />
+          </div>
+          <div>
+            <RiTwitterXLine className="socials-icon" />
           </div>
         </div>
-      </footer>
-      <div className="copyright">
-        <h5>Copyright © 2023. All rights are reserved</h5>
+        <small>All Rights Reserved. © 2023 Storeyfy</small>
       </div>
-    </div>
+    </footer>
   );
 }
 
