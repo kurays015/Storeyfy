@@ -33,6 +33,7 @@ import "./pages/Home/home.css";
 import "./pages/About/about.css";
 import "./pages/Contact/contact.css";
 import "./pages/AllProducts/allproducts.css";
+import "./pages/Signup/signup.css";
 import { BurgerMenuProvider } from "./Context/BurgerMenuContext.jsx";
 
 const queryClient = new QueryClient();

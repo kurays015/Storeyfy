@@ -17,11 +17,13 @@ function Footer() {
   const navRoute =
     location.pathname === "/about" || location.pathname === "/signup";
 
+  const contactPage = location.pathname === "/contact";
+
   return (
     <footer
       className={`myFooter ${isEachCategoryRoute ? "fixed" : ""} ${
         navRoute ? "navFixed" : ""
-      } `}
+      } ${contactPage ? "contactFooter" : ""}`}
     >
       <div>
         <div className="socials-container">

@@ -25,12 +25,9 @@
   font-size: 1.2rem;
   font-weight: 600;
 }
-.fixed {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-.navFixed {
+.fixed,
+.navFixed,
+.contactFooter {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -38,6 +35,9 @@
 
 @media screen and (max-width: 400px) {
   .fixed {
+    position: static;
+  }
+  .contactFooter {
     position: static;
   }
 

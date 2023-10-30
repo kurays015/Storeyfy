@@ -1,0 +1,11 @@
+.signup-container {
+  margin: 6em 17em;
+}
+.signup-container h1 {
+  color: gray;
+}
+@media screen and (max-width: 400px) {
+  .signup-container {
+    margin: 6em 1em;
+  }
+}
