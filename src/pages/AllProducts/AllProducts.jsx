@@ -13,16 +13,16 @@ import { FaCartPlus } from "react-icons/fa";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 
 function AllProducts({ category }) {
-  const totalPages = 100;
-  const dataPerPage = 20;
   const [searchMessage, setSearchMessage] = useState(false);
+  const [renderedSearchedProducts, setRenderedSearchedProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [skip, setSkip] = useState(0);
-  const { data, isLoading } = allProducts(dataPerPage, skip);
-  const [renderedProducts, setRenderedProducts] = useState([]);
   const inputRef = useRef();
-  const { addToCart } = useCart();
   const { addToWishList, removeFromWishlist, isInWishList } = useWishList();
+  const { addToCart } = useCart();
+  const totalItems = 100;
+  const dataPerPage = 20;
+  const { data, isLoading } = allProducts(dataPerPage, skip);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,7 +33,7 @@ function AllProducts({ category }) {
       }
     });
     if (filteredSearch.length) {
-      setRenderedProducts(filteredSearch);
+      setRenderedSearchedProducts(filteredSearch);
       setSearchMessage(false);
     } else {
       setSearchMessage(true);
@@ -45,27 +45,35 @@ function AllProducts({ category }) {
     setPage(prevPage => Math.max(prevPage - 1, 1));
     setSkip(prev => prev - 20);
     window.scrollTo(0, 0);
+    setRenderedSearchedProducts([]);
+    setSearchMessage(false);
   };
   const next = () => {
     setPage(prevPage => prevPage + 1);
     setSkip(prev => prev + 20);
     window.scrollTo(0, 0);
+    setRenderedSearchedProducts([]);
+    setSearchMessage(false);
   };
   const goToFirstPage = () => {
     setPage(1);
     setSkip(0);
     window.scrollTo(0, 0);
+    setRenderedSearchedProducts([]);
+    setSearchMessage(false);
   };
   const goToLastPage = () => {
-    const lastPage = totalPages / dataPerPage;
+    const lastPage = totalItems / dataPerPage;
     const skipForLastPage = (lastPage - 1) * dataPerPage;
     setPage(lastPage);
     setSkip(skipForLastPage);
     window.scrollTo(0, 0);
+    setRenderedSearchedProducts([]);
+    setSearchMessage(false);
   };
 
-  const currentData = renderedProducts.length
-    ? renderedProducts
+  const currentData = renderedSearchedProducts.length
+    ? renderedSearchedProducts
     : data?.products || [];
 
   if (isLoading) {
@@ -176,7 +184,7 @@ function AllProducts({ category }) {
         <span>{page}</span>
         <button
           className="last-pagebtn"
-          disabled={page >= totalPages / dataPerPage}
+          disabled={page >= totalItems / dataPerPage}
           onClick={next}
         >
           next
@@ -184,7 +192,7 @@ function AllProducts({ category }) {
         <button
           className="last-page"
           onClick={goToLastPage}
-          disabled={page >= totalPages / dataPerPage}
+          disabled={page >= totalItems / dataPerPage}
         >
           <BiLastPage className="last-page-icon" />
         </button>
