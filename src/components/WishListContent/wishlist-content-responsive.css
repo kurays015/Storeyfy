@@ -19,3 +19,8 @@
     padding: 7em 5em;
   }
 }
+@media screen and (min-width: 1440px) {
+  .wishlist-container {
+    padding: 7em 17em;
+  }
+}
