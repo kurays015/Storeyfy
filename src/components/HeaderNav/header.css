@@ -68,38 +68,3 @@ header nav ul li {
 .burger-menu-icon {
   display: none;
 }
-
-@media screen and (max-width: 400px) {
-  header {
-    padding: 1em 0.5em;
-    width: 100%;
-  }
-  header nav {
-    display: none;
-  }
-  header h1 {
-    font-size: 2rem;
-  }
-  .addto-cart,
-  .addto-wishlist,
-  .burger-menu-icon {
-    font-size: 1.5rem;
-  }
-  .burger-menu-icon {
-    display: block;
-  }
-  .cart-icon div,
-  .wishlist-icon div {
-    height: 16px;
-    width: 16px;
-    font-size: 0.7rem;
-    top: -5px;
-    right: -10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .store-logo {
-    width: 130px;
-  }
-}

@@ -1,5 +1,5 @@
 .main {
-  margin: 7em 17em;
+  /* margin: 7em 17em; */
   position: relative;
 }
 .banner {
@@ -9,7 +9,28 @@
   height: 515px;
   gap: 1.5em;
 }
-
+.mobile-none {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+.mobile-none > div {
+  height: 50%;
+}
+.mobile-none img {
+  height: 100%;
+  width: 100%;
+}
+.firstbanner-img {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.iphone-img-container,
+.iphone-img-container img {
+  height: 100%;
+  width: 100%;
+}
 .home-nav {
   display: flex;
   flex-direction: column;
@@ -158,78 +179,5 @@
   }
   100% {
     transform: translateX(0);
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .main {
-    margin: 8em 1em 5em;
-  }
-  .hero-main {
-    height: 100%;
-    gap: 0.5em;
-  }
-  .carousel1 {
-    height: 100%;
-  }
-  .banner {
-    height: 230px;
-    gap: 0.5em;
-    width: 100%;
-    justify-content: center;
-  }
-  .firstImg-container {
-    width: 350px;
-  }
-  .hero-img3 {
-    width: 100%;
-  }
-  .secondImg-container {
-    gap: 0.5em;
-  }
-
-  .overlay {
-    height: calc(50% - 0.2em);
-  }
-  .overlay2 {
-    height: calc(50% - 0.2em);
-  }
-
-  .shopnow-btn-container {
-    position: absolute;
-    bottom: 2%;
-    left: 5%;
-    display: flex;
-    align-items: center;
-    gap: 0.3em;
-    color: #faebd7;
-    text-decoration: none;
-  }
-  .shopnow-btn {
-    color: #faebd7;
-    font-size: 0.5rem;
-    text-decoration: none;
-  }
-  .shopnow-btn:hover {
-    text-decoration: underline;
-  }
-  .arrow {
-    font-size: 0.7rem;
-    animation: arrowAnimation 1.5s linear infinite;
-  }
-  @keyframes arrowAnimation {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(3px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
   }
 }

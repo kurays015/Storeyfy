@@ -84,12 +84,3 @@
   color: #808080;
   margin: 1em 0;
 }
-
-@media screen and (max-width: 400px) {
-  .wishlist-container {
-    padding: 6em 1em;
-  }
-  .wishlist-grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}

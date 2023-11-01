@@ -16,7 +16,27 @@ function Home() {
   return (
     <div className="main">
       <div className="banner">
-        <div className="show-now">
+        <div className="firstbanner-img">
+          <div className="shopnow-btn-container">
+            <Link to="category/all-products" className="shopnow-btn">
+              Shop now!
+            </Link>
+            <BsArrowRight className="arrow" />
+          </div>
+          <div className="iphone-img-container">
+            <img src={img3} />
+          </div>
+        </div>
+
+        <div className="mobile-none">
+          <div>
+            <img src={img1} />
+          </div>
+          <div>
+            <img src={img2} />
+          </div>
+        </div>
+        {/* <div className="show-now">
           <div className="hero-main">
             <div className="firstImg-container">
               <div className="hero-overlay"></div>
@@ -30,16 +50,14 @@ function Home() {
             </div>
             <div className="secondImg-container">
               <div className="each-container">
-                <div className="overlay"></div>
                 <img src={img1} className="hero-img1" />
               </div>
               <div className="each-container">
-                <div className="overlay2"></div>
                 <img src={img2} className="hero-img2" />
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <Carousel />
       </div>
       <FlashSale />

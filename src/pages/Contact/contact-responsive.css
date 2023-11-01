@@ -1,0 +1,60 @@
+@media screen and (min-width: 320px) {
+  .contact-container {
+    flex-direction: column;
+    padding: 7em 1em;
+    gap: 2em;
+  }
+
+  .input-container {
+    gap: 0.2em;
+  }
+  .input-container input {
+    font-size: 0.5rem;
+    padding: 1em;
+  }
+  .contact-form textarea {
+    font-size: 0.7rem;
+    width: 100%;
+  }
+  .contact-details {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 450px) {
+  .input-container input {
+    font-size: 0.8rem;
+  }
+  .contact-form textarea {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .input-container input {
+    font-size: 1rem;
+  }
+  .contact-form textarea {
+    font-size: 1.3rem;
+  }
+  .email-number p {
+    font-size: 1rem;
+  }
+  .contact h3 {
+    font-size: 1.3rem;
+  }
+  .contact-container {
+    padding: 8em 5em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .contact-container {
+    flex-direction: row;
+    height: 75vh;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .contact-container {
+    padding: 8em 17em;
+  }
+}

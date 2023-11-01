@@ -43,7 +43,7 @@
 }
 .flashsale-details {
   line-height: 1.5em;
-  padding: 0.5em;
+  padding: 0 0.5em;
 }
 
 .flashsale-img-container {
@@ -126,45 +126,4 @@
   letter-spacing: 0.5px;
   color: #fff;
   font-weight: 400;
-}
-
-@media screen and (max-width: 400px) {
-  .flashsale-container {
-    margin-top: 3.5em;
-  }
-  .flashsale-container h1 {
-    font-size: 1.5rem;
-  }
-  .prev-next-container {
-    padding-right: 0;
-  }
-  .flashsale-img-container {
-    width: 100%;
-  }
-  .flashsale-card {
-    justify-content: space-between;
-    height: 450px;
-  }
-  .flashsale-discount {
-    top: 3%;
-    left: 5%;
-    font-size: 0.9rem;
-  }
-  .view-all-products a {
-    background-color: #db4444;
-    padding: 0.7em 2em;
-    color: #fff;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 400;
-  }
-  .flashsale-img {
-    object-fit: unset;
-  }
-  .flashsale-details {
-    line-height: 40px;
-  }
-  .topic-flashsales {
-    margin-bottom: 1em;
-  }
 }

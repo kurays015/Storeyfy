@@ -1,0 +1,133 @@
+@media screen and (min-width: 320px) {
+  .main {
+    margin: 8em 1em 5em;
+  }
+
+  .carousel1 {
+    height: 100%;
+  }
+  .banner {
+    height: 150px;
+    gap: 0.3em;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .shopnow-btn-container {
+    position: absolute;
+    bottom: 2%;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    color: #faebd7;
+    text-decoration: none;
+  }
+  .shopnow-btn {
+    color: #faebd7;
+    font-size: 0.5rem;
+    text-decoration: none;
+  }
+  .shopnow-btn:hover {
+    text-decoration: underline;
+  }
+  .arrow {
+    font-size: 0.7rem;
+    animation: arrowAnimation 1.5s linear infinite;
+  }
+  @keyframes arrowAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(3px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .banner {
+    height: 180px;
+  }
+  .shopnow-btn {
+    font-size: 0.7rem;
+  }
+  .arrow {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .banner {
+    height: 200px;
+  }
+
+  .shopnow-btn {
+    font-size: 1rem;
+  }
+  .arrow {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .main {
+    margin: 7em 5em;
+  }
+  .banner {
+    height: 250px;
+  }
+
+  .shopnow-btn {
+    font-size: 1.2rem;
+  }
+  .arrow {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .banner {
+    height: 400px;
+    /* gap: 1em; */
+  }
+  .mobile-none {
+    display: flex;
+    flex-direction: column;
+  }
+  .firstbanner-img {
+    width: 100%;
+  }
+  .mobile-none {
+    width: 100%;
+  }
+  .shopnow-btn {
+    font-size: 1rem;
+  }
+  .arrow {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .main {
+    margin: 7em 17em;
+    position: relative;
+  }
+  .banner {
+    height: 515px;
+    gap: 1em;
+  }
+
+  .shopnow-btn {
+    font-size: 1.6rem;
+  }
+  .arrow {
+    font-size: 2.1rem;
+  }
+}

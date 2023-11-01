@@ -2,8 +2,8 @@
   position: relative;
 }
 .product-in-category {
-  margin: 0 17em;
-  padding: 6em 0;
+  /* margin: 0 17em;
+  padding: 6em 0; */
   display: flex;
 }
 .message-notif {
@@ -25,14 +25,4 @@
 
 .show {
   display: block;
-}
-@media screen and (max-width: 400px) {
-  .product-in-category {
-    flex-direction: column;
-    padding-top: 7em;
-    margin: 0;
-  }
-  .message-notif {
-    font-size: 1rem;
-  }
 }

@@ -117,11 +117,18 @@ function FlashSale() {
           300: {
             slidesPerView: 1,
           },
-          400: {
+          450: {
             slidesPerView: 2,
-            spaceBetween: 30, // Change to 2 slides per view at 400px or less
+            spaceBetween: 15,
           },
           768: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+          1440: {
             slidesPerView: 5,
           },
         }}

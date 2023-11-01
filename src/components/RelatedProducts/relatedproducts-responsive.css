@@ -1,0 +1,13 @@
+@media screen and (min-width: 320px) {
+  .topic-related-products {
+    margin: 2em 0 2em;
+  }
+  .related-products-container {
+    gap: 1em;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .related-products-container {
+    gap: 2em;
+  }
+}

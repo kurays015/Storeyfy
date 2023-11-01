@@ -26,7 +26,7 @@ function RelatedProducts({ filtered }) {
             id,
             category,
           }) => (
-            <div className="explore-card" key={id}>
+            <div className="related-card" key={id}>
               <Link to={`/category/${category}/${id}`}>
                 <div className="img-container">
                   <img src={thumbnail} alt={title} className="thumbnail" />

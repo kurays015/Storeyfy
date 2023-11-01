@@ -1,0 +1,47 @@
+@media screen and (min-width: 320px) {
+  .explore-productContainer {
+    gap: 1em;
+  }
+  .img-container {
+    height: 150px;
+  }
+  .explore-card {
+    height: 100%;
+    border: 2px solid #808080;
+  }
+  .price-rating {
+    font-size: 0.8rem;
+  }
+  .details a {
+    font-size: 0.8rem;
+  }
+  .our-product-header {
+    font-size: 0.7rem;
+    margin-bottom: 2em;
+  }
+  .our-product-topic {
+    margin-bottom: 1em;
+  }
+  .discount {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .img-container {
+    height: 200px;
+  }
+  .details a {
+    font-size: 1.2rem;
+  }
+  .price-rating {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .explore-productContainer {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5em;
+  }
+}

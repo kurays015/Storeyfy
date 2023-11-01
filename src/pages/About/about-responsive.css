@@ -1,0 +1,26 @@
+@media screen and (min-width: 320px) {
+  .about-container {
+    padding: 7em 1em;
+  }
+  .about-container h1 {
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .about-container h1 {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .about-container h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .about-container {
+    padding: 7em 5em;
+  }
+}

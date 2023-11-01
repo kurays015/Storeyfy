@@ -37,17 +37,6 @@ function Products() {
             <div className="main-img-container">
               <img src={currentImage} alt={data?.title} className="main-img" />
             </div>
-            <div className="swiper-container">
-              {data?.images.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={data?.title}
-                  className="each-slide-img"
-                  onMouseEnter={() => handleImageHoverAndClick(image)}
-                />
-              ))}
-            </div>
           </div>
           <div className="product-specs">
             <h2 className="prod-title">{data?.title.toUpperCase()}</h2>
@@ -91,6 +80,17 @@ function Products() {
           </div>
         </div>
         <br />
+        <div className="swiper-container">
+          {data?.images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={data?.title}
+              className="each-slide-img"
+              onMouseEnter={() => handleImageHoverAndClick(image)}
+            />
+          ))}
+        </div>
         <hr />
         <RelatedProducts filtered={filtered} />
       </div>

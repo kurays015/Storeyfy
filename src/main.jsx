@@ -7,6 +7,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { WishlistProvider } from "./Context/WishlistContext.jsx";
 import { CartProvider } from "./Context/CartContext.jsx";
 import { CategoryProvider } from "./Context/CategoryContext.jsx";
+import { BurgerMenuProvider } from "./Context/BurgerMenuContext.jsx";
 
 //components
 import "./components/HeaderNav/header.css";
@@ -34,7 +35,25 @@ import "./pages/About/about.css";
 import "./pages/Contact/contact.css";
 import "./pages/AllProducts/allproducts.css";
 import "./pages/Signup/signup.css";
-import { BurgerMenuProvider } from "./Context/BurgerMenuContext.jsx";
+
+//css file for responsive
+import "./components/CartContent/cart-content-responsive.css";
+import "./components/EachProduct/each-product-responsive.css";
+import "./components/EcomBannerImg/ecom-banner-responsive.css";
+import "./components/FlashSale/flashsale-responsive.css";
+import "./components/Footer/footer-responsive.css";
+import "./components/GoodService/goodservice-responsive.css";
+import "./components/HeaderNav/header-responsive.css";
+import "./components/Layout/layout-responsive.css";
+import "./components/MobileCategories/mobile-categories-responsive.css";
+import "./components/OurProduct/ourproduct-responsive.css";
+import "./components/ProductByCategory/productbycategory-responsive.css";
+import "./components/RelatedProducts/relatedproducts-responsive.css";
+import "./components/WishListContent/wishlist-content-responsive.css";
+import "./pages/About/about-responsive.css";
+import "./pages/AllProducts/allproducts-responsive.css";
+import "./pages/Contact/contact-responsive.css";
+import "./pages/Home/home-responsive.css";
 
 const queryClient = new QueryClient();
 

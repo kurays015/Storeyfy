@@ -1,0 +1,56 @@
+@media screen and (min-width: 320px) {
+  .good-service-container {
+    gap: 1em;
+    margin: 5em 0 2em;
+  }
+  .good-service-container h4 {
+    font-size: 0.5rem;
+  }
+  .good-service-container p {
+    font-size: 0.5rem;
+  }
+  .gray-bg {
+    height: 60px;
+    width: 60px;
+  }
+  .black-bg {
+    height: 40px;
+    width: 40px;
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 550px) {
+  .good-service-container h4 {
+    font-size: 0.9rem;
+  }
+  .good-service-container p {
+    font-size: 0.7rem;
+  }
+  .gray-bg {
+    height: 70px;
+    width: 70px;
+  }
+  .black-bg {
+    height: 50px;
+    width: 50px;
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .good-service-container h4 {
+    font-size: 1rem;
+  }
+  .good-service-container p {
+    font-size: 0.8rem;
+  }
+  .gray-bg {
+    height: 80px;
+    width: 80px;
+  }
+  .black-bg {
+    height: 60px;
+    width: 60px;
+    font-size: 3rem;
+  }
+}

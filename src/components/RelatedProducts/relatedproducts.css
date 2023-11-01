@@ -1,6 +1,7 @@
 .related-products-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 2em;
 }
 .related-products-container a {
@@ -17,12 +18,11 @@
 .thumbnail {
   object-fit: contain;
 }
-
-@media screen and (max-width: 400px) {
-  .topic-related-products {
-    margin: 2em 0 2em;
-  }
-  .related-products-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.related-card {
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #808080;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
 }

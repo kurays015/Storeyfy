@@ -1,5 +1,5 @@
 .contact-container {
-  padding: 8em 17em;
+  /* padding: 8em 17em; */
   display: flex;
   align-items: center;
   gap: 5em;
@@ -88,23 +88,4 @@
 }
 .email-number {
   line-height: 30px;
-}
-
-@media screen and (max-width: 400px) {
-  .contact-container {
-    flex-direction: column;
-    padding: 7em 1em;
-    gap: 2em;
-  }
-
-  .input-container {
-    gap: 0.2em;
-  }
-  .input-container input {
-    font-size: 0.5rem;
-    padding: 1em;
-  }
-  .contact-form textarea {
-    font-size: 0.7rem;
-  }
 }

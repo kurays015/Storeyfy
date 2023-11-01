@@ -37,25 +37,3 @@
 .good-service-container p {
   font-size: 0.8rem;
 }
-
-@media screen and (max-width: 400px) {
-  .good-service-container {
-    gap: 1em;
-    margin: 2em 0 2em;
-  }
-  .good-service-container h4 {
-    font-size: 0.5rem;
-  }
-  .good-service-container p {
-    font-size: 0.5rem;
-  }
-  .gray-bg {
-    height: 60px;
-    width: 60px;
-  }
-  .black-bg {
-    height: 40px;
-    width: 40px;
-    font-size: 2rem;
-  }
-}

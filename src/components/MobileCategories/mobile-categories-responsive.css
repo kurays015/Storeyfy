@@ -1,0 +1,35 @@
+@media screen and (min-width: 320px) {
+  .mobile-categories {
+    text-align: center;
+  }
+  .show-select {
+    display: block;
+  }
+  .mobile-categories label {
+    font-size: 0.8rem;
+    margin-right: 0.5em;
+  }
+  .mobile-categories {
+    margin: 1em 0;
+  }
+  .mobile-categories select {
+    outline: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-categories label {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-right: 0.5em;
+  }
+  .mobile-categories select {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mobile-categories {
+    display: none;
+  }
+}
