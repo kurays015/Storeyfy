@@ -43,8 +43,11 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           {productCategoryRoute}
           <Route path="/wishlist" element={<WishList />} />
-          {/* <Route path="*" element={<h1>Not found</h1>} /> */}
         </Route>
+        <Route
+          path="*"
+          element={<h1 style={{ color: "#808080" }}>Page not found...</h1>}
+        />
       </Routes>
     </Router>
   );

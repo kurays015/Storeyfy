@@ -36,28 +36,6 @@ function Home() {
             <img src={img2} />
           </div>
         </div>
-        {/* <div className="show-now">
-          <div className="hero-main">
-            <div className="firstImg-container">
-              <div className="hero-overlay"></div>
-              <div className="shopnow-btn-container">
-                <Link to="category/all-products" className="shopnow-btn">
-                  Shop now!
-                </Link>
-                <BsArrowRight className="arrow" />
-              </div>
-              <img src={img3} className="hero-img3" />
-            </div>
-            <div className="secondImg-container">
-              <div className="each-container">
-                <img src={img1} className="hero-img1" />
-              </div>
-              <div className="each-container">
-                <img src={img2} className="hero-img2" />
-              </div>
-            </div>
-          </div>
-        </div> */}
         <Carousel />
       </div>
       <FlashSale />
