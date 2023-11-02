@@ -1,8 +1,20 @@
-# React + Vite
+# Storeyfy - E-commerce Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Storeyfy is an e-commerce web application built using React.js, vanilla CSS, and React Query. A Minimalist ecommerce app allowing customers to browse products, add them to their cart and wishlist.
+Live: https://storeyfy.vercel.app/
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse a wide variety of products
+- Filter category and search for products
+- View detailed product information
+- Add products to the shopping cart
+- Add products to the wishlist
+
+
+## Technologies Used
+
+- React.js
+- Vanilla CSS
+- React Query
+
