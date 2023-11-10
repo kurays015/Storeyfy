@@ -50,6 +50,7 @@
   }
   .swiper-container {
     width: 100%;
+    margin-bottom: 1em;
   }
   .back-btn {
     display: flex;
