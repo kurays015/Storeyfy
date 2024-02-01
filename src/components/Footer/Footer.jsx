@@ -40,7 +40,7 @@ function Footer() {
             <RiTwitterXLine className="socials-icon" />
           </div>
         </div>
-        <small>All Rights Reserved. © 2023 Storeyfy</small>
+        <small>All Rights Reserved. © 2024 Storeyfy</small>
       </div>
     </footer>
   );
